@@ -132,3 +132,4 @@ input, button, textarea, select {
       .dots-wrapper .dots .slide_select:hover, .dots-wrapper .dots .slide_select.selected {
         background: url(../img/page_icon_selected.svg) 50% 50% no-repeat;
         opacity: 1; }
+

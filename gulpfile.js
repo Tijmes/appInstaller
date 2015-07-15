@@ -24,6 +24,7 @@ gulp.task('scripts-base', function() {
 			'assets/js/lib/jquery.js',
 			'assets/js/lib/modernizr.js',
 			'assets/js/lib/iosslider.js',
+			'assets/js/lib/plugins.js',
 		])
 		.pipe(plumber())
 		.pipe(concat('all-base.js'))
