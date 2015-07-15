@@ -1,6 +1,5 @@
 <?php
 include('bootstrap.php');
-
 ?>
 <!doctype html>
 <html lang="nl"> 
@@ -16,6 +15,8 @@ include('bootstrap.php');
 	<link rel="stylesheet" href="/assets/dist/style.css" />
 </head>
 <body>
+
+asdasd
 <div id="themes">
 	<div class="iosSlider themeSlider">
 		<div class="slider">
