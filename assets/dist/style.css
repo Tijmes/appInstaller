@@ -1,0 +1,134 @@
+@import url(http://fonts.googleapis.com/css?family=Fira+Sans:400,500);
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.7.0
+*/
+/**
+ * YUI Reset
+ * @module reset
+ * @namespace
+ * @requires 
+ */
+html {
+  color: #000;
+  background: #FFF; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+fieldset, img {
+  border: 0; }
+
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+  font-style: inherit;
+  font-weight: inherit; }
+
+del, ins {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+caption, th {
+  text-align: left; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal; }
+
+q:before, q:after {
+  content: ''; }
+
+abbr, acronym {
+  border: 0;
+  font-variant: normal; }
+
+sup {
+  vertical-align: baseline; }
+
+sub {
+  vertical-align: baseline; }
+
+/*because legend doesn't inherit in IE */
+legend {
+  color: #000; }
+
+input, button, textarea, select, optgroup, option {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit; }
+
+/*@purpose To enable resizing for IE */
+/*@branch For IE6-Win, IE7-Win */
+input, button, textarea, select {
+  *font-size: 100%; }
+
+@font-face {
+  font-family: 'BaseNineB';
+  src: url('../fonts/BaseNineB.eot');
+  src: url('../fonts/BaseNineB.eot?#iefix') format('embedded-opentype'), url('../fonts/BaseNineB.woff') format('woff'), url('../fonts/BaseNineB.ttf') format('truetype'), url('../fonts/BaseNineB.svg#TradeGothicLTComLight') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+#themes, #objects {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0; }
+  #themes .iosSlider, #objects .iosSlider {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%; }
+    #themes .iosSlider .slider, #objects .iosSlider .slider {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      #themes .iosSlider .slider .slide, #objects .iosSlider .slider .slide {
+        background-color: #fff;
+        width: 100%;
+        height: 100%;
+        position: relative; }
+        #themes .iosSlider .slider .slide .txt, #themes .iosSlider .slider .slide .bg, #objects .iosSlider .slider .slide .txt, #objects .iosSlider .slider .slide .bg {
+          z-index: 1;
+          position: absolute;
+          width: 100%;
+          height: 100%; }
+
+.dots-wrapper {
+  position: fixed;
+  width: 100%;
+  bottom: 20px;
+  display: block;
+  z-index: 1000; }
+  .dots-wrapper .dots {
+    width: 100%;
+    list-style: none;
+    text-align: center; }
+    .dots-wrapper .dots .slide_select {
+      display: inline-block;
+      position: relative;
+      width: 10px;
+      height: 10px;
+      background: url(../img/page_icon.svg) 50% 50% no-repeat;
+      padding: 2px 2px 11px 11px;
+      opacity: 0.7; }
+      .dots-wrapper .dots .slide_select:hover, .dots-wrapper .dots .slide_select.selected {
+        background: url(../img/page_icon_selected.svg) 50% 50% no-repeat;
+        opacity: 1; }
