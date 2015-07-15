@@ -12,6 +12,7 @@ foreach($theme_structure as $theme) {
 		'objects' => $objects
 	];
 	$themes[$theme] = $_theme;
+	print_r(json_encode($themes));
 }
 
 function getObject($theme) {
