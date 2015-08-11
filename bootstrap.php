@@ -12,7 +12,7 @@ foreach($theme_structure as $key => $theme) {
 		'objects' => $objects
 	];
 	$themes[$key] = $_theme;
-	print_r(json_encode($themes));
+	print_r($themes);
 }
 
 function getObject($theme) {
@@ -24,11 +24,11 @@ function getObject($theme) {
 		$_object = [
 			'name' => $object,
 			'info' => $object_info,
-			'bg' => '/themas/'.$theme.'/'.$object.'/bg.jpg',
-			'bg-blur' => '/themas/'.$theme.'/'.$object.'/bg-blur.jpg',
-			'thumb' => '/themas/'.$theme.'/'.$object.'/thumb.jpg',
-			'icon' => '/themas/'.$theme.'/'.$object.'/icon.png',
-			'icon' => '/themas/'.$theme.'/'.$object.'/icon-mo.png',
+			'poster' => '/themas/'.$theme.'/'.$object.'/poster.jpg',
+			'img' => '/themas/'.$theme.'/'.$object.'/img.jpg',
+			'video' => '/themas/'.$theme.'/'.$object.'/video.mp4',
+			'video_sign-language' => '/themas/'.$theme.'/'.$object.'/video_sign-language.mp4',
+			'subs' => '/themas/'.$theme.'/'.$object.'/subs.srt',
 		];
 		$objects_structure[$key] = $_object;
 	}
