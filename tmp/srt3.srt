@@ -1,0 +1,21 @@
+
+1
+00:00:01,000 --> 00:00:05,000
+Subify my subtitles [3]
+
+2
+00:00:05,000 --> 00:00:09,000
+Een 2e regel kan ook
+eronder [3]
+
+3
+00:00:09,000 --> 00:00:13,000
+WebVTT is nog niet overal als standaard doorgedrongen [3]
+
+4
+00:00:13,000 --> 00:00:17,000
+Daarom werken we met Popcorn.js [3]
+
+5
+00:00:17,000 --> 00:00:21,000
+<b>styling</b> no problemo [3]
