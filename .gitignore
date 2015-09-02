@@ -1,3 +1,4 @@
+.htaccess
 /vendor
 composer.phar
 composer.lock
@@ -5,3 +6,4 @@ composer.lock
 Thumbs.db
 /node_modules
 /themas
+

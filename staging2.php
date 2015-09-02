@@ -887,7 +887,6 @@ $jsonObjects = json_encode($themes);
         <script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
         <script src="/assets/js/gsap/TweenMax.min.js"></script>
         <script src="/assets/js/plugins.js"></script>
-        <script src="/assets/js/main.js"></script>
         <script src="/assets/js/lib/underscore.js"></script>
         <script src="/assets/js/lib/backbone.js"></script>
         <script>

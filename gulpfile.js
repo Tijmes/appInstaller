@@ -21,36 +21,38 @@ gulp.task('sass', function() {
 // Concatenate & Minify Base JS
 gulp.task('scripts-base', function() {
 	return gulp.src([
-			'assets/js/lib/jquery.js',
-			'assets/js/lib/modernizr.js',
-			'assets/js/lib/iosslider.js',
-			'assets/js/lib/plugins.js',
+	        'assets/js/vendor/jquery-1.11.2.min.js',
+	        'assets/js/gsap/TweenMax.min.js',
+	        'assets/js/plugins.js',
+	        'assets/js/lib/underscore.js',
+	        'assets/js/lib/backbone.js',
+			'assets/js/vendor/modernizr-2.8.3.min.js'
 		])
 		.pipe(plumber())
 		.pipe(concat('all-base.js'))
 		.pipe(gulp.dest('assets/dist'))
 		.pipe(rename('base.min.js'))
-		//.pipe(uglify())
+		.pipe(uglify())
 		.pipe(gulp.dest('assets/dist'));
 });
 
 // Concatenate & Minify Frontend JS
 gulp.task('scripts', function() {
 	return gulp.src([
-			'assets/js/*.js'
+			'assets/js/main.js'
 		])
 		.pipe(plumber())
 		.pipe(concat('all.js'))
 		.pipe(gulp.dest('assets/dist'))
 		.pipe(rename('j.min.js'))
-		//.pipe(uglify())
+		.pipe(uglify())
 		.pipe(gulp.dest('assets/dist'));
 });
 
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-	gulp.watch('assets/front/*.js', ['scripts']);
+	gulp.watch('assets/*.js', ['scripts']);
 	gulp.watch('assets/lib/*.js', ['scripts-base']);
 	gulp.watch('assets/scss/*.scss', ['sass']);
 });

@@ -1,43 +1,414 @@
 <?php
-include('bootstrap.php');
+include 'bootstrap.php';
+$jsonObjects = json_encode($themes);
+$uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
+echo $uri_fragments[1];
+if(isset($uri_fragments[2])) {
+	echo $uri_fragments[2];
+}
 ?>
 <!doctype html>
-<html lang="nl"> 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Kentalis</title>	
-	<meta name="keywords" content="kentalis, doof, kind, ouders, slechthorend, doofblind, autisme, zorg, onderwijs, diagnostiek, onderzoek, spraak, taal, cluster 2, communicatie, behandeling">
-	<meta name="description" content="Kentalis is er voor mensen met een taal- of spraakstoornis of die doof, slechthorend, autistisch of doofblind zijn. Wij helpen u verder met onderzoek, zorg en onderwijs.">
-	<link rel="shortcut icon" href="/favicon.ico">
-	<script src="/assets/dist/base.min.js"></script>
-	<script src="/assets/dist/j.min.js"></script>
-	<link rel="stylesheet" href="/assets/dist/style.css" />
-</head>
-<body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Kentalis</title>
+        <meta name="keywords" content="kentalis, doof, kind, ouders, slechthorend, doofblind, autisme, zorg, onderwijs, diagnostiek, onderzoek, spraak, taal, cluster 2, communicatie, behandeling">
+        <meta name="description" content="Kentalis is er voor mensen met een taal- of spraakstoornis of die doof, slechthorend, autistisch of doofblind zijn. Wij helpen u verder met onderzoek, zorg en onderwijs.">
+        <!---->
+        <link rel="shortcut icon" href="favicon.ico">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!---->
+        <!---->
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/icon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/icon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+        <link rel="manifest" href="/assets/icon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+		<script src="/assets/dist/base.min.js"></script>
+        <script>
+			var jsonObjects = <?= $jsonObjects?>;
+        </script>
+		<script src="/assets/js/router_example.js"></script>
+		<link rel="stylesheet" href="/assets/dist/style.css" />
 
-asdasd
-<div id="themes">
-	<div class="iosSlider themeSlider">
-		<div class="slider">
-<?php foreach($themes as $key => $theme) { ?>
-			<div id="slide-<?=$key;?>" class="slide bg-img txt" data-bg-img="<?=$theme['bg'];?>">
-				 <div class="txt"><?=$theme['info'];?></div>
-				 <div class="bg bg-black"></div>
-			</div>
-<?php } ?>
-		</div>
-	</div>
-	<div class="dots-wrapper">
-		<ul class='dots bottom'>
-<?php foreach($themes as $key => $theme) { ?>
-			<li class="slide-select"></li>
-<?php } ?>
-		</ul>
-	</div>
-</div>
-<div id="objects">
+    </head>
+    <body>
+    	<a href="/thema/object">DIT IS EEN TEST LINK</a>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div id="container" class="centerpos" style="width:1600px; height:900px;">
+        
+            <img src="/assets/img/imgscale.jpg" style="width:100%;" />
+            
+            <div class="gpos" id="vidWrap">
+                <video style="width:100%; height:100%;" src="/assets/placehold/init.mp4" preload="auto" autobuffer id="play1">
+                </video>
+            </div>
+            
+            <div class="gpos" style="text-align:left;" id="vidOverlay">
+                <div class="cuecatch" id="subs"></div>
+                <!--
+                <div style="position:absolute; bottom:10%; left:10px; width:100%;">
+                    <div id="progressCirc"></div>
+                </div>
+                -->
+                <div style="position:absolute; bottom:7%; left:0px; width:100%;" id="progressLineWrap">
+                    <div style="width:100%; padding:10px;">
+                        <div style="width:100%; height:5px; background:rgba(185,254,111,0.1);">
+                            <div style="width:0%; height:100%; background:rgba(185,254,111,0.5);" id="progressLine">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gpos" style="overflow:hidden;" id="secHold">
+                <div class="gpos" id="secWrap">
+                </div>
+            </div>
+            
+            <div class="centerpos" id="loadicon">
+                <div class="centerpos" style="width:68px; height:68px;">
+                    <img src="/assets/img/loading_icon.png" class="loader" style="width:100%; height:100%;" />
+                </div>
+            </div>
+            
+            <!-- ///// directonal button controls ///// -->
+            <div class="movebtn" id="controlBtnMoveLeft">
+                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerLeft">
+                    <div class="uiTextBtns feelFontSize" id="uiTextLeft">Vorig object</div>
+                    <i class="fa fa-angle-left centerpos controlArrow shade1"></i>
+                    <a href="javascript:void(0)" class="centerpos" style="width:450%; height:50%;" id="clickMoveLeft"></a>
+                </div>
+            </div>
+            <div class="movebtn" id="controlBtnMoveRight">
+                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerRight">
+                    <div class="uiTextBtns feelFontSize" id="uiTextRight">Volgend object</div>
+                    <i class="fa fa-angle-right centerpos controlArrow shade1"></i>
+                    <a href="javascript:void(0)" class="centerpos" style="width:500%; height:50%;" id="clickMoveRight"></a>
+                </div>
+            </div>
+            <div class="movebtn" id="controlBtnMoveUp">
+                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerUp">
+                    <div class="uiTextBtns feelFontSize"  id="uiTextUp">Bekijk alle objecten</div>
+                    <i class="fa fa-angle-up centerpos controlArrow shade1"></i>
+                    <a href="javascript:void(0)" class="centerpos" style="width:50%; height:180%;" id="clickMoveUp"></a>
+                </div>
+            </div>
+            <div class="movebtn" id="controlBtnMoveDown">
+                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerDown">
+                    <div class="uiTextBtns feelFontSize" id="uiTextDown">Lees meer</div>
+                    <i class="fa fa-angle-down centerpos controlArrow shade1"></i>
+                    <a href="javascript:void(0)" class="centerpos" style="width:50%; height:150%;" id="clickMoveDown"></a>
+                </div>
+            </div>
+            <!-- /////////////////////////////////////// -->
+            
+            <div class="gpos" style="display:none;" id="topPanelWrap">
+                <div style="height:90%; border-bottom:1px solid rgba(255,255,255,0.7); position:relative;">
+                    <div class="gpos" style="overflow:hidden;">
+                        <canvas class="blur" id="topPanelBlurCanvas"></canvas>
+                    </div>
+                    <div class="gpos" style=" background:rgba(0,0,0,0.5);">
+                        <div style="height:20%;"></div>
+                        <div style="height:70%; background:rgba(255,255,255,0.5);" id="themesHold">
+                            <div style="height:100%; position:relative;" id="themesWrap">
+                            </div>
+                        </div>
+                        <div style="height:10%; position:relative;">
+                            
+                            <div class="themeNavHold" id="themeNavLeft">
+                                <div class="themeNavWrap">
+                                    <div class="themeNavComp">
+                                        <div class="centerpos" style="margin-top:-6%;">
+                                            <i class="fa fa-angle-left centerpos controlArrow" style="font-size: 60px;"></i>
 
-</div>
+                                        </div>
+                                    </div>
+                                    <div class="themeNavComp themeNavCompText feelFontSize">
+                                        <div class="centerVerti">
+                                            Vorig thema
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="themeNavHitLeft">
+                                    <a href="javascript:void(0)" class="gpos" id="clickThemeNavLeft"></a>
+                                </div>
+                            </div>
 
-</body>
+                            <div class="themeNavHold" style="right:0px; left:auto;" id="themeNavRight">
+                                <div class="themeNavWrap">
+                                    <div class="themeNavComp" style="float:right;">
+                                        <div class="centerpos" style="margin-top:-6%;">
+                                            <i class="fa fa-angle-right centerpos controlArrow" style="font-size: 60px;"></i>
+                                        </div>
+                                    </div>
+                                    <div class="themeNavComp themeNavCompText feelFontSize" style="float:right;">
+                                        <div class="centerVerti" style="left:auto; right:0px;">
+                                            Volgend thema
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="themeNavHitRight">
+                                    <a href="javascript:void(0)" class="gpos" id="clickThemeNavRight"></a>
+                                </div>
+                            </div>
+                            
+                            <div class="centerpos" style="height:100%; width:50%; text-align:center; margin-top: -0.2%;">
+                                <div class="centerpos" style="display:inline-block; width:150px; height:15px;" id="themeMiniIconWrap">
+                                    <div style="display:inline-block; width:15px; height:15px; margin-right:5px; position:relative;" id="themeMiniIcon">
+                                        <a href="javascript:void(0)" class="gpos themeNavClick">
+                                            <img src="/assets/img/page_icon.png" style="width:100%" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div style="height:10%; position:relative;">
+                    <div style="height:50%; top:27%; padding:5px; position:relative; text-align:center;">
+                        <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
+                    </div>
+                    <div class="gpos">
+                        <a href="javascript:void(0)" class="block100" id="topPanelClose">
+                            <img src="/assets/img/trans.png" class="block100" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="uiTextHome" id="homeTextWrap">
+                <div style="display:inline-block; max-width:600px;">
+                    <span class="hdrfont" style="font-size:35px; text-transform:uppercase;">
+                        Kentalis bestaat <span style="color: rgb(185,254,111);">225</span> jaar
+                    </span>
+                    <p>
+                    Tijdens haar lange geschiedenis heeft de instelling alles in het werk gesteld om doven te leren communiceren.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="amenuWrap">
+                <div style="display:inline-block; margin-right:8px;">
+                    <div class="fontSizeBtnWrap" style="color:rgb(185,254,111);">
+                        A
+                        <a href="javascript:void(0)" class="block100 gpos" id="fontSizeBtn1"></a>
+                    </div>
+                    <div class="fontSizeBtnWrap" style="font-size:30px;">
+                        A
+                        <a href="javascript:void(0)" class="block100 gpos" id="fontSizeBtn2"></a>
+                    </div>
+                </div>
+                <div style="display:inline-block; margin-right:18px;">
+                    <div style="display:inline-block;">
+                        Gebarentaal 
+                    </div>
+                    <div style="display:inline-block; position:relative;">
+                        &nbsp;aan 
+                        <a href="javascript:void(0)" class="block100 gpos" id="signLangBtnOn"></a>
+                    </div>
+                    <div style="display:inline-block;">
+                        / 
+                    </div>
+                    <div style="display:inline-block; position:relative; color:rgb(185,254,111);">
+                        uit 
+                        <a href="javascript:void(0)" class="block100 gpos" id="signLangBtnOff"></a>
+                    </div>
+                </div>
+                <div style="display:inline-block; position:relative;">
+                    Colofon 
+                    <a href="javascript:void(0)" class="block100 gpos" id="colofonBtn"></a>
+                </div>
+            </div>
+            
+            <div id="shareIconsWrap">
+                <div id="shareIconsHold">
+                    <div class="centerVerti">
+                        <div style="display:inline-block; margin-right:15px; position:relative;">
+                            <i class="fa fa-facebook"></i>
+                            <a href="https://www.facebook.com/sharer/sharer.php?app_id=113869198637480&sdk=joey&u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&display=popup&ref=plugin&src=share_button" class="block100 gpos sharer" id="shareFB"></a>
+                        </div>
+                        <div style="display:inline-block; position:relative;">
+                            <i class="fa fa-twitter"></i>
+                            <a href="https://twitter.com/intent/tweet?hashtags=demo&original_referer=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button&ref_src=twsrc%5Etfw&related=twitterapi%2Ctwitter&text=Hello%20world&tw_p=tweetbutton&url=https%3A%2F%2Fexample.com%2Ffoo&via=twitterdev" class="block100 gpos sharer" id="shareTW"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="shareBtnWrap">
+                <div style="position:relative;">
+                    <img src="/assets/img/share_icon.png" width="39" />
+                    <a href="javascript:void(0)" class="block100 gpos" id="shareBtn"></a>
+                </div>
+            </div>
+            
+            <!-- ///// nav button controls ///// -->
+            <div style="position:absolute; top:0; left:0; width:100%; height:32px; background:rgba(0,0,0,0.2); text-align:left; opacity:0.2; display:none;" id="toolNav">
+                <div class="navclick toolBtn" mid="debug" style="margin-right:15px;"><i class="fa fa-cog"></i></div>
+            </div>
+            <!-- /////////////////////////////// -->
+            
+            <div class="gpos" style="background:rgba(0,0,0,0.65); display:none;" id="colofonWrap">
+                <div class="centerpos" style="width:75%; height:75%;">
+                    <div class="colofonTextPlace" id="colofonHold">
+                        <div class="feelFontSize" style="position:relative;" id="colofonText">
+                            <h1>Colofon</h1>
+                            <p>
+                                Collaboratively administrate empowered markets via plug-and-play networks.<br/>Dynamically procrastinate B2C users after installed base benefits.<br/>Dramatically visualize customer directed convergence without revolutionary ROI.<br/><br/>
+                                <b>Efficiently</b> unleash cross-media information without cross-media value.<br/>Quickly maximize timely deliverables for real-time schemas.<br/>Dramatically maintain clicks-and-mortar solutions without functional solutions.<br/><br/>
+                                Completely synergize <a href="#">resource</a> taxing relationships via premier niche markets.<br/>Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+                            </p>
+                        </div>
+                        <div style="position:absolute; top:15px; right:20px; width:22px; height:25px; text-align:center;">
+                            <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
+                            <div class="centerpos" style="width:250%; height:180%;">
+                                <a href="javascript:void(0)" class="block100 gpos" id="colofonClose"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="position:absolute; top:0px; left:3%;">
+                <img src="/assets/img/logo_mono.png" width="149" height="75" style="cursor:pointer;" id="logoClick" />
+            </div>
+            
+        </div>
+        
+        <div id="divTemplates" style="display:none;">
+        
+            <!-- theme wrapper-->
+            <div class="gpos" id="themeHold">
+            
+                <div class="themeTextDiv">
+                    <div class="themeTextWrap">
+                        <div class="themeTextPlace feelFontSize">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="themeItemsDiv" id="themeItemsWrap">
+                    <div style="height:100%; width:100%; overflow:hidden;">
+                        <div style="height:100%; width:100%;">
+                            <div class="centerpos" style="left:16.5%; top:51%;" id="themeItemBtn">
+                                <div class="playiconHold">
+                                    <div class="diamond playicon" style="border-color:rgba(185,254,111,1);">
+                                        <div class="iconimg diamondInner" style="background-image:url('/assets/img/trans.png');">
+                                            <span class="hdrfont centerpos themeIconText"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gpos">
+                                    <a href="javascript:void(0)" class="block100 themeBtnClick">
+                                        <img src="/assets/img/trans.png" class="block100" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="clear:both;"></div>
+                
+            </div>
+            
+            <!-- tool btn -->                
+            <div class="navclick toolBtn" mid="0" id="toolBtn"></div>
+            
+            <!-- slide wrapper -->                
+            <div class="gpos sexion" id="sec0">
+            	<div class="gpos innerSexionWrap" style="overflow:hidden;">
+                	<div class="gpos bgimg posterimg"></div>
+                    <div class="centerpos slideContentWrap" style="color:rgba(255,255,255,0.2); display:none;"></div>
+                    
+                	<div class="centerpos">
+                    	<div class="playiconHold">
+                            <div class="diamond playicon">
+                                <div class="iconimg diamondInner">
+                                    <!--<img src="/assets/img/arrow_r.svg" class="centerpos" style="width:17%; height:17%; margin-top:-8%;" />-->
+                                    <i class="fa fa-angle-right centerpos controlArrow shade1" style="margin-top: -10%; margin-left: 5px; font-size: 70px;"></i>
+                                    <span class="hdrfont centerpos icontext">PLAY</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="centerpos" style="width:150%; height:150%;">
+                        	<a href="javascript:void(0)" class="gpos block100 vcontrol"></a>
+                        </div>
+                    </div>
+                    
+                    <div class="bottomPanelWrap" style="position:absolute; width:100%; height:36.5%; bottom:0px;">
+                        <div style="height:10%;">
+                        </div>
+                    	<div style="background:rgba(255,255,255,0.3); border-top:1px solid rgba(255,255,255,0.8); height:90%; position:relative;">
+                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden;">
+                            	<div style="position:absolute; bottom:0px;">
+                                    <canvas class="blurCanvas blur" style="width:100%; height:100%;"></canvas>
+                                </div>
+                            </div>
+                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.2);">
+                            </div>
+                        	<div class="bottomPanelContent">
+                            	<div class="bottomPanelImg">
+                                	<div class="bgimg infoimg" style="width:100%; height:100%; background-image:url('/assets/img/tmp/img7.jpg'); margin-top:-1px;">
+                                    </div>
+                                </div>
+                                <div class="infotext feelFontSize">
+                                	<h1>Hostie-ijzer</h1>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel felis magna. Curabitur vel imperdiet lorem. Etiam imperdiet quam urna, at imperdiet sem tincidunt et. Sed quis consectetur quam. Etiam ultricies malesuada tellus ut egestas. Suspendisse vitae erat a dolor facilisis imperdiet eget non ex.
+                                </div>
+                                <div style="clear:both;"></div>
+                                
+                                <div style="width:50px; height:50px; top:0px; right:0px; padding:10px; position:absolute;">
+                                    <img src="/assets/img/close.png" style="width:100%;" />
+                                    <div class="centerpos" style="width:150%; height:150%;">
+                                        <a href="javascript:void(0)" class="gpos block100 bottomPanelClose"></a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+        <div style="position:fixed; width:100%; height:100%; top:0px; left:0px; background:#000;" id="mainHider">
+            <div class="centerpos">
+                <div class="centerpos" style="width:68px; height:68px;">
+                    <img src="/assets/img/loading_icon.png" class="loader" style="width:100%; height:100%;" />
+                </div>
+            </div>
+        </div>
+        
+        <div style="position:fixed; width:30%; background:rgba(255,255,255,0.6); padding:20px; display:none;" id="showDebugInfo">
+        </div>
+		<script src="/assets/dist/j.min.js"></script>
+        
+    </body>
+</html>

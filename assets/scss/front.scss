@@ -2,20 +2,20 @@
 
 @font-face {
   font-family: 'custom';
-  src: url('assets/fonts/fira/FiraSansOT.eot?#iefix') format('embedded-opentype'),  
-		url('assets/fonts/fira/FiraSansOT.otf')  format('opentype'),
-		url('assets/fonts/fira/FiraSansOT.woff') format('woff'), 
-		url('assets/fonts/fira/FiraSansOT.ttf')  format('truetype'), 
-		url('assets/fonts/fira/FiraSansOT.svg#FiraSansOT') format('svg');
+  src: url('/assets/fonts/fira/FiraSansOT.eot?#iefix') format('embedded-opentype'),  
+		url('/assets/fonts/fira/FiraSansOT.otf')  format('opentype'),
+		url('/assets/fonts/fira/FiraSansOT.woff') format('woff'), 
+		url('/assets/fonts/fira/FiraSansOT.ttf')  format('truetype'), 
+		url('/assets/fonts/fira/FiraSansOT.svg#FiraSansOT') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
 	font-family: 'hdr';
-	src: url('assets/fonts/basenineb/BaseNineB.eot?#iefix') format('embedded-opentype'),  
-	url('assets/fonts/basenineb/BaseNineB.woff') format('woff'), 
-	url('assets/fonts/basenineb/BaseNineB.ttf')  format('truetype'), 
-	url('assets/fonts/basenineb/BaseNineB.svg#BaseNineB') format('svg');
+	src: url('/assets/fonts/basenineb/BaseNineB.eot?#iefix') format('embedded-opentype'),  
+	url('/assets/fonts/basenineb/BaseNineB.woff') format('woff'), 
+	url('/assets/fonts/basenineb/BaseNineB.ttf')  format('truetype'), 
+	url('/assets/fonts/basenineb/BaseNineB.svg#BaseNineB') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -145,7 +145,7 @@ a:active {
 	display:none;
 }
 .bgimg{ 
-	background: url(assets/img/trans.png) no-repeat center center; 
+	background: url(/assets/img/trans.png) no-repeat center center; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -154,7 +154,7 @@ a:active {
 
 .iconimg{ 
 	position:absolute; top:-25%; left:-25%; width:150%; height:150%;
-	background: url(assets/img/tmp/i1.jpg) no-repeat center center; 
+	background: url(/assets/img/tmp/i1.jpg) no-repeat center center; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
