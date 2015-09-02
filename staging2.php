@@ -20,44 +20,46 @@ $jsonObjects = json_encode($themes);
         <meta name="msapplication-tap-highlight" content="no" />
         <!---->
         <!---->
-        <link rel="apple-touch-icon" sizes="57x57" href="assets/icon/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="assets/icon/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="assets/icon/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="assets/icon/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="assets/icon/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="assets/icon/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="assets/icon/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="assets/icon/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="assets/icon/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="assets/icon/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
-        <link rel="manifest" href="assets/icon/manifest.json">
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/icon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/icon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+        <link rel="manifest" href="/assets/icon/manifest.json">
         <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="assets/icon/ms-icon-144x144.png">
+        <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <!---->
-        <link rel="stylesheet" href="assets/dist/style.css">
+        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/normalize.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
         <style>
 			/* /////////////////////////////////////////////////////////////// */
 			
 			@font-face {
 			  font-family: 'custom';
-			  src: url('assets/fonts/fira/FiraSansOT.eot?#iefix') format('embedded-opentype'),  
-					url('assets/fonts/fira/FiraSansOT.otf')  format('opentype'),
-					url('assets/fonts/fira/FiraSansOT.woff') format('woff'), 
-					url('assets/fonts/fira/FiraSansOT.ttf')  format('truetype'), 
-					url('assets/fonts/fira/FiraSansOT.svg#FiraSansOT') format('svg');
+			  src: url('/assets/fonts/fira/FiraSansOT.eot?#iefix') format('embedded-opentype'),  
+					url('/assets/fonts/fira/FiraSansOT.otf')  format('opentype'),
+					url('/assets/fonts/fira/FiraSansOT.woff') format('woff'), 
+					url('/assets/fonts/fira/FiraSansOT.ttf')  format('truetype'), 
+					url('/assets/fonts/fira/FiraSansOT.svg#FiraSansOT') format('svg');
 			  font-weight: normal;
 			  font-style: normal;
 			}
 			@font-face {
 				font-family: 'hdr';
-				src: url('assets/fonts/basenineb/BaseNineB.eot?#iefix') format('embedded-opentype'),  
-				url('assets/fonts/basenineb/BaseNineB.woff') format('woff'), 
-				url('assets/fonts/basenineb/BaseNineB.ttf')  format('truetype'), 
-				url('assets/fonts/basenineb/BaseNineB.svg#BaseNineB') format('svg');
+				src: url('/assets/fonts/basenineb/BaseNineB.eot?#iefix') format('embedded-opentype'),  
+				url('/assets/fonts/basenineb/BaseNineB.woff') format('woff'), 
+				url('/assets/fonts/basenineb/BaseNineB.ttf')  format('truetype'), 
+				url('/assets/fonts/basenineb/BaseNineB.svg#BaseNineB') format('svg');
 				font-weight: normal;
 				font-style: normal;
 			}
@@ -71,7 +73,7 @@ $jsonObjects = json_encode($themes);
 			html {min-height:100%;}
 			
 			h1,h2,h3,h4,h5,h6{
-				margin: 0px; margin-bottom:10px;
+				margin: 0px; margin-bottom:2px;
 				font-weight: 500;
 				color:rgba(185,254,111,1);
 				font-size:23px;
@@ -145,14 +147,15 @@ $jsonObjects = json_encode($themes);
 			}	
 			
 			.controlArrow{
-				 color:rgba(185,254,111,1); font-size:50px; /*opacity:0.8;*/
+				 color:rgba(185,254,111,1); font-size:80px; 
+				 /*opacity:0.8;*/
 			}
 			.clickFull{
 				display:block;
 			}
 			#controlBtnMoveLeft, #controlBtnMoveRight{
 				position:absolute; top:50%;
-				width:3%; height:25%;
+				width:4.3%; height:25%;
 				-ms-transform: translate(0,-50%);
 				-webkit-transform: translate(0,-50%);
 				transform: translate(0,-50%);
@@ -163,13 +166,14 @@ $jsonObjects = json_encode($themes);
 			}
 			#controlBtnMoveUp, #controlBtnMoveDown{
 				position:absolute; top:0px;  left:50%;
-				height:5%; width:25%;
+				height:7%; width:25%;
 				-ms-transform: translate(-50%, 0);
 				-webkit-transform: translate(-50%, 0);
 				transform: translate(-50%, 0);
 			}
 			#controlBtnMoveDown{
 				bottom:0px; top:auto;
+				height:8%;
 			}
 			
 			.toolBtn{
@@ -187,7 +191,7 @@ $jsonObjects = json_encode($themes);
 				display:none;
 			}
 			.bgimg{ 
-				background: url(assets/img/trans.png) no-repeat center center; 
+				background: url(/assets/img/trans.png) no-repeat center center; 
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
@@ -196,7 +200,7 @@ $jsonObjects = json_encode($themes);
 			
 			.iconimg{ 
 				position:absolute; top:-25%; left:-25%; width:150%; height:150%;
-				background: url(assets/img/tmp/i1.jpg) no-repeat center center; 
+				background: url(/assets/img/tmp/i1.jpg) no-repeat center center; 
 				background-color:transparent;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
@@ -222,7 +226,7 @@ $jsonObjects = json_encode($themes);
 				border: 3px solid #fff;
 				/*border-left: 4px solid #fff;
 				border-right: 4px solid #fff;*/
-				width:155px; height:155px;
+				width:193px; height:193px;
 				position:relative; overflow:hidden;
 			}
 			
@@ -236,13 +240,81 @@ $jsonObjects = json_encode($themes);
 			
 			#loadicon{
 				display:none;
-				z-index:1000;
+				pointer-events:none;
 			}
 			.loader{
 				-webkit-animation: loader 0.8s infinite ease;
 				animation: loader 0.8s infinite ease;
 			}		
 			
+			@-webkit-keyframes loader {
+				0% {
+					-webkit-transform: rotate(0deg);
+				}
+				25% {
+					-webkit-transform: rotate(90deg);
+				}
+				50% {
+					-webkit-transform: rotate(90deg);
+				}
+				75% {
+					-webkit-transform: rotate(90deg);
+				}
+				100% {
+					-webkit-transform: rotate(90deg);
+				}
+			}
+			@-moz-keyframes loader {
+				0% {
+					transform: rotate(0deg);
+				}
+				25% {
+					transform: rotate(90deg);
+				}
+				50% {
+					transform: rotate(90deg);
+				}
+				75% {
+					transform: rotate(90deg);
+				}
+				100% {
+					transform: rotate(90deg);
+				}
+			}
+			@-o-keyframes loader {
+				0% {
+					transform: rotate(0deg);
+				}
+				25% {
+					transform: rotate(90deg);
+				}
+				50% {
+					transform: rotate(90deg);
+				}
+				75% {
+					transform: rotate(90deg);
+				}
+				100% {
+					transform: rotate(90deg);
+				}
+			}
+			@-ms-keyframes loader {
+				0% {
+					-ms-transform: rotate(0deg);
+				}
+				25% {
+					-ms-transform: rotate(90deg);
+				}
+				50% {
+					-ms-transform: rotate(90deg);
+				}
+				75% {
+					-ms-transform: rotate(90deg);
+				}
+				100% {
+					-ms-transform: rotate(90deg);
+				}
+			}
 			@keyframes loader {
 				0% {
 					transform: rotate(0deg);
@@ -262,7 +334,7 @@ $jsonObjects = json_encode($themes);
 			}
 			
 			.cuecatch{
-				position:absolute; bottom:8%; width:100%; 
+				position:absolute; bottom:11%; width:100%; 
 				font-size:30px; color:#fff; text-align:center;
 				text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 			}
@@ -275,46 +347,52 @@ $jsonObjects = json_encode($themes);
 				overflow:hidden;
 			}
 			
+			.uiTextHome{
+				position:absolute; top:18%; width:100%; text-align:center; color:#fff;
+				text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+				font-size: 23px;
+				text-align: center;
+			}
 			.uiTextBtns{
 				text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
 				color:#fff;
-				font-size: 15px;
+				font-size: 21px;
 				text-align: center;
 			}
 			#uiTextLeft{
-				position:absolute; left: 80%; top: 46.6%; width: 200%;
+				position:absolute; left: 80%; top: 45%; width: 200%;
 			}
 			#uiTextLeft.bigFont{
-				font-size: 22px;
-				left: 70%;
+				font-size: 25px;
+				left: 45%;
 				top: 44%;
 				width: 300%;
 			}
 			#uiTextRight{
-				position: absolute; left: -200%; top: 46.6%;
+				position: absolute; left: -205%; top: 45%;
 			}
 			#uiTextRight.bigFont{
-				font-size: 22px;
+				font-size: 25px;
 				width: 400%;
-				left: -350%;
-				top: 45%;
+				left: -320%;
+				top: 44%;
 			}
 			#uiTextUp{
-				position:absolute; top:92.5%; width:100%;
+				position:absolute; top:94%; width:100%;
 			}
 			#uiTextUp.bigFont{
-				font-size: 22px;
+				font-size: 25px;
 			}
 			#uiTextDown{
-				position:absolute; top:-27%; width:100%;
+				position:absolute; top:-19%; width:100%;
 			}
 			#uiTextDown.bigFont{
-				font-size: 22px;
-				top:-40%;
+				font-size: 25px;
+				top:-25%;
 			}
 
 			.themeItemsDiv{
-				width:60%; height:100%; float:left; position:relative;
+				width:60%; height:100%; float:left; position:relative; top: -6px;
 			}
 			.themeTextDiv{
 				width:40%; height:100%; float:left; border-right:1px dotted rgba(0,0,0,0.025);
@@ -325,7 +403,7 @@ $jsonObjects = json_encode($themes);
 			.themeTextPlace{
 				display:table-cell; vertical-align:middle;
 				text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
-				color:#fff;
+				color:#fff; font-size:23px;
 			}
 			.themeTextPlace h1{
 				color:#fff;
@@ -336,19 +414,19 @@ $jsonObjects = json_encode($themes);
 				color:rgb(185,254,111); font-weight:normal;
 			}
 			.themeTextPlace.bigFont{
-				font-size:22px;
+				font-size:30px;
 			}
 			.themeTextPlace.bigFont h1{
-				font-size:37px;
+				font-size:40px;
 			}
 			
 			.colofonTextPlace{
 				text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
-				color:#fff; font-size:18px;
+				color:#fff; font-size:22px;
 			}
 			.colofonTextPlace h1{
 				font-family: 'hdr', sans-serif;
-				font-size:30px;
+				font-size:37px;
 			}
 			.colofonTextPlace b{
 				color:rgb(185,254,111); font-weight:normal;
@@ -358,10 +436,10 @@ $jsonObjects = json_encode($themes);
 				background:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.7);
 			}
 			#colofonText.bigFont{
-				font-size:22px;
+				font-size:25px;
 			}
 			#colofonText.bigFont h1{
-				font-size:37px;
+				font-size:40px;
 			}
 			
 			.themeNavHold{
@@ -374,7 +452,10 @@ $jsonObjects = json_encode($themes);
 				float:left; width:50px; height:100%; position:relative;
 			}
 			.themeNavCompText{
-				width:150px; color:#fff;
+				width:300px; color:#fff; font-size: 20px; margin-top:-2px;
+			}
+			.themeNavCompText.bigFont{
+				font-size: 23px;
 			}
 			
 			.themeNavHitLeft{
@@ -383,25 +464,41 @@ $jsonObjects = json_encode($themes);
 			.themeNavHitRight{
 				position:absolute; top:0px; right:0px; width:200px; height:100%;
 			}
+			themeNavClick{
+				position:absolute; top:5.4%; right:30px; 
+				text-align:right; color:#fff; text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7); font-size:21px;
+				padding:0px 30px 0px 0px;
+			}
 			
 			.amenuWrap{
-				position:absolute; top:4.25%; right:0px; 
-				text-align:right; color:#fff; text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7); 
+				position:absolute; top:5.7%; right:30px; 
+				text-align:right; color:#fff; text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7); font-size:21px;
 				padding:0px 30px 0px 0px;
 			}
 			.fontSizeBtnWrap{
-				display:inline-block; padding-right:6px; position:relative; font-size:14px;
+				display:inline-block; padding-right:12px; position:relative; font-size:21px;
 			}
 
-
+			.bottomPanelContent{
+				position:absolute; top:1px; width:80%; height:100%; left:10%; background:rgba(0,0,0,0.6); border-left:1px solid rgba(255,255,255,0.8); border-right:1px solid rgba(255,255,255,0.8); text-align:left;
+			}
+			.bottomPanelImg{
+				float:left; width: 25%; height:100%; background:#000;
+			}
 			.infotext{
-				float:left; width:70%; height:100%; padding:24px; color:#fff; overflow:hidden;
+				float:left; width:75%; height:100%; 
+				padding:24px; padding-top:20px; 
+				color:#fff; font-size: 23px;
+				overflow:hidden;
+			}
+			.infotext h2{
+				font-size: 30px;
 			}
 			.infotext.bigFont{
-				font-size:20px;
+				font-size:29px;
 			}
 			.infotext.bigFont h2{
-				font-size:35px;
+				font-size:40px;
 			}
 			
 			#shareIconsWrap{
@@ -414,10 +511,18 @@ $jsonObjects = json_encode($themes);
 				display:inline-block; height:100%; width:67px; position:relative; text-align:center; font-size:22px; color:rgb(185,254,111);
 			}
 			
+			#shareBtnWrap{
+				position:absolute; bottom:0px; right:0px; padding-right:15px; padding-bottom:15px;
+			}
+			.shade1{
+				text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.8);
+			}
+			
+			
 			/* /////////////////////////////////////////////////////////////// */
         </style>
 
-        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -427,10 +532,10 @@ $jsonObjects = json_encode($themes);
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
         <div id="container" class="centerpos" style="width:1600px; height:900px;">
         
-            <img src="assets/img/imgscale.jpg" style="width:100%;" />
+            <img src="/assets/img/imgscale.jpg" style="width:100%;" />
             
             <div class="gpos" id="vidWrap">
-                <video style="width:100%; height:100%;" src="assets/placehold/init.mp4" preload="auto" autobuffer id="play1">
+                <video style="width:100%; height:100%;" src="/assets/placehold/init.mp4" preload="auto" autobuffer id="play1">
                 </video>
             </div>
             
@@ -441,7 +546,7 @@ $jsonObjects = json_encode($themes);
                     <div id="progressCirc"></div>
                 </div>
                 -->
-                <div style="position:absolute; bottom:5.5%; left:0px; width:100%;" id="progressLineWrap">
+                <div style="position:absolute; bottom:7%; left:0px; width:100%;" id="progressLineWrap">
                     <div style="width:100%; padding:10px;">
                         <div style="width:100%; height:5px; background:rgba(185,254,111,0.1);">
                             <div style="width:0%; height:100%; background:rgba(185,254,111,0.5);" id="progressLine">
@@ -458,9 +563,40 @@ $jsonObjects = json_encode($themes);
             
             <div class="centerpos" id="loadicon">
                 <div class="centerpos" style="width:68px; height:68px;">
-                    <img src="assets/img/loading_icon.png" class="loader" style="width:100%; height:100%;" />
+                    <img src="/assets/img/loading_icon.png" class="loader" style="width:100%; height:100%;" />
                 </div>
             </div>
+            
+            <!-- ///// directonal button controls ///// -->
+            <div class="movebtn" id="controlBtnMoveLeft">
+                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerLeft">
+                    <div class="uiTextBtns feelFontSize" id="uiTextLeft">Vorig object</div>
+                    <i class="fa fa-angle-left centerpos controlArrow shade1"></i>
+                    <a href="javascript:void(0)" class="centerpos" style="width:450%; height:50%;" id="clickMoveLeft"></a>
+                </div>
+            </div>
+            <div class="movebtn" id="controlBtnMoveRight">
+                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerRight">
+                    <div class="uiTextBtns feelFontSize" id="uiTextRight">Volgend object</div>
+                    <i class="fa fa-angle-right centerpos controlArrow shade1"></i>
+                    <a href="javascript:void(0)" class="centerpos" style="width:500%; height:50%;" id="clickMoveRight"></a>
+                </div>
+            </div>
+            <div class="movebtn" id="controlBtnMoveUp">
+                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerUp">
+                    <div class="uiTextBtns feelFontSize"  id="uiTextUp">Bekijk alle objecten</div>
+                    <i class="fa fa-angle-up centerpos controlArrow shade1"></i>
+                    <a href="javascript:void(0)" class="centerpos" style="width:50%; height:180%;" id="clickMoveUp"></a>
+                </div>
+            </div>
+            <div class="movebtn" id="controlBtnMoveDown">
+                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerDown">
+                    <div class="uiTextBtns feelFontSize" id="uiTextDown">Lees meer</div>
+                    <i class="fa fa-angle-down centerpos controlArrow shade1"></i>
+                    <a href="javascript:void(0)" class="centerpos" style="width:50%; height:150%;" id="clickMoveDown"></a>
+                </div>
+            </div>
+            <!-- /////////////////////////////////////// -->
             
             <div class="gpos" style="display:none;" id="topPanelWrap">
                 <div style="height:90%; border-bottom:1px solid rgba(255,255,255,0.7); position:relative;">
@@ -479,10 +615,11 @@ $jsonObjects = json_encode($themes);
                                 <div class="themeNavWrap">
                                     <div class="themeNavComp">
                                         <div class="centerpos" style="margin-top:-6%;">
-                                            <i class="fa fa-angle-left centerpos controlArrow"></i>
+                                            <i class="fa fa-angle-left centerpos controlArrow" style="font-size: 60px;"></i>
+
                                         </div>
                                     </div>
-                                    <div class="themeNavComp themeNavCompText">
+                                    <div class="themeNavComp themeNavCompText feelFontSize">
                                         <div class="centerVerti">
                                             Vorig thema
                                         </div>
@@ -497,10 +634,10 @@ $jsonObjects = json_encode($themes);
                                 <div class="themeNavWrap">
                                     <div class="themeNavComp" style="float:right;">
                                         <div class="centerpos" style="margin-top:-6%;">
-                                            <i class="fa fa-angle-right centerpos controlArrow"></i>
+                                            <i class="fa fa-angle-right centerpos controlArrow" style="font-size: 60px;"></i>
                                         </div>
                                     </div>
-                                    <div class="themeNavComp themeNavCompText" style="float:right;">
+                                    <div class="themeNavComp themeNavCompText feelFontSize" style="float:right;">
                                         <div class="centerVerti" style="left:auto; right:0px;">
                                             Volgend thema
                                         </div>
@@ -513,8 +650,10 @@ $jsonObjects = json_encode($themes);
                             
                             <div class="centerpos" style="height:100%; width:50%; text-align:center; margin-top: -0.2%;">
                                 <div class="centerpos" style="display:inline-block; width:150px; height:15px;" id="themeMiniIconWrap">
-                                    <div style="display:inline-block; width:15px; height:15px; margin-right:5px;" id="themeMiniIcon">
-                                        <img src="assets/img/page_icon.png" style="width:100%" />
+                                    <div style="display:inline-block; width:15px; height:15px; margin-right:5px; position:relative;" id="themeMiniIcon">
+                                        <a href="javascript:void(0)" class="gpos themeNavClick">
+                                            <img src="/assets/img/page_icon.png" style="width:100%" />
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -524,22 +663,22 @@ $jsonObjects = json_encode($themes);
                 </div>
                 <div style="height:10%; position:relative;">
                     <div style="height:50%; top:27%; padding:5px; position:relative; text-align:center;">
-                        <img src="assets/img/close.png" style="height:100%; display:inline-block;" />
+                        <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
                     </div>
                     <div class="gpos">
                         <a href="javascript:void(0)" class="block100" id="topPanelClose">
-                            <img src="assets/img/trans.png" class="block100" />
+                            <img src="/assets/img/trans.png" class="block100" />
                         </a>
                     </div>
                 </div>
             </div>
             
-            <div class="uiTextBtns" style="position:absolute; top:17.5%; width:100%; text-align:center; color:#fff;" id="homeTextWrap">
-                <div style="display:inline-block; max-width:510px;">
+            <div class="uiTextHome" id="homeTextWrap">
+                <div style="display:inline-block; max-width:600px;">
                     <span class="hdrfont" style="font-size:35px; text-transform:uppercase;">
                         Kentalis bestaat <span style="color: rgb(185,254,111);">225</span> jaar
                     </span>
-                    <p style="font-size:19px;">
+                    <p>
                     Tijdens haar lange geschiedenis heeft de instelling alles in het werk gesteld om doven te leren communiceren.
                     </p>
                 </div>
@@ -551,17 +690,17 @@ $jsonObjects = json_encode($themes);
                         A
                         <a href="javascript:void(0)" class="block100 gpos" id="fontSizeBtn1"></a>
                     </div>
-                    <div class="fontSizeBtnWrap" style="font-size:20px;">
+                    <div class="fontSizeBtnWrap" style="font-size:30px;">
                         A
                         <a href="javascript:void(0)" class="block100 gpos" id="fontSizeBtn2"></a>
                     </div>
                 </div>
-                <div style="display:inline-block; margin-right:12px;">
+                <div style="display:inline-block; margin-right:18px;">
                     <div style="display:inline-block;">
                         Gebarentaal 
                     </div>
                     <div style="display:inline-block; position:relative;">
-                        aan 
+                        &nbsp;aan 
                         <a href="javascript:void(0)" class="block100 gpos" id="signLangBtnOn"></a>
                     </div>
                     <div style="display:inline-block;">
@@ -593,9 +732,9 @@ $jsonObjects = json_encode($themes);
                 </div>
             </div>
             
-            <div style="position:absolute; bottom:0px; right:0px;padding-right:20px; padding-bottom:10px;" id="shareBtnWrap">
+            <div id="shareBtnWrap">
                 <div style="position:relative;">
-                    <img src="assets/img/share_icon.png" width="39" />
+                    <img src="/assets/img/share_icon.png" width="39" />
                     <a href="javascript:void(0)" class="block100 gpos" id="shareBtn"></a>
                 </div>
             </div>
@@ -605,36 +744,6 @@ $jsonObjects = json_encode($themes);
                 <div class="navclick toolBtn" mid="debug" style="margin-right:15px;"><i class="fa fa-cog"></i></div>
             </div>
             <!-- /////////////////////////////// -->
-            <!-- ///// directonal button controls ///// -->
-            <div class="movebtn" id="controlBtnMoveLeft">
-                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerLeft">
-                    <div class="uiTextBtns feelFontSize" id="uiTextLeft">vorig object</div>
-                    <i class="fa fa-angle-left centerpos controlArrow"></i>
-                    <a href="javascript:void(0)" class="gpos" id="clickMoveLeft"></a>
-                </div>
-            </div>
-            <div class="movebtn" id="controlBtnMoveRight">
-                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerRight">
-                    <div class="uiTextBtns feelFontSize" id="uiTextRight">volgend object</div>
-                    <i class="fa fa-angle-right centerpos controlArrow"></i>
-                    <a href="javascript:void(0)" class="gpos" id="clickMoveRight"></a>
-                </div>
-            </div>
-            <div class="movebtn" id="controlBtnMoveUp">
-                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerUp">
-                    <div class="uiTextBtns feelFontSize"  id="uiTextUp">Bekijk alle objecten</div>
-                    <i class="fa fa-angle-up centerpos controlArrow"></i>
-                    <a href="javascript:void(0)" class="gpos" id="clickMoveUp"></a>
-                </div>
-            </div>
-            <div class="movebtn" id="controlBtnMoveDown">
-                <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerDown">
-                    <div class="uiTextBtns feelFontSize" id="uiTextDown">Lees meer</div>
-                    <i class="fa fa-angle-down centerpos controlArrow"></i>
-                    <a href="javascript:void(0)" class="gpos" id="clickMoveDown"></a>
-                </div>
-            </div>
-            <!-- /////////////////////////////////////// -->
             
             <div class="gpos" style="background:rgba(0,0,0,0.65); display:none;" id="colofonWrap">
                 <div class="centerpos" style="width:75%; height:75%;">
@@ -648,8 +757,8 @@ $jsonObjects = json_encode($themes);
                             </p>
                         </div>
                         <div style="position:absolute; top:15px; right:20px; width:22px; height:25px; text-align:center;">
-                            <img src="assets/img/close.png" style="height:100%; display:inline-block;" />
-                            <div class="gpos">
+                            <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
+                            <div class="centerpos" style="width:250%; height:180%;">
                                 <a href="javascript:void(0)" class="block100 gpos" id="colofonClose"></a>
                             </div>
                         </div>
@@ -658,7 +767,7 @@ $jsonObjects = json_encode($themes);
             </div>
             
             <div style="position:absolute; top:0px; left:3%;">
-                <img src="assets/img/logo_mono.png" width="149" height="75" />
+                <img src="/assets/img/logo_mono.png" width="149" height="75" style="cursor:pointer;" id="logoClick" />
             </div>
             
         </div>
@@ -681,14 +790,14 @@ $jsonObjects = json_encode($themes);
                             <div class="centerpos" style="left:16.5%; top:51%;" id="themeItemBtn">
                                 <div class="playiconHold">
                                     <div class="diamond playicon" style="border-color:rgba(185,254,111,1);">
-                                        <div class="iconimg diamondInner" style="background-image:url('assets/img/trans.png');">
+                                        <div class="iconimg diamondInner" style="background-image:url('/assets/img/trans.png');">
                                             <span class="hdrfont centerpos themeIconText"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="gpos">
                                     <a href="javascript:void(0)" class="block100 themeBtnClick">
-                                        <img src="assets/img/trans.png" class="block100" />
+                                        <img src="/assets/img/trans.png" class="block100" />
                                     </a>
                                 </div>
                             </div>
@@ -713,28 +822,19 @@ $jsonObjects = json_encode($themes);
                     	<div class="playiconHold">
                             <div class="diamond playicon">
                                 <div class="iconimg diamondInner">
-                                    <img src="assets/img/arrow_r.svg" class="centerpos" style="width:17%; height:17%; margin-top:-8%;" />
+                                    <!--<img src="/assets/img/arrow_r.svg" class="centerpos" style="width:17%; height:17%; margin-top:-8%;" />-->
+                                    <i class="fa fa-angle-right centerpos controlArrow shade1" style="margin-top: -10%; margin-left: 5px; font-size: 70px;"></i>
                                     <span class="hdrfont centerpos icontext">PLAY</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="gpos">
-                        	<a href="javascript:void(0)" class="block100 vcontrol">
-                                <img src="assets/img/trans.png" class="block100" />
-                            </a>
+                        <div class="centerpos" style="width:150%; height:150%;">
+                        	<a href="javascript:void(0)" class="gpos block100 vcontrol"></a>
                         </div>
                     </div>
                     
-                    <div class="bottomPanelWrap" style="position:absolute; width:100%; height:38%; bottom:0px;">
+                    <div class="bottomPanelWrap" style="position:absolute; width:100%; height:36.5%; bottom:0px;">
                         <div style="height:10%;">
-                        	<div style="height:100%; padding:5px; position:relative;">
-                                <img class="centerpos" src="assets/img/close.png" style="height:75%;" />
-                                <div class="gpos">
-                                    <a href="javascript:void(0)" class="block100 bottomPanelClose">
-                                        <img src="assets/img/trans.png" class="block100" />
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                     	<div style="background:rgba(255,255,255,0.3); border-top:1px solid rgba(255,255,255,0.8); height:90%; position:relative;">
                             <div style="position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden;">
@@ -744,9 +844,9 @@ $jsonObjects = json_encode($themes);
                             </div>
                             <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.2);">
                             </div>
-                        	<div style="position:absolute; top:1px; width:70%; height:100%; left:15%; background:rgba(0,0,0,0.6); border-left:1px solid rgba(255,255,255,0.8); border-right:1px solid rgba(255,255,255,0.8); text-align:left;">
-                            	<div style="float:left; width:30%; height:100%; background:#000;">
-                                	<div class="bgimg infoimg" style="width:100%; height:100%; background-image:url('assets/img/tmp/img7.jpg');">
+                        	<div class="bottomPanelContent">
+                            	<div class="bottomPanelImg">
+                                	<div class="bgimg infoimg" style="width:100%; height:100%; background-image:url('/assets/img/tmp/img7.jpg'); margin-top:-1px;">
                                     </div>
                                 </div>
                                 <div class="infotext feelFontSize">
@@ -754,6 +854,14 @@ $jsonObjects = json_encode($themes);
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel felis magna. Curabitur vel imperdiet lorem. Etiam imperdiet quam urna, at imperdiet sem tincidunt et. Sed quis consectetur quam. Etiam ultricies malesuada tellus ut egestas. Suspendisse vitae erat a dolor facilisis imperdiet eget non ex.
                                 </div>
                                 <div style="clear:both;"></div>
+                                
+                                <div style="width:50px; height:50px; top:0px; right:0px; padding:10px; position:absolute;">
+                                    <img src="/assets/img/close.png" style="width:100%;" />
+                                    <div class="centerpos" style="width:150%; height:150%;">
+                                        <a href="javascript:void(0)" class="gpos block100 bottomPanelClose"></a>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -763,17 +871,25 @@ $jsonObjects = json_encode($themes);
             
         </div>
         
-        <div style="position:fixed; width:100%; height:100%; top:0px; left:0px; background:#000;" id="mainHider"></div>
+        <div style="position:fixed; width:100%; height:100%; top:0px; left:0px; background:#000;" id="mainHider">
+            <div class="centerpos">
+                <div class="centerpos" style="width:68px; height:68px;">
+                    <img src="/assets/img/loading_icon.png" class="loader" style="width:100%; height:100%;" />
+                </div>
+            </div>
+        </div>
         
         <div style="position:fixed; width:30%; background:rgba(255,255,255,0.6); padding:20px; display:none;" id="showDebugInfo">
         </div>
         
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets/js/gsap/TweenMax.min.js"></script>
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="/assets/js/gsap/TweenMax.min.js"></script>
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/lib/underscore.js"></script>
+        <script src="/assets/js/lib/backbone.js"></script>
         <script>
 			//
 			$(function() {
@@ -800,18 +916,24 @@ $jsonObjects = json_encode($themes);
 				var vid = document.getElementById("play1");
 				lv.vidplaying = 0;
 				//
-				function showVidLoading(){
-					TweenMax.fromTo('#loadicon', 0.53, {'display':'none','opacity':0}, {'display':'block','opacity':1, ease:Power2.easeInOut});
-				}
-				function hideVidLoading(){
-					TweenMax.to('#loadicon', 0.3, {'display':'none','opacity':0, ease:Power2.easeInOut});
-				}
 				vid.onwaiting = function() {
 					showVidLoading();
 				};
 				vid.onplaying  = function() {
 					hideVidLoading();
 				};
+				vid.onended = function() {
+					lv.vidplaying = 0;
+					resetPlayStates();
+				};
+				//
+				function showVidLoading(){
+					TweenMax.set('#loadicon', {'display':'block','opacity':1});
+				}
+				function hideVidLoading(){
+					TweenMax.set('#loadicon', {'display':'none','opacity':0});
+					//TweenMax.set('#loadicon', {delay:2,'display':'block','opacity':0.5});
+				}
 				//
 				function toggleVid(){
 					if(lv.sliderBusy == 1){
@@ -830,14 +952,17 @@ $jsonObjects = json_encode($themes);
 						lv.mtarg = $('#sec'+lv.sectionCur).find('.bottomPanelWrap');
 						TweenMax.to(lv.mtarg, 0.5, {y:'100%', ease:Power4.easeInOut});
 						lv.mtarg = '#controlBtnMoveInnerDown';
-						TweenMax.to(lv.mtarg, 0.3, {delay:0.3, y:'0%', ease:Power4.easeInOut});
+						TweenMax.to(lv.mtarg, 0.3, {delay:0.3, y:0, ease:Power4.easeInOut});
 						lv.bottomPanelOpen = 0;
 						//
 						topPanelClose();
 						//
 						//
-						lv.mtarg = '.uiTextBtns';
-						TweenMax.to(lv.mtarg, 0.3, {'opacity':0});
+						lv.mtarg = '.uiTextBtns, #shareBtnWrap';
+						TweenMax.to(lv.mtarg, 0.3, {'opacity':0, 'display':'none'});
+						lv.mtarg = '.controlArrow';
+						TweenMax.to(lv.mtarg, 0.3, {'opacity':0.5});
+						//
 						lv.mtarg = '#shareBtnWrap';
 						//TweenMax.to(lv.mtarg, 0.3, {'opacity':0, 'display':'none'});
 						lv.mtarg = '#progressLineWrap';
@@ -856,8 +981,11 @@ $jsonObjects = json_encode($themes);
 						lv.mtarg = $('#sec'+lv.sectionCur).find('.playiconHold');
 						TweenMax.fromTo(lv.mtarg, 0.2, {'scale':1.3, 'opacity':0}, {delay:0.1,'scale':1, 'opacity':1, ease:Power4.easeInOut});
 						//
-						lv.mtarg = '.uiTextBtns';
+						lv.mtarg = '.uiTextBtns, #shareBtnWrap';
+						TweenMax.to(lv.mtarg, 0.3, {'opacity':1, 'display':'block'});
+						lv.mtarg = '.controlArrow';
 						TweenMax.to(lv.mtarg, 0.3, {'opacity':1});
+						//
 						lv.mtarg = '#shareBtnWrap';
 						//TweenMax.to(lv.mtarg, 0.3, {'opacity':1, 'display':'block'});
 						lv.mtarg = '#progressLineWrap';
@@ -875,8 +1003,11 @@ $jsonObjects = json_encode($themes);
 						lv.mtarg = $('#sec'+lv.sectionCur).find('.playiconHold');
 						TweenMax.fromTo(lv.mtarg, 0.2, {'scale':1.3, 'opacity':0}, {delay:0.1,'scale':1, 'opacity':1, ease:Power4.easeInOut});
 						//
-						lv.mtarg = '.uiTextBtns';
+						lv.mtarg = '.uiTextBtns, #shareBtnWrap';
+						TweenMax.to(lv.mtarg, 0.3, {'opacity':1, 'display':'block'});
+						lv.mtarg = '.controlArrow';
 						TweenMax.to(lv.mtarg, 0.3, {'opacity':1});
+						//
 						lv.mtarg = '#shareBtnWrap';
 						//TweenMax.to(lv.mtarg, 0.3, {'opacity':1, 'display':'block'});
 						lv.mtarg = '#progressLineWrap';
@@ -892,11 +1023,6 @@ $jsonObjects = json_encode($themes);
 					return false;
 				});
 				//
-				vid.onended = function() {
-					lv.vidplaying = 0;
-					resetPlayStates();
-				};
-				//
 				lv.signLang = 0;
 				function setVidSrc(mvid, subs){
 					hideVidLoading();
@@ -908,6 +1034,7 @@ $jsonObjects = json_encode($themes);
 						lv.p = Popcorn("#play1").parseSRT(subs);	
 					}
 				}
+				/*
 				vid.addEventListener('loadeddata', vidLoaded);
 				function vidLoaded() {
 				}
@@ -917,6 +1044,7 @@ $jsonObjects = json_encode($themes);
 				vid.addEventListener('pause', vidpaused);
 				function vidpaused() {
 				}
+				*/
 				//
 				function resetPlayStates(){
 					hideVidLoading();
@@ -931,7 +1059,7 @@ $jsonObjects = json_encode($themes);
 					//
 					lv.bottomPanelOpen = 0;
 					lv.mtarg = '#controlBtnMoveInnerDown';
-					TweenMax.to(lv.mtarg, 0.2, {y:'0%', ease:Power4.easeInOut});
+					TweenMax.to(lv.mtarg, 0.2, {y:0, ease:Power4.easeInOut});
 					lv.mtarg = '.bottomPanelWrap';
 					TweenMax.to(lv.mtarg, 0.2, {y:'100%', ease:Power4.easeInOut});
 				}
@@ -956,16 +1084,19 @@ $jsonObjects = json_encode($themes);
 							value: lv.perc/100
 						});
 						*/
+						//
+						/*
 						if(vid.currentTime == lv.lastCurTime){
 							showVidLoading();
 						}else{
 							hideVidLoading();
 						}
 						lv.lastCurTime = vid.currentTime;
+						*/
 					}
 				}
 				//				
-				lv.p = Popcorn( "#play1" ).parseSRT("assets/placehold/srt.srt");	
+				lv.p = Popcorn( "#play1" ).parseSRT("/assets/placehold/srt.srt");	
 				//
 				////////////////////////////////////////////////////////////////////////////////////////////////////
 				lv.bottomPanelOpen = 0;
@@ -999,7 +1130,7 @@ $jsonObjects = json_encode($themes);
 					lv.mtarg = $('#sec'+lv.sectionCur).find('.bottomPanelWrap');
 					TweenMax.to(lv.mtarg, 0.5, {y:'0%', ease:Power4.easeInOut});
 					lv.mtarg = '#controlBtnMoveInnerDown';
-					TweenMax.to(lv.mtarg, 0.3, {y:'120%', ease:Power4.easeInOut});
+					TweenMax.to(lv.mtarg, 0.3, {y:150, ease:Power4.easeInOut});
 					//
 					hideVidLoading();
 					lv.vidplaying = 0;
@@ -1017,8 +1148,13 @@ $jsonObjects = json_encode($themes);
 					lv.mtarg = $('#sec'+lv.sectionCur).find('.bottomPanelWrap');
 					TweenMax.to(lv.mtarg, 0.5, {y:'100%', ease:Power4.easeInOut});
 					lv.mtarg = '#controlBtnMoveInnerDown';
-					TweenMax.to(lv.mtarg, 0.3, {delay:0.3, y:'0%', ease:Power4.easeInOut});
+					TweenMax.to(lv.mtarg, 0.3, {delay:0.3, y:0, ease:Power4.easeInOut});
 					closeShare();
+					lv.mtarg = '.uiTextBtns, #shareBtnWrap';
+					TweenMax.to(lv.mtarg, 0.3, {'opacity':1, 'display':'block'});
+					lv.mtarg = '.controlArrow';
+					TweenMax.to(lv.mtarg, 0.3, {'opacity':1});
+					//
 				}
 				//
 				lv.topPanelOpen = 0;
@@ -1049,16 +1185,16 @@ $jsonObjects = json_encode($themes);
 					TweenMax.to(lv.mtarg, 0.6, {'display':'block', y:'0%', ease:Power4.easeInOut});
 					//
 					lv.mtarg = $('#controlBtnMoveInnerUp');
-					TweenMax.to(lv.mtarg, 0.3, {y:-100, ease:Power2.easeInOut});
+					TweenMax.to(lv.mtarg, 0.3, {y:-200, ease:Power2.easeInOut});
 					lv.mtarg = $('#controlBtnMoveInnerDown');
-					TweenMax.to(lv.mtarg, 0.3, {y:100, ease:Power2.easeInOut});
+					TweenMax.to(lv.mtarg, 0.3, {y:200, ease:Power2.easeInOut});
 					lv.mtarg = $('#controlBtnMoveInnerLeft');
 					TweenMax.to(lv.mtarg, 0.3, {x:-200, ease:Power2.easeInOut});
 					lv.mtarg = $('#controlBtnMoveInnerRight');
 					TweenMax.to(lv.mtarg, 0.3, {x:200, ease:Power2.easeInOut});
 					//
 					lv.mtarg = $('#controlBtnMoveInnerDown');
-					TweenMax.to(lv.mtarg, 0.3, {delay:0.3, y:100, ease:Power2.easeInOut});
+					TweenMax.to(lv.mtarg, 0.3, {delay:0.3, y:200, ease:Power2.easeInOut});
 					//
 					hideVidLoading();
 					lv.vidplaying = 0;
@@ -1091,8 +1227,11 @@ $jsonObjects = json_encode($themes);
 					lv.mtarg = $('#controlBtnMoveInnerRight');
 					TweenMax.to(lv.mtarg, 0.3, {delay:0.4, x:0, ease:Power2.easeOut});
 					//
-					lv.mtarg = '.uiTextBtns';
+					lv.mtarg = '.uiTextBtns, #shareBtnWrap';
+					TweenMax.to(lv.mtarg, 0.3, {'opacity':1, 'display':'block'});
+					lv.mtarg = '.controlArrow';
 					TweenMax.to(lv.mtarg, 0.3, {'opacity':1});
+					//
 					lv.mtarg = '#shareBtnWrap';
 					//TweenMax.to(lv.mtarg, 0.3, {'opacity':1, 'display':'block'});
 					lv.mtarg = '#progressLineWrap';
@@ -1303,8 +1442,8 @@ $jsonObjects = json_encode($themes);
 					}, {
 						"name": "Item 5.2",
 						"info": "<h2>Item 5.2</h2><p>Item 5.1 info tekst</p>",
-						"poster": "assets/img/tmp/bg6.jpg",
-						"img": "assets/img/tmp/img6.jpg",
+						"poster": "/assets/img/tmp/bg6.jpg",
+						"img": "/assets/img/tmp/img6.jpg",
 						"video": "tmp/t_vid3.mp4",
 						"video_sign-language": "tmp/t_vid3.mp4",
 						"subs": "tmp/srt3.srt"
@@ -1320,6 +1459,7 @@ $jsonObjects = json_encode($themes);
 					}
 					console.log(msg);
 				}
+
 				//
 				lv.themesTotal = getObjLength(lv.allData);
 				lv.themesNames = [];
@@ -1365,7 +1505,7 @@ $jsonObjects = json_encode($themes);
 				lv.sections = {};
 				lv.sCnt = 0;
 				//
-				lv.objectDataFields = ['name','info','poster','img','video','video_sign-language','subs'];
+				lv.objectDataFields = ['name','info','poster','img','video','video_sign-language','subs','url_name'];
 				// build sections
 				for(lv.l = 0; lv.l < lv.themesTotal; lv.l++){
 					lv.nrObj = getObjLength(lv.allData[lv.l].objects);
@@ -1508,14 +1648,15 @@ $jsonObjects = json_encode($themes);
 						//
 						//
 						lv.mtarg = '#sec'+lv.slideNr;
-						lv.mdata = lv.objectsData[lv.i+1]['name']
+						$(lv.mtarg).attr('data-id',lv.slideNr);
+						lv.mSaniNameID = lv.objectsData[lv.i+1]['url_name'];
+						$(lv.mtarg).attr('data-slug',lv.mSaniNameID);
+						lv.mdata = lv.objectsData[lv.i+1]['name'];
 						$(lv.mtarg+' .slideContentWrap').html(lv.mdata);
 						lv.mdata = lv.objectsData[lv.i+1]['poster']
 						$(lv.mtarg+' .posterimg').css({'background-image':'url("'+lv.objectsData[lv.i+1]['poster']+'")'});
 						lv.mdata = lv.objectsData[lv.i+1]['poster']
 						$(lv.mtarg+' .iconimg').css({'background-image':'url("'+lv.objectsData[lv.i+1]['img']+'")'});
-						//
-						setVidSrc(lv.objectsData[1]['video'],lv.objectsData[1]['subs']);
 						//
 						lv.mdata = lv.objectsData[lv.i+1]['img']
 						$(lv.mtarg+' .infoimg').css({'background-image':'url("'+lv.objectsData[lv.i+1]['img']+'")'});
@@ -1529,6 +1670,8 @@ $jsonObjects = json_encode($themes);
 						lv['xDest_section_'+lv.mnnr] = lv.mx;
 						//
 					}
+					//
+					setVidSrc(lv.objectsData[1]['video'],lv.objectsData[1]['subs']);
 					//
 					lv.themeCur = 1;
 					lv.themeCnt = 0;
@@ -1580,10 +1723,11 @@ $jsonObjects = json_encode($themes);
 						lv.newThemeIcon = $('#themeMiniIcon').clone(true, true);
 						$('#themeMiniIconWrap').append(lv.newThemeIcon);
 						$('#themeMiniIconWrap').children().last().attr('id', 'themeMiniIcon_'+lv.themeCnt);
+						$('#themeMiniIcon_'+lv.themeCnt).find('.themeNavClick').attr('mid',lv.themeCnt);
 						//
 					}
 					$('#theme'+lv.themeCur+'_itemBtn'+lv.itemCur).find('.playicon').css({'border-color':'rgb(185,254,111)'}).addClass('itemIconActive');
-					$('#themeMiniIcon_'+lv.themeCur+' img').attr('src','assets/img/page_icon_selected.png').addClass('themeIconActive');
+					$('#themeMiniIcon_'+lv.themeCur+' img').attr('src','/assets/img/page_icon_selected.png').addClass('themeIconActive');
 					//
 					$('#themeItemBtn').css({'display':'none'});
 					$('#themeMiniIcon').css({'display':'none'});
@@ -1612,6 +1756,11 @@ $jsonObjects = json_encode($themes);
 						}
 					}
 					closeShare();
+					lv.mtarg = '.uiTextBtns, #shareBtnWrap';
+					TweenMax.to(lv.mtarg, 0.3, {'opacity':1, 'display':'block'});
+					lv.mtarg = '.controlArrow';
+					TweenMax.to(lv.mtarg, 0.3, {'opacity':1});
+					//
 					//
 					lv.sectionXDest = (dest-1)*100;
 					TweenMax.to('#secWrap', lv.navspeed, {delay:lv.navdelay, x:'-'+lv.sectionXDest+'%', ease:lv.navEase, onComplete:doneSliding, force3D:'auto'});
@@ -1673,6 +1822,15 @@ $jsonObjects = json_encode($themes);
 					lv.lockPanDir = 0;
 					//
 					setCurTheme();
+					//
+					//hashChange Procedural
+					lv.mnname = $('div[data-id="'+lv.sectionCur+'"]').attr('data-slug');
+					lv.hash = window.location.hash.substring(1);
+					//if(lv.hash != lv.mnname){
+						//console.log('setting da hash: '+lv.mnname);
+						lv.navActive = lv.mnname;				
+						window.location.hash = lv.mnname;	
+					//}
 				}
 				function startUpdater(){
 					lv.sliderBusy = 1;
@@ -1741,7 +1899,7 @@ $jsonObjects = json_encode($themes);
 						if(lv.lockPanDir == 1){
 							lv.posX = ev.deltaX;
 							lv.vw = $('#themesHold').width();
-							lv.dragMovePerc = (lv.posX/lv.vw)*100;
+							lv.dragMovePerc = (lv.posX/lv.vw)*175;
 							//
 							lv.moveXperc = $('#themesWrap').prop('_gsTransform').xPercent;
 							//
@@ -1769,7 +1927,7 @@ $jsonObjects = json_encode($themes);
 					if(lv.lockPanDir == 1){
 						lv.posX = ev.deltaX;
 						lv.vw = $('#secHold').width();
-						lv.dragMovePerc = (lv.posX/lv.vw)*100;
+						lv.dragMovePerc = (lv.posX/lv.vw)*175;
 						//
 						lv.moveXperc = $('#secWrap').prop('_gsTransform').xPercent;
 						//
@@ -1809,7 +1967,7 @@ $jsonObjects = json_encode($themes);
 								if(lv.snappedX < lv.limitR){
 									lv.snappedX = lv.limitR;
 								}
-								TweenMax.to('#themesWrap', 0.6, {x:lv.snappedX+'%', force3D:'auto'});
+								TweenMax.to('#themesWrap', 0.3, {x:lv.snappedX+'%'});
 								//
 								lv.themesXDest = lv.snappedX;
 								lv.themeCur = -((lv.snappedX/100)-1);
@@ -1823,7 +1981,7 @@ $jsonObjects = json_encode($themes);
 								if(lv.panDestX < lv.limitR){
 									lv.panDestX = lv.limitR;
 								}
-								TweenMax.to('#themesWrap', 0.4, {x:lv.panDestX+'%', force3D:'auto'});
+								TweenMax.to('#themesWrap', 0.3, {x:lv.panDestX+'%'});
 								//
 								lv.themesXDest = lv.panDestX;
 								lv.themeCur = -((lv.panDestX/100)-1);
@@ -1933,10 +2091,11 @@ $jsonObjects = json_encode($themes);
 						$('#themeNavRight').css({'display':'block'});
 					}
 					//
-					$('.themeIconActive').attr('src','assets/img/page_icon.png').removeClass('themeIconActive');
-					$('#themeMiniIcon_'+lv.themeCur+' img').attr('src','assets/img/page_icon_selected.png').addClass('themeIconActive');
+					$('.themeIconActive').attr('src','/assets/img/page_icon.png').removeClass('themeIconActive');
+					$('#themeMiniIcon_'+lv.themeCur+' img').attr('src','/assets/img/page_icon_selected.png').addClass('themeIconActive');
 				}
 				handleThemeControls();
+				//
 				//
 				//
 				function slideRightThemes(){
@@ -1950,6 +2109,10 @@ $jsonObjects = json_encode($themes);
 				});
 				$('#clickThemeNavLeft').on('click', function(){
 					slideLeftThemes();
+				});
+				$('.themeNavClick').on('click', function(){
+					lv.mtid = parseInt($(this).attr('mid'));
+					themesNav(lv.mtid);
 				});
 				//
 				$('#fontSizeBtn2').on('click', function(){
@@ -1996,16 +2159,25 @@ $jsonObjects = json_encode($themes);
 					topPanelClose();
 				});
 				//
+				lv.colofonOpen = 0;
+				function colofonClose(){
+					if(lv.colofonOpen == 0){
+						return;
+					}
+					lv.colofonOpen = 0;
+					TweenMax.fromTo('#colofonText', 0.3, {y:0, 'opacity':1}, {y:20, 'opacity':0, ease:Power3.easeInOut});
+					TweenMax.fromTo('#colofonHold', 0.5, {scale:1, 'opacity':1}, {delay:0.075, scale:0.8, 'opacity':0, ease:Power3.easeInOut});
+					TweenMax.fromTo('#colofonWrap', 0.4, {'display':'block','opacity':1}, {delay:0.6, 'display':'none','opacity':0, ease:Power3.easeInOut});
+				}
 				$('#colofonBtn').on('click', function(){
+					lv.colofonOpen = 1;
 					TweenMax.fromTo('#colofonWrap', 0.5, {'display':'none','opacity':0}, {'display':'block','opacity':1, ease:Power3.easeInOut});
 					TweenMax.fromTo('#colofonHold', 0.6, {scale:1.2, 'opacity':0}, {delay:0.4, scale:1, 'opacity':1, ease:Power3.easeInOut});
 					TweenMax.fromTo('#colofonText', 0.3, {y:20, 'opacity':0}, {delay:0.7, y:0, 'opacity':1, ease:Power3.easeInOut});
 					toggleVidFromMenu();
 				});
 				$('#colofonClose').on('click', function(){
-					TweenMax.fromTo('#colofonText', 0.3, {y:0, 'opacity':1}, {y:20, 'opacity':0, ease:Power3.easeInOut});
-					TweenMax.fromTo('#colofonHold', 0.5, {scale:1, 'opacity':1}, {delay:0.075, scale:0.8, 'opacity':0, ease:Power3.easeInOut});
-					TweenMax.fromTo('#colofonWrap', 0.4, {'display':'block','opacity':1}, {delay:0.6, 'display':'none','opacity':0, ease:Power3.easeInOut});
+					colofonClose();
 				});
 				//
 				lv.shareOpen = 0;
@@ -2041,10 +2213,17 @@ $jsonObjects = json_encode($themes);
 				}				
 				$('.sharer').on('click', function(){
 					lv.mlink = $(this).attr('href');
+
 					PopupCenter(lv.mlink,'share','600','445'); 
 					return false;
 				});
 				//
+				$('#logoClick').on('click', function(){
+					topPanelClose();
+					sectionNav(1);
+					showHomeText();
+					return false;
+				});
 				//
 				lv.homeTextDone = 0;
 				function hideHomeText(){
@@ -2053,6 +2232,10 @@ $jsonObjects = json_encode($themes);
 					}
 					lv.homeTextDone = 1;
 					TweenMax.to('#homeTextWrap', 0.8, {'opacity':0, 'display':'none', ease:Power3.easeOut});
+				}
+				function showHomeText(){
+					lv.homeTextDone = 0;
+					TweenMax.to('#homeTextWrap', 0.8, {delay:1,'opacity':1, 'display':'block', ease:Power3.easeOut});
 				}
 				$(document).on('touchstart mousedown', function(){
 					hideHomeText();
@@ -2102,8 +2285,38 @@ $jsonObjects = json_encode($themes);
 				});
 				$(window).resize();
 				//
-				setTimeout(function(){
+				//
+				$(window).hashchange( function(){
+					lv.hash = window.location.hash.substring(1);
+					lv.navid = lv.hash;
+					if(lv.navid == ''){
+						lv.navid = $('div[data-id="1"]').attr('data-slug');
+					}
+					if(lv.navid == lv.navActive){
+						return;
+					}
+					lv.mdiv = $('div[data-slug="'+lv.navid+'"]').attr('data-id');
+					lv.mdiv = parseInt(lv.mdiv);
+					//console.log('hash nav to: '+lv.mdiv+' ('+lv.navid+')');
+					//
+					if(!lv.mdiv){
+						//console.log('cant use that hash');
+						return;
+					}
+					//
+					topPanelClose();
+					colofonClose();
+					sectionNav(lv.mdiv);
+				});
+				//
+				function init(){
+					lv.navActive = $('div[data-id="1"]').attr('data-slug');
 					TweenMax.to('#mainHider', 0.5, {'opacity':0, 'display':'none', ease:Power2.easeIn});
+					$(window).hashchange();
+				}
+				//
+				setTimeout(function(){
+					init();
 				},300);
 				//
 				//$('#showDebugInfo').html(navigator.userAgent).css({'display':'table-cell'});
