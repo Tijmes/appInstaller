@@ -51,7 +51,7 @@ if(isset($uri_fragments[2])) {
 
     </head>
     <body>
-    	<a href="/thema/object">DIT IS EEN TEST LINK</a>
+    	<a href="/thema/object" class="internal">DIT IS EEN TEST LINK</a>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
