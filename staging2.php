@@ -38,9 +38,7 @@ $jsonObjects = json_encode($themes);
         <meta name="msapplication-TileImage" content="assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <!---->
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/dist/style.css">
         <style>
 			/* /////////////////////////////////////////////////////////////// */
 			
