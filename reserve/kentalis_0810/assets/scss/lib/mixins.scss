@@ -1,0 +1,74 @@
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+@mixin maintain-ratio($ratio: 1 1) {
+  @if length($ratio) < 2 or length($ratio) > 2 {
+    @warn "$ratio must be a list with two values.";
+  }
+ 
+  $width: 100%;
+  $height: percentage(nth($ratio, 2) / nth($ratio, 1));
+  
+  width: $width;
+  height: 0;
+  padding-bottom: $height;
+}
+
+@mixin arrow($width:20px, $color:black, $background:white) {
+  &:after{
+    content: "";
+    position: absolute;
+    z-index:1;
+    left:2px;
+    top:50%;
+    margin-top:-$width;
+    border-color: transparent $color;
+    border-style: solid;
+    border-width: $width 0px $width $width;
+    height: 0px;
+    width: 0px;
+  }
+  &:before{
+    content: "";
+    position: absolute;
+    z-index:2;
+    left:2px;
+    top:50%;
+    margin-left:-1.5px;
+    margin-top:-$width;
+    border-color: transparent $background;
+    border-style: solid;
+    border-width: $width 0px $width $width;
+    height: 0px;
+    width: 0px;
+  }
+}

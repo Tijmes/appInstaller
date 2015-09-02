@@ -8,7 +8,7 @@ foreach($theme_structure as $key => $theme) {
 	$_theme = [
 		'name' => $theme,
 		'info' => $theme_info,
-		'bg' => '/themas/'.$theme.'/bg.jpg',
+		'bg' => 'themas/'.$theme.'/bg.jpg',
 		'objects' => $objects
 	];
 	$themes[$key] = $_theme;
@@ -24,11 +24,11 @@ function getObject($theme) {
 		$_object = [
 			'name' => $object,
 			'info' => $object_info,
-			'poster' => '/themas/'.$theme.'/'.$object.'/poster.jpg',
-			'img' => '/themas/'.$theme.'/'.$object.'/img.jpg',
-			'video' => '/themas/'.$theme.'/'.$object.'/video.mp4',
-			'video_sign-language' => '/themas/'.$theme.'/'.$object.'/video_sign-language.mp4',
-			'subs' => '/themas/'.$theme.'/'.$object.'/subs.srt',
+			'poster' => 'themas/'.$theme.'/'.$object.'/poster.jpg',
+			'img' => 'themas/'.$theme.'/'.$object.'/img.jpg',
+			'video' => 'themas/'.$theme.'/'.$object.'/video.mp4',
+			'video_sign-language' => 'themas/'.$theme.'/'.$object.'/video_sign-language.mp4',
+			'subs' => 'themas/'.$theme.'/'.$object.'/subs.srt',
 		];
 		$objects_structure[$key] = $_object;
 	}
