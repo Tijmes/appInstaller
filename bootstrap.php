@@ -113,6 +113,7 @@ foreach($theme_structure as $key => $theme) {
 	$objects = getObject($theme);
 	$_theme = [
 		'name' => $theme,
+		'url_name' => url_slug($theme),
 		'info' => $theme_info,
 		'bg' => '/themas/'.$theme.'/bg.jpg',
 		'objects' => $objects

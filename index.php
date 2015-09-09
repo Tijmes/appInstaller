@@ -1,10 +1,12 @@
 <?php
 include 'bootstrap.php';
+//shuffle($themes);
 $jsonObjects = json_encode($themes);
+//
 $uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
-echo $uri_fragments[1];
+//echo $uri_fragments[1];
 if(isset($uri_fragments[2])) {
-	echo $uri_fragments[2];
+	//echo $uri_fragments[2];
 }
 ?>
 <!doctype html>
@@ -42,37 +44,27 @@ if(isset($uri_fragments[2])) {
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-		<script src="/assets/dist/base.min.js"></script>
-        <script>
-			var jsonObjects = <?= $jsonObjects?>;
-        </script>
-		<script src="/assets/js/router_example.js"></script>
-		<link rel="stylesheet" href="/assets/dist/style.css" />
+        <!---->
+        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/assets/scss/front.scss" />
 
+        <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-    	<a href="/thema/object" class="internal">DIT IS EEN TEST LINK</a>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
         <div id="container" class="centerpos" style="width:1600px; height:900px;">
-        
-            <img src="/assets/img/imgscale.jpg" style="width:100%;" />
             
             <div class="gpos" id="vidWrap">
-                <video style="width:100%; height:100%;" src="/assets/placehold/init.mp4" preload="auto" autobuffer id="play1">
+                <video style="width:1600px; height:900px; opacity:0;" src="/assets/placehold/init.mp4" preload="auto" id="play1">
                 </video>
             </div>
             
             <div class="gpos" style="text-align:left;" id="vidOverlay">
                 <div class="cuecatch" id="subs"></div>
-                <!--
-                <div style="position:absolute; bottom:10%; left:10px; width:100%;">
-                    <div id="progressCirc"></div>
-                </div>
-                -->
                 <div style="position:absolute; bottom:7%; left:0px; width:100%;" id="progressLineWrap">
                     <div style="width:100%; padding:10px;">
                         <div style="width:100%; height:5px; background:rgba(185,254,111,0.1);">
@@ -85,6 +77,78 @@ if(isset($uri_fragments[2])) {
             
             <div class="gpos" style="overflow:hidden;" id="secHold">
                 <div class="gpos" id="secWrap">
+
+					<?php
+						$nr = 0;
+						for($i = 0; $i < count($themes); $i++){
+							$theme = $themes[$i]['name'];
+							$tslug = $themes[$i]['url_name'];
+							for($i2 = 0; $i2 < count($themes[$i]['objects']); $i2++){
+								$nr++;
+								$name = $themes[$i]['objects'][$i2]['name'];
+								$slug = $themes[$i]['objects'][$i2]['url_name'];
+								$poster = $themes[$i]['objects'][$i2]['poster'];
+								$img = $themes[$i]['objects'][$i2]['img'];
+								$info = $themes[$i]['objects'][$i2]['info'];
+								$video = $themes[$i]['objects'][$i2]['video'];
+								$video_sign = $themes[$i]['objects'][$i2]['video_sign-language'];
+								$subs = $themes[$i]['objects'][$i2]['subs'];
+								?>
+                                <div class="gpos sexion" id="sec<?php echo $nr?>" data-id="<?php echo $nr?>" data-slug="<?php echo $slug?>" data-tslug="<?php echo $tslug?>" data-poster="<?php echo $poster?>" data-img="<?php echo $img?>" data-theme="<?php echo $theme?>" data-video="<?php echo $video?>" data-videosign="<?php echo $video_sign?>" data-subs="<?php echo $subs?>">
+                                    <div class="gpos innerSexionWrap" style="overflow:hidden;">
+                                        <div class="gpos bgimg posterimg"></div>
+                                        <div class="centerpos">
+                                            <div class="playiconHold" style="opacity: 1;">
+                                                <div class="diamond playicon">
+                                                    <div class="iconimg diamondInner">
+                                                        <i class="fa fa-angle-right centerpos controlArrow shade1" style="margin-top: -10%; margin-left: 5px; font-size: 70px; opacity: 1;"></i>
+                                                        <span class="hdrfont centerpos icontext">PLAY</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="centerpos" style="width:150%; height:150%;">
+                                                <a href="javascript:void(0)" class="gpos block100 vcontrol"></a>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="bottomPanelWrap" style="position: absolute; width: 100%; height: 36.5%; bottom: 0px;">
+                                            <div style="height:10%;">
+                                            </div>
+                                            <div style="background:rgba(255,255,255,0.3); border-top:1px solid rgba(255,255,255,0.8); height:90%; position:relative;">
+                                                <div style="position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden;">
+                                                    <div style="position:absolute; bottom:0px;">
+                                                        <canvas class="blurCanvas blur" style="width:100%; height:100%;" id="blurCanvas<?php echo $nr?>"></canvas>
+                                                    </div>
+                                                </div>
+                                                <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.2);">
+                                                </div>
+                                                <div class="bottomPanelContent">
+                                                    <div class="bottomPanelImg">
+                                                        <div class="bgimg infoimg" style="width: 100%; height: 100%; margin-top: -1px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="infotext feelFontSize">
+													<?php echo $info?>
+                                                    </div>
+                                                    <div style="clear:both;"></div>
+                                                    <div style="width:50px; height:50px; top:0px; right:0px; padding:10px; position:absolute;">
+                                                        <img src="/assets/img/close.png" style="width:100%;">
+                                                        <div class="centerpos" style="width:150%; height:150%;">
+                                                            <a href="javascript:void(0)" class="gpos block100 bottomPanelClose"></a>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div> 
+                                <?php
+							}
+						}
+					?>
+
                 </div>
             </div>
             
@@ -134,6 +198,54 @@ if(isset($uri_fragments[2])) {
                         <div style="height:20%;"></div>
                         <div style="height:70%; background:rgba(255,255,255,0.5);" id="themesHold">
                             <div style="height:100%; position:relative;" id="themesWrap">
+								<?php
+                                    $nr = 0;
+									$nr3 = 0;
+                                    for($i = 0; $i < count($themes); $i++){
+                                        $theme = $themes[$i]['name'];
+										$tslug = $themes[$i]['url_name'];
+										$info = $themes[$i]['info'];
+										$nr++;
+										?>
+										<div class="gpos" id="themeHold_<?php echo $nr?>" data-theme-id="<?php echo $nr?>" data-theme-slug="<?php echo $tslug?>">
+                                            <div class="themeTextDiv">
+                                                <div class="themeTextWrap">
+                                                    <div class="themeTextPlace feelFontSize">
+                                                    	<?php echo $info?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="themeItemsDiv" id="themeItemsWrap_<?php echo $nr?>">
+											<?php
+                                            $nr2 = 0;
+                                            for($i2 = 0; $i2 < count($themes[$i]['objects']); $i2++){
+                                                $nr2++;
+												$nr3++;
+                                                $name = $themes[$i]['objects'][$i2]['name'];
+												$oslug = $themes[$i]['objects'][$i2]['url_name'];
+                                                $img = $themes[$i]['objects'][$i2]['img'];
+                                                ?>
+                                                <div class="centerpos" style="left:16.5%; top:51%;" id="theme<?php echo $nr?>_itemBtn<?php echo $nr2?>" mbid="<?php echo $nr2?>">
+                                                    <div class="playiconHold" style="opacity: 1;">
+                                                        <div class="diamond playicon" style="border-color: rgb(255,255,255);">
+                                                            <div class="iconimg diamondInner" style="background-image: url('<?php echo $img?>');">
+                                                                <span class="hdrfont centerpos themeIconText" style="color: rgb(255, 255, 255);"><?php echo $name?></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gpos">
+                                                        <a href="/<?php echo $tslug?>/<?php echo $oslug?>" class="block100 gpos themeBtnClick" mbaid="<?php echo $nr3?>" mbid="<?php echo $nr3?>" mtbid="<?php echo $nr2?>" mtid="<?php echo $nr?>"></a>
+                                                    </div>
+                                                </div>
+												<?php
+                                            }
+                                            ?>
+											</div>
+                                            <div style="clear:both;"></div>
+                                        </div>
+										<?php
+                                    }
+                                ?>
                             </div>
                         </div>
                         <div style="height:10%; position:relative;">
@@ -193,9 +305,7 @@ if(isset($uri_fragments[2])) {
                         <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
                     </div>
                     <div class="gpos">
-                        <a href="javascript:void(0)" class="block100" id="topPanelClose">
-                            <img src="/assets/img/trans.png" class="block100" />
-                        </a>
+                        <a href="javascript:void(0)" class="block100 gpos" id="topPanelClose"></a>
                     </div>
                 </div>
             </div>
@@ -267,9 +377,11 @@ if(isset($uri_fragments[2])) {
             </div>
             
             <!-- ///// nav button controls ///// -->
+            <!--
             <div style="position:absolute; top:0; left:0; width:100%; height:32px; background:rgba(0,0,0,0.2); text-align:left; opacity:0.2; display:none;" id="toolNav">
                 <div class="navclick toolBtn" mid="debug" style="margin-right:15px;"><i class="fa fa-cog"></i></div>
             </div>
+            -->
             <!-- /////////////////////////////// -->
             
             <div class="gpos" style="background:rgba(0,0,0,0.65); display:none;" id="colofonWrap">
@@ -299,104 +411,13 @@ if(isset($uri_fragments[2])) {
             
         </div>
         
+        <!--
         <div id="divTemplates" style="display:none;">
         
-            <!-- theme wrapper-->
-            <div class="gpos" id="themeHold">
-            
-                <div class="themeTextDiv">
-                    <div class="themeTextWrap">
-                        <div class="themeTextPlace feelFontSize">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="themeItemsDiv" id="themeItemsWrap">
-                    <div style="height:100%; width:100%; overflow:hidden;">
-                        <div style="height:100%; width:100%;">
-                            <div class="centerpos" style="left:16.5%; top:51%;" id="themeItemBtn">
-                                <div class="playiconHold">
-                                    <div class="diamond playicon" style="border-color:rgba(185,254,111,1);">
-                                        <div class="iconimg diamondInner" style="background-image:url('/assets/img/trans.png');">
-                                            <span class="hdrfont centerpos themeIconText"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gpos">
-                                    <a href="javascript:void(0)" class="block100 themeBtnClick">
-                                        <img src="/assets/img/trans.png" class="block100" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="clear:both;"></div>
-                
-            </div>
-            
-            <!-- tool btn -->                
             <div class="navclick toolBtn" mid="0" id="toolBtn"></div>
             
-            <!-- slide wrapper -->                
-            <div class="gpos sexion" id="sec0">
-            	<div class="gpos innerSexionWrap" style="overflow:hidden;">
-                	<div class="gpos bgimg posterimg"></div>
-                    <div class="centerpos slideContentWrap" style="color:rgba(255,255,255,0.2); display:none;"></div>
-                    
-                	<div class="centerpos">
-                    	<div class="playiconHold">
-                            <div class="diamond playicon">
-                                <div class="iconimg diamondInner">
-                                    <!--<img src="/assets/img/arrow_r.svg" class="centerpos" style="width:17%; height:17%; margin-top:-8%;" />-->
-                                    <i class="fa fa-angle-right centerpos controlArrow shade1" style="margin-top: -10%; margin-left: 5px; font-size: 70px;"></i>
-                                    <span class="hdrfont centerpos icontext">PLAY</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="centerpos" style="width:150%; height:150%;">
-                        	<a href="javascript:void(0)" class="gpos block100 vcontrol"></a>
-                        </div>
-                    </div>
-                    
-                    <div class="bottomPanelWrap" style="position:absolute; width:100%; height:36.5%; bottom:0px;">
-                        <div style="height:10%;">
-                        </div>
-                    	<div style="background:rgba(255,255,255,0.3); border-top:1px solid rgba(255,255,255,0.8); height:90%; position:relative;">
-                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden;">
-                            	<div style="position:absolute; bottom:0px;">
-                                    <canvas class="blurCanvas blur" style="width:100%; height:100%;"></canvas>
-                                </div>
-                            </div>
-                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.2);">
-                            </div>
-                        	<div class="bottomPanelContent">
-                            	<div class="bottomPanelImg">
-                                	<div class="bgimg infoimg" style="width:100%; height:100%; background-image:url('/assets/img/tmp/img7.jpg'); margin-top:-1px;">
-                                    </div>
-                                </div>
-                                <div class="infotext feelFontSize">
-                                	<h1>Hostie-ijzer</h1>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel felis magna. Curabitur vel imperdiet lorem. Etiam imperdiet quam urna, at imperdiet sem tincidunt et. Sed quis consectetur quam. Etiam ultricies malesuada tellus ut egestas. Suspendisse vitae erat a dolor facilisis imperdiet eget non ex.
-                                </div>
-                                <div style="clear:both;"></div>
-                                
-                                <div style="width:50px; height:50px; top:0px; right:0px; padding:10px; position:absolute;">
-                                    <img src="/assets/img/close.png" style="width:100%;" />
-                                    <div class="centerpos" style="width:150%; height:150%;">
-                                        <a href="javascript:void(0)" class="gpos block100 bottomPanelClose"></a>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
+        -->
         
         <div style="position:fixed; width:100%; height:100%; top:0px; left:0px; background:#000;" id="mainHider">
             <div class="centerpos">
@@ -406,9 +427,22 @@ if(isset($uri_fragments[2])) {
             </div>
         </div>
         
+        <!--
         <div style="position:fixed; width:30%; background:rgba(255,255,255,0.6); padding:20px; display:none;" id="showDebugInfo">
         </div>
-		<script src="/assets/dist/j.min.js"></script>
+        -->
         
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    
+        <script>
+			var jsonObjects = <?= $jsonObjects?>;
+        </script>
+        <script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="/assets/js/gsap/TweenMax.min.js"></script>
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/lib/underscore.js"></script>
+        <script src="/assets/js/lib/backbone.js"></script>
+        <script src="/assets/js/main.js"></script>
+
     </body>
 </html>
