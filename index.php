@@ -1,5 +1,5 @@
 <?php
-include '/bootstrap.php';
+include 'bootstrap.php';
 //shuffle($themes);
 $jsonObjects = json_encode($themes);
 //
@@ -433,7 +433,7 @@ if(isset($uri_fragments[2])) {
         -->
         
         <script>
-			var jsonObjects = <?php echo $jsonObjects?>;
+			var jsonObjects = <?=$jsonObjects?>;
         </script>
         <script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
         <script src="/assets/js/gsap/TweenMax.min.js"></script>

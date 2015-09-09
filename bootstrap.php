@@ -109,8 +109,8 @@ $themes = [];
 $theme_structure = file('themas/_order.txt');
 foreach($theme_structure as $key => $theme) {
 	$theme = trim($theme);
-	$theme_info = file_get_contents('themas/'.$theme.'/_info.txt');
-	$objects = getObject($theme);
+	$theme_info = utf8_encode(file_get_contents('themas/'.$theme.'/_info.txt'));
+	$objects = getObject(utf8_encode($theme));
 	$_theme = [
 		'name' => $theme,
 		'url_name' => url_slug($theme),
@@ -119,7 +119,6 @@ foreach($theme_structure as $key => $theme) {
 		'objects' => $objects
 	];
 	$themes[$key] = $_theme;
-	//print_r(json_encode($themes));
 }
 
 function getObject($theme) {
@@ -127,7 +126,7 @@ function getObject($theme) {
 	$objects = [];
 	foreach($objects_structure as $key => $object) {
 		$object = trim($object);
-		$object_info = file_get_contents('themas/'.$theme.'/'.$object.'/_info.txt');
+		$object_info = utf8_encode(file_get_contents('themas/'.$theme.'/'.$object.'/_info.txt'));
 		$_object = [
 			'name' => $object,
 			'url_name' => url_slug($object),
@@ -138,8 +137,8 @@ function getObject($theme) {
 			'video_sign-language' => '/themas/'.$theme.'/'.$object.'/video_sign-language.mp4',
 			'subs' => '/themas/'.$theme.'/'.$object.'/subs.srt',
 		];
-		$objects_structure[$key] = $_object;
+		$objects[$key] = $_object;
 	}
-	return $objects_structure;	
+	return $objects;	
 }
 ?>
