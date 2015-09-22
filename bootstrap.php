@@ -136,6 +136,7 @@ function getObject($theme) {
 			'video' => '/themas/'.$theme.'/'.$object.'/video.mp4',
 			'video_sign-language' => '/themas/'.$theme.'/'.$object.'/video_sign-language.mp4',
 			'subs' => '/themas/'.$theme.'/'.$object.'/subs.srt',
+			'subs_phone' => '/themas/'.$theme.'/'.$object.'/subs.vtt',
 		];
 		$objects[$key] = $_object;
 	}
