@@ -1,5 +1,5 @@
 <?php
-include '/bootstrap.php';
+include 'bootstrap.php';
 //shuffle($themes);
 $jsonObjects = json_encode($themes);
 //
