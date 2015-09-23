@@ -4,10 +4,7 @@ include 'bootstrap.php';
 $jsonObjects = json_encode($themes);
 //
 $uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
-//echo $uri_fragments[1];
-if(isset($uri_fragments[2])) {
-	//echo $uri_fragments[2];
-}
+$object_info = getObject($uri_fragments[1],$uri_fragments[2]);
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -44,12 +41,17 @@ if(isset($uri_fragments[2])) {
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
+        <meta property="og:title" content="<?=ucfirst($object_info['name']);?>"/>
+        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$object_info['img'];?>"/>
+        <meta property="og:site_name" content="De Wereld van Kentalis"/>
+        <meta property="og:description" content="<?=strip_tags(substr($object_info['info'],strpos($object_info['info'],'<p>')));?>"/>
+        <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$object_info['video'];?>"/>
         <!---->
         <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/assets/scss/front.scss" />
 
         <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
+        </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

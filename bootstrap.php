@@ -110,7 +110,7 @@ $theme_structure = file('themas/_order.txt');
 foreach($theme_structure as $key => $theme) {
 	$theme = trim($theme);
 	$theme_info = utf8_encode(file_get_contents('themas/'.$theme.'/_info.txt'));
-	$objects = getObject(utf8_encode($theme));
+	$objects = getObjects(utf8_encode($theme));
 	$_theme = [
 		'name' => $theme,
 		'url_name' => url_slug($theme),
@@ -121,25 +121,29 @@ foreach($theme_structure as $key => $theme) {
 	$themes[$key] = $_theme;
 }
 
-function getObject($theme) {
+function getObjects($theme) {
 	$objects_structure = file('themas/'.$theme.'/_order.txt');
 	$objects = [];
 	foreach($objects_structure as $key => $object) {
 		$object = trim($object);
-		$object_info = utf8_encode(file_get_contents('themas/'.$theme.'/'.$object.'/_info.txt'));
-		$_object = [
-			'name' => $object,
-			'url_name' => url_slug($object),
-			'info' => $object_info,
-			'poster' => '/themas/'.$theme.'/'.$object.'/poster.jpg',
-			'img' => '/themas/'.$theme.'/'.$object.'/img.jpg',
-			'video' => '/themas/'.$theme.'/'.$object.'/video.mp4',
-			'video_sign-language' => '/themas/'.$theme.'/'.$object.'/video_sign-language.mp4',
-			'subs' => '/themas/'.$theme.'/'.$object.'/subs.srt',
-			'subs_phone' => '/themas/'.$theme.'/'.$object.'/subs.vtt',
-		];
-		$objects[$key] = $_object;
+		$objects[$key] = getObject($theme, $object);
 	}
 	return $objects;	
+}
+
+function getObject($theme, $object) {
+	$object_info = utf8_encode(file_get_contents('themas/'.$theme.'/'.$object.'/_info.txt'));
+	$_object = [
+		'name' => $object,
+		'url_name' => url_slug($object),
+		'info' => $object_info,
+		'poster' => '/themas/'.$theme.'/'.$object.'/poster.jpg',
+		'img' => '/themas/'.$theme.'/'.$object.'/img.jpg',
+		'video' => '/themas/'.$theme.'/'.$object.'/video.mp4',
+		'video_sign-language' => '/themas/'.$theme.'/'.$object.'/video_sign-language.mp4',
+		'subs' => '/themas/'.$theme.'/'.$object.'/subs.srt',
+		'subs_phone' => '/themas/'.$theme.'/'.$object.'/subs.vtt',
+	];
+	return $_object;	
 }
 ?>
