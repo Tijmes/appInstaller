@@ -5,6 +5,32 @@ $jsonObjects = json_encode($themes);
 //
 $uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
 $object_info = getObject($uri_fragments[1],$uri_fragments[2]);
+//
+$uriTheme = "";
+if(isset($uri_fragments[1])){
+	$uriTheme = $uri_fragments[1];
+}
+$uriObject = "";
+if(isset($uri_fragments[2])){
+	$uriObject = $uri_fragments[2];
+}
+//
+$baseUrl = $_SERVER['HTTP_HOST'];
+$shareUrl = $baseUrl.'/'.$uriTheme.'/'.$uriObject;
+$mtitle = "De wereld van Kentalis";
+$url_FB = "http://www.facebook.com/sharer/sharer.php?u=".$shareUrl."&title=".$mtitle;
+$url_TW = "http://twitter.com/intent/tweet?status=".$mtitle."+".$shareUrl;
+$url_GP = "https://plus.google.com/share?url=".$shareUrl;
+//
+$browserSupported = true;
+$ua=getBrowser();
+$yourbrowser= "Your browser: " . $ua['name'] . " " . $ua['version'] . " on " .$ua['platform'] . " reports: <br >" . $ua['userAgent'];
+if($ua['name'] == 'Apple Safari' && $ua['platform'] == 'windows'){
+	$browserSupported = false;
+}
+if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
+	$browserSupported = false;
+}
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -12,9 +38,9 @@ $object_info = getObject($uri_fragments[1],$uri_fragments[2]);
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
     <head>
-        <meta charset="utf-8">go
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Kentalis</title>
+        <title>De wereld van Kentalis</title>
         <meta name="keywords" content="kentalis, doof, kind, ouders, slechthorend, doofblind, autisme, zorg, onderwijs, diagnostiek, onderzoek, spraak, taal, cluster 2, communicatie, behandeling">
         <meta name="description" content="Kentalis is er voor mensen met een taal- of spraakstoornis of die doof, slechthorend, autistisch of doofblind zijn. Wij helpen u verder met onderzoek, zorg en onderwijs.">
         <!---->
@@ -41,6 +67,7 @@ $object_info = getObject($uri_fragments[1],$uri_fragments[2]);
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
+        <!---->
         <meta property="og:title" content="<?=ucfirst($object_info['name']);?>"/>
         <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$object_info['img'];?>"/>
         <meta property="og:site_name" content="De Wereld van Kentalis"/>
@@ -51,11 +78,24 @@ $object_info = getObject($uri_fragments[1],$uri_fragments[2]);
 		<link rel="stylesheet" href="/assets/scss/front.scss" />
 
         <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
-        </head>
+	</head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        
+        <?
+		if(!$browserSupported){
+		?>
+        <div style="position:fixed; width:100%; height:100%; top:0px; left:0px; background:#000;">
+            <div class="centerpos" style="color:#fff; font-size:20px; max-width:600px; text-align:center;">
+                <img src="/assets/img/logo.png" width="149" height="75" /><br><br>
+                De browser die je gebruikt wordt niet ondersteund.<br>
+                Kijk hier voor een geschikte browser:<br>
+                <a href="http://browsehappy.com/" target="_blank">Surf Blij</a>
+            </div>
+        </div>
+        <?
+			exit;
+		}
+		?>
         
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
         <div id="container" class="centerpos" style="width:1600px; height:900px;">
@@ -70,7 +110,7 @@ $object_info = getObject($uri_fragments[1],$uri_fragments[2]);
                 <div style="position:absolute; bottom:7%; left:0px; width:100%;" id="progressLineWrap">
                     <div style="width:100%; padding:10px;">
                         <div style="width:100%; height:5px; background:rgba(185,254,111,0.1);">
-                            <div style="width:0%; height:100%; background:rgba(185,254,111,0.5);" id="progressLine">
+                            <div style="width:0%; height:100%; background:rgba(185,254,111,1);" id="progressLine">
                             </div>
                         </div>
                     </div>
@@ -99,7 +139,7 @@ $object_info = getObject($uri_fragments[1],$uri_fragments[2]);
                                 <div class="gpos sexion" id="sec<?php echo $nr?>" data-id="<?php echo $nr?>" data-slug="<?php echo $slug?>" data-tslug="<?php echo $tslug?>" data-poster="<?php echo $poster?>" data-img="<?php echo $img?>" data-theme="<?php echo $theme?>" data-video="<?php echo $video?>" data-videosign="<?php echo $video_sign?>" data-subs="<?php echo $subs?>">
                                     <div class="gpos innerSexionWrap" style="overflow:hidden;">
                                         <div class="gpos bgimg posterimg"></div>
-                                        <div class="centerpos">
+                                        <div class="centerpos" style="z-index:1000;">
                                             <div class="playiconHold" style="opacity: 1;">
                                                 <div class="diamond playicon">
                                                     <div class="iconimg diamondInner">
@@ -374,7 +414,7 @@ $object_info = getObject($uri_fragments[1],$uri_fragments[2]);
             <div id="shareBtnWrap">
                 <div style="position:relative;">
                     <img src="/assets/img/share_icon.png" width="39" />
-                    <a href="javascript:void(0)" class="block100 gpos" id="shareBtn"></a>
+                    <a href="javascript:void(0)" class="block100 gpos" id="sharingBtn"></a>
                 </div>
             </div>
             
@@ -401,6 +441,49 @@ $object_info = getObject($uri_fragments[1],$uri_fragments[2]);
                             <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
                             <div class="centerpos" style="width:250%; height:180%;">
                                 <a href="javascript:void(0)" class="block100 gpos" id="colofonClose"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gpos" style="background:rgba(0,0,0,0.65); display:none;" id="sharingWrap">
+                <div class="centerpos" style="width:75%; height:75%;">
+                    <div class="colofonTextPlace" id="sharingHold">
+                        <div class="centerpos">
+                        	<div id="shareTextWrap">
+                                <div class="hdrfont" id="shareTitle">
+                                    Delen
+                                </div>
+                                <div style="text-align:center; margin-top:10px; margin-bottom:10px;">
+                                    <div id="shareItemimg">
+                                        <img src="/assets/img/tmp/i1.jpg" id="shareImg" />
+                                    </div>
+                                    <div id="shareSpacer"></div>
+                                    <div id="shareItemTitle">
+                                        My beauty title
+                                    </div>
+                                </div>
+                                <div class="shareSetWrap">
+                                    <i class="fa fa-facebook-official" style="margin-right:10px; color:rgb(185,254,111);"></i> Facebook
+                                    <a href="<?php echo $url_FB?>" target="_blank" class="block100 gpos" id="sharing_FB"></a>
+                                </div>
+                                <div></div>
+                                <div class="shareSetWrap">
+                                    <i class="fa fa-twitter-square" style="margin-right:10px; color:rgb(185,254,111);"></i> Twitter
+                                    <a href="<?php echo $url_TW?>" target="_blank" class="block100 gpos" id="sharing_TW"></a>
+                                </div>
+                                <div></div>
+                                <div class="shareSetWrap">
+                                    <i class="fa fa-google-plus-square" style="margin-right:10px; color:rgb(185,254,111);"></i> Google+
+                                    <a href="<?php echo $url_GP?>" target="_blank" class="block100 gpos" id="sharing_GP"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="position:absolute; top:15px; right:20px; width:22px; height:25px; text-align:center;">
+                            <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
+                            <div class="centerpos" style="width:250%; height:180%;">
+                                <a href="javascript:void(0)" class="block100 gpos" id="sharingClose"></a>
                             </div>
                         </div>
                     </div>

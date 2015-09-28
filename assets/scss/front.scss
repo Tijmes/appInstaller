@@ -30,12 +30,13 @@ html {min-height:100%;}
 
 h1,h2,h3,h4,h5,h6{
 	margin: 0px; margin-bottom:2px;
-	font-weight: 500;
+	font-weight: normal;
 	color:rgba(185,254,111,1);
 	font-size:23px;
 }
 p{
 	margin:0;
+	font-weight: normal;
 }
 
 * {
@@ -70,7 +71,9 @@ a:active {
 }
 
 
-
+.shade1{
+	text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.8);
+}
 .hwa {
 	-webkit-transform: translate3d(0,0,0);
 	-moz-transform: translate3d(0,0,0);
@@ -371,7 +374,10 @@ a:active {
 	width:40%; height:100%; float:left; border-right:1px dotted rgba(0,0,0,0.025);
 }
 .themeTextWrap{
-	height:100%; padding-left:15%; text-align:left; display:table;
+	height:100%; padding-left:11%; text-align:left; display:table;
+}
+.themeTextWrapBigFont{
+	padding-left:10%; padding-right:1%;
 }
 .themeTextPlace{
 	display:table-cell; vertical-align:middle;
@@ -406,7 +412,7 @@ a:active {
 }
 #colofonHold{
 	position: absolute; width:100%; height:100%; padding:15px; padding-left:20px; text-align:left; 
-	background:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.7);
+	background:rgba(0,0,0,0.7); border:1px solid rgba(255,255,255,1);
 }
 #colofonText.bigFont{
 	font-size:25px;
@@ -465,13 +471,13 @@ themeNavClick{
 	overflow:hidden;
 }
 .infotext h2{
-	font-size: 30px;
+	font-size: 24px;
 }
 .infotext.bigFont{
 	font-size:29px;
 }
 .infotext.bigFont h2{
-	font-size:40px;
+	font-size:29px;
 }
 
 #shareIconsWrap{
@@ -487,9 +493,44 @@ themeNavClick{
 #shareBtnWrap{
 	position:absolute; bottom:0px; right:0px; padding-right:15px; padding-bottom:15px;
 }
-.shade1{
-	text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.8);
-}
 
+#shareTextWrap{
+	text-align:center; color:#fff; font-size: 20px;
+}
+#shareTitle{
+	margin-bottom:30px; font-size:30px;
+}
+#shareItemimg{
+	display: inline-block;
+    vertical-align: top;
+}
+#shareSpacer {
+	display:block;
+	height:5px;
+}
+#shareItemTitle{
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-left: 10px;	
+	font-size: 30px;
+}
+.shareSetWrap{
+	display: inline-block;
+	padding: 15px;
+	padding-bottom: 0;
+	width: 205px;
+	text-align: left;
+	position: relative;
+	font-size: 30px;
+}
+#shareImg{
+	height: 200px;
+	width: auto;
+}
+#sharingHold{
+	position: absolute; width:100%; height:100%; padding:15px; padding-left:20px; text-align:left; 
+	background:rgba(0,0,0,0.7); border:1px solid rgba(255,255,255,1);
+}
 
 /* /////////////////////////////////////////////////////////////// */

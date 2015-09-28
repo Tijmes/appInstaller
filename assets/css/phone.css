@@ -1,20 +1,20 @@
 /* /////////////////////////////////////////////////////////////// */
 @font-face {
   font-family: 'custom';
-  src: url('../fonts/fira/FiraSansOT.eot?#iefix') format('embedded-opentype'),  
-		url('../fonts/fira/FiraSansOT.otf')  format('opentype'),
-		url('../fonts/fira/FiraSansOT.woff') format('woff'), 
-		url('../fonts/fira/FiraSansOT.ttf')  format('truetype'), 
-		url('../fonts/fira/FiraSansOT.svg#FiraSansOT') format('svg');
+  src: url('/assets/fonts/fira/FiraSansOT.eot?#iefix') format('embedded-opentype'),  
+		url('/assets/fonts/fira/FiraSansOT.otf')  format('opentype'),
+		url('/assets/fonts/fira/FiraSansOT.woff') format('woff'), 
+		url('/assets/fonts/fira/FiraSansOT.ttf')  format('truetype'), 
+		url('/assets/fonts/fira/FiraSansOT.svg#FiraSansOT') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
 	font-family: 'hdr';
-	src: url('../fonts/basenineb/BaseNineB.eot?#iefix') format('embedded-opentype'),  
-	url('../fonts/basenineb/BaseNineB.woff') format('woff'), 
-	url('../fonts/basenineb/BaseNineB.ttf')  format('truetype'), 
-	url('../fonts/basenineb/BaseNineB.svg#BaseNineB') format('svg');
+	src: url('/assets/fonts/basenineb/BaseNineB.eot?#iefix') format('embedded-opentype'),  
+	url('/assets/fonts/basenineb/BaseNineB.woff') format('woff'), 
+	url('/assets/fonts/basenineb/BaseNineB.ttf')  format('truetype'), 
+	url('/assets/fonts/basenineb/BaseNineB.svg#BaseNineB') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
