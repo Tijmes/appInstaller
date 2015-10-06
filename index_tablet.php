@@ -4,7 +4,15 @@ include 'bootstrap.php';
 $jsonObjects = json_encode($themes);
 //
 $uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
-$object_info = getObject($uri_fragments[1],$uri_fragments[2]);
+$og['name'] = 'De wereld van Kentalis';
+$og['info'] = 'Kentalis is er voor mensen met een taal- of spraakstoornis of die doof, slechthorend, autistisch of doofblind zijn. Wij helpen u verder met onderzoek, zorg en onderwijs.';
+$og['img'] = '/assets/img/logo.png';
+$og['video'] = '';
+$uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
+
+if(count($uri_fragments) > 2) {
+    $og = getObject($uri_fragments[1],$uri_fragments[2]);
+}
 //
 $uriTheme = "";
 if(isset($uri_fragments[1])){
@@ -68,11 +76,13 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
         <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <!---->
-        <meta property="og:title" content="<?=ucfirst($object_info['name']);?>"/>
-        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$object_info['img'];?>"/>
+        <meta property="og:title" content="<?=ucfirst($og['name']);?>"/>
+        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['img'];?>"/>
         <meta property="og:site_name" content="De Wereld van Kentalis"/>
-        <meta property="og:description" content="<?=strip_tags(substr($object_info['info'],strpos($object_info['info'],'<p>')));?>"/>
-        <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$object_info['video'];?>"/>
+        <meta property="og:description" content="<?=strip_tags(substr($og['info'],strpos($og['info'],'<p>')));?>"/>
+        <?php if($og['video'] != "") { ?>
+        <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['video'];?>"/>
+        <?php } ?>
         <!---->
         <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/assets/scss/front.scss" />
