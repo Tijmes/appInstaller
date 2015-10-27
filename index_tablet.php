@@ -86,6 +86,10 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
         <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <!---->
+        <meta name="twitter:card" content="De Wereld van Kentalis" />
+        <meta name="twitter:site" content="@kentalis" />
+        <meta name="twitter:creator" content="@StudioLouter" />
+        <!---->
         <meta property="og:url" content="<?=$og_url?>"/>
         <meta property="og:title" content="<?=ucfirst($og['name']);?>"/>
         <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['poster'];?>"/>
@@ -152,12 +156,13 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
 								$slug = $themes_by_key[$i]['objects'][$i2]['url_name'];
 								$poster = $themes_by_key[$i]['objects'][$i2]['poster'];
 								$img = $themes_by_key[$i]['objects'][$i2]['img'];
+								$img_diamond = $themes_by_key[$i]['objects'][$i2]['img_diamond'];
 								$info = $themes_by_key[$i]['objects'][$i2]['info'];
 								$video = $themes_by_key[$i]['objects'][$i2]['video'];
 								$video_sign = $themes_by_key[$i]['objects'][$i2]['video_sign-language'];
 								$subs = $themes_by_key[$i]['objects'][$i2]['subs'];
 								?>
-                                <div class="gpos sexion" id="sec<?php echo $nr?>" data-id="<?php echo $nr?>" data-slug="<?php echo $slug?>" data-tslug="<?php echo $tslug?>" data-poster="<?php echo $poster?>" data-img="<?php echo $img?>" data-theme="<?php echo $theme?>" data-video="<?php echo $video?>" data-videosign="<?php echo $video_sign?>" data-subs="<?php echo $subs?>">
+                                <div class="gpos sexion" id="sec<?php echo $nr?>" data-id="<?php echo $nr?>" data-slug="<?php echo $slug?>" data-tslug="<?php echo $tslug?>" data-poster="<?php echo $poster?>" data-img="<?php echo $img?>" data-img_diamond="<?php echo $img_diamond?>" data-theme="<?php echo $theme?>" data-video="<?php echo $video?>" data-videosign="<?php echo $video_sign?>" data-subs="<?php echo $subs?>">
                                     <div class="gpos innerSexionWrap" style="overflow:hidden;">
                                         <div class="gpos bgimg posterimg"></div>
                                         <div class="centerpos" style="z-index:1000;">
@@ -461,7 +466,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                                 Deze website geeft een schets van de verhalen die samen Kentalis vormen. Kentalis, niet als organisatie,  maar als het geheel dat alle betrokken mensen samen maken: (voormalige) leerlingen, cliënten, ouders, medewerkers, samenwerkpartners...<br/>
                                 Verhalen van doorzetters, die ook in soms lastige omstandigheden hun weg hebben gevonden. Soms ontroerend, vrolijk, trots, mooi, soms ook verdrietig of moeilijk te begrijpen met ogen van nu.
                                 Veel dank aan alle mensen die bereid waren hun verhaal te vertellen.<br/><br/>
-                                Concept: Kentalis en Studio Louter<br/>
+                                Concept: <a href="http://www.kentalis.nl/" target="_blank">Kentalis</a> en <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/>
                                 Realisatie: <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/><br/>
                                 Voor nog meer oude foto’s van Kentalis kunt u onze <a href="https://instagram.com/kentalis_historie/" target="_blank">Instagram</a> bezoeken.<br/><br/>
                                 Op ons <a href="https://www.youtube.com/watch?v=gMqUcIczBpM&list=PL3sUyymNSl3JgeDPWM8pd7I5VFXpe3srs" target="_blank">Youtube-kanaal</a> vindt u het filmarchief van Kentalis met o.a. filmpjes uit de jaren 50.

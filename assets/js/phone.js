@@ -97,9 +97,9 @@ $('#logoClick').tap(function() {
 });
 //
 function shareOpen(){
-	TweenMax.set('#shareCloser', {opacity:1, x:0});
-	TweenMax.set('#shareTextWrap', {opacity:1, x:0});
-	TweenMax.set('#shareWrap', {opacity:1, 'display':'block'});
+	TweenMax.set('#shareCloser', {delay:0.1, opacity:1, x:0});
+	TweenMax.set('#shareTextWrap', {delay:0.1, opacity:1, x:0});
+	TweenMax.set('#shareWrap', {delay:0.1, opacity:1, 'display':'block'});
 	lv.allowScroll = 0;
 }
 function shareClose(){

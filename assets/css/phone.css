@@ -50,7 +50,7 @@ strong{
 
 a{
 	text-decoration:underline;
-	font-style: italic;
+	/*font-style: italic;*/
 }
 a:link {
 	color: rgb(185,254,111);
@@ -577,7 +577,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-align:center; margin-top:5%;
 }
 .menuBtnTxt{
-	font-size: 17px; color: #fff; padding: 8.5%; padding-bottom: 0px;
+	font-size: 17px; color: #fff; padding: 4.25%;
 	position:relative;	
 }
 .menuBtnTxt2{

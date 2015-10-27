@@ -49,6 +49,7 @@ function getObject($theme, $object) {
 		'info' => $object_info,
 		'poster' => '/themas/'.$theme.'/'.$object.'/poster.jpg',
 		'img' => '/themas/'.$theme.'/'.$object.'/img.jpg',
+		'img_diamond' => '/themas/'.$theme.'/'.$object.'/img_diamond.jpg',
 		'video' => '/themas/'.$theme.'/'.$object.'/video.mp4',
 		'video_sign-language' => '/themas/'.$theme.'/'.$object.'/video_sign-language.mp4',
 		'subs' => '/themas/'.$theme.'/'.$object.'/subs.srt',

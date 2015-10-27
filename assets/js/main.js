@@ -22,6 +22,12 @@ vid.onplaying  = function() {
 vid.onended = function() {
 	lv.vidplaying = 0;
 	resetPlayStates();
+	//
+	lv.mtarg = '.uiTextBtns, #shareBtnWrap';
+	TweenMax.to(lv.mtarg, 0.3, {'opacity':1, 'display':'block'});
+	lv.mtarg = '.controlArrow';
+	TweenMax.to(lv.mtarg, 0.3, {'opacity':1});
+	//
 };
 //
 function showVidLoading(){
@@ -740,8 +746,9 @@ function spawnSlide(who){
 	}
 	if ($(lv.mstarg+' .iconimg').css('background-image') == 'none') {
 		lv.mimg = $(lv.mstarg).attr('data-img');
+		lv.mimg2 = $(lv.mstarg).attr('data-img_diamond');
 		if(lv.mimg){
-			$(lv.mstarg+' .iconimg').css({'background-image':'url("'+lv.mimg+'")'});
+			$(lv.mstarg+' .iconimg').css({'background-image':'url("'+lv.mimg2+'")'});
 			$(lv.mstarg+' .infoimg').css({'background-image':'url("'+lv.mimg+'")'});
 		}
 	}
