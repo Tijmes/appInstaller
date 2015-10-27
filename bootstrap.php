@@ -1,26 +1,42 @@
 <?php
-$themes = [];
-$theme_structure = file('themas/_order.txt');
-foreach($theme_structure as $key => $theme) {
-	$theme = trim($theme);
-	$theme_info = utf8_encode(file_get_contents('themas/'.$theme.'/_info.txt'));
-	$objects = getObjects(utf8_encode($theme));
-	$_theme = [
-		'name' => $theme,
-		'url_name' => url_slug($theme),
-		'info' => $theme_info,
-		'bg' => '/themas/'.$theme.'/bg.jpg',
-		'objects' => $objects
-	];
-	$themes[$key] = $_theme;
+$themes_by_key = getThemes();
+$themes_by_slug = getThemes(false);
+function getThemes($by_key = true){
+	$theme_structure = file('themas/_order.txt');
+	foreach($theme_structure as $key => $theme) {
+		$theme = trim($theme);
+		$theme_info = utf8_encode(file_get_contents('themas/'.$theme.'/_info.txt'));
+		$objects = getObjects(utf8_encode($theme), $by_key);
+		$slug = url_slug($theme);
+		$_theme = [
+			'name' => $theme,
+			'url_name' => $slug ,
+			'info' => $theme_info,
+			'bg' => '/themas/'.$theme.'/bg.jpg',
+			'objects' => $objects
+		];
+		if($by_key) {
+			$themes[$key] = $_theme;
+		}
+		else {
+			$themes[$slug] = $_theme;
+		}
+	}
+	return $themes;
 }
 
-function getObjects($theme) {
+function getObjects($theme, $by_key = true) {
 	$objects_structure = file('themas/'.$theme.'/_order.txt');
 	$objects = [];
 	foreach($objects_structure as $key => $object) {
+		$slug = url_slug($object);
 		$object = trim($object);
-		$objects[$key] = getObject($theme, $object);
+		if($by_key) {
+			$objects[$key] = getObject($theme, $object);
+		}
+		else {
+			$objects[$slug] = getObject($theme, $object);
+		}
 	}
 	return $objects;	
 }
