@@ -13,8 +13,7 @@ $og_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"];
 if(count($uri_fragments) > 2) {
     $og = $themes_by_slug[$uri_fragments[1]]['objects'][$uri_fragments[2]];
 }
-/*$tst =  $themes_by_slug[$uri_fragments[1]]['objects'][$uri_fragments[2]];
-var_dump($tst);*/
+$og_sm_text = "Bekijk ook dit leuke filmpje '".$og['name']."' op dewereldvankentalis.nl";
 //
 $uriTheme = "";
 if(isset($uri_fragments[1])){
@@ -59,7 +58,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>De wereld van Kentalis</title>
-        <meta name="keywords" content="kentalis, doof, kind, ouders, slechthorend, doofblind, autisme, zorg, onderwijs, diagnostiek, onderzoek, spraak, taal, cluster 2, communicatie, behandeling">
+        <meta name="keywords" content="Doof,Kentalis.Koningshuis, Koninklijk,Gebarentaal, gebaren,Dovenonderwijs,lesmateriaal,Effatha,Instituut voor Doven,Henri Daniël Guyot,Sint Marie,Logopedie,Congres van Milaan,Doofblind,Audiologisch onderzoek,Tweede Wereldoorlog,Dovenshoah, dove Joden,Kalendersysteem,Verlof,Ambachtslessen,Kunst,Liplezen,Horen,Sint-Michielsgestel,Jan van Dijk,Martinus van Beek,Dena Upakara, Indonesië, Nederlands-Indië,TOS, taalstoornis,Dansles,Taalstrijd,Zuivere spreekmethode, zuiver spreken,Dovenpedagogiek">
         <meta name="description" content="Kentalis is er voor mensen met een taal- of spraakstoornis of die doof, slechthorend, autistisch of doofblind zijn. Wij helpen u verder met onderzoek, zorg en onderwijs.">
         <!---->
         <link rel="shortcut icon" href="favicon.ico">
@@ -94,7 +93,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
         <meta property="og:title" content="<?=ucfirst($og['name']);?>"/>
         <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['poster'];?>"/>
         <meta property="og:site_name" content="De Wereld van Kentalis"/>
-        <meta property="og:description" content="<?=strip_tags(substr($og['info'],strpos($og['info'],'<p>')));?>"/>
+        <meta property="og:description" content="<?=$og_sm_text?>"/>
         <?php if($og['video'] != "") { ?><!---->
         <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['video'];?>"/>
         <?php } ?><!---->
