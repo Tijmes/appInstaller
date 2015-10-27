@@ -136,6 +136,7 @@ $('.shareClick').tap(function() {
 	lv.url_LI = 'https://www.linkedin.com/shareArticle?url='+lv.furl+'&title='+lv.mtitle;
 	$('#sharing_LI').attr('href',lv.href);
 	//
+	//
 	shareOpen();
 });
 // 

@@ -1,10 +1,17 @@
 <?php
 include 'bootstrap.php';
-shuffle($themes);
-$jsonObjects = json_encode($themes);
+shuffle($themes_by_key);
+$jsonObjects = json_encode($themes_by_key);
 //
 $uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
-//var_dump($uri_fragments);
+$og['name'] = 'De wereld van Kentalis';
+$og['info'] = 'Kentalis is er voor mensen met een taal- of spraakstoornis of die doof, slechthorend, autistisch of doofblind zijn. Wij helpen u verder met onderzoek, zorg en onderwijs.';
+$og['img'] = '/assets/img/logo.png';
+$og['video'] = '';
+
+if(count($uri_fragments) > 2) {
+    $og = $themes_by_slug[$uri_fragments[1]]['objects'][$uri_fragments[2]];
+}
 //
 $uriTheme = "";
 if(isset($uri_fragments[1])){
@@ -16,6 +23,7 @@ if(isset($uri_fragments[2])){
 }
 //
 $baseUrl = $_SERVER['HTTP_HOST'];
+$shareUrl = "";
 if($uriObject === "" && $uriTheme != ""){
 	$shareUrl = $baseUrl.'/'.$uriTheme;
 }
@@ -68,6 +76,14 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
         <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <!---->
+        <meta property="og:title" content="<?=ucfirst($og['name']);?>"/>
+        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['img'];?>"/>
+        <meta property="og:site_name" content="De Wereld van Kentalis"/>
+        <meta property="og:description" content="<?=strip_tags(substr($og['info'],strpos($og['info'],'<p>')));?>"/>
+        <?php if($og['video'] != "") { ?>
+        <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['video'];?>"/>
+        <?php } ?>
+        <!---->
         <link rel="stylesheet" href="/assets/css/normalize.css">
         <link rel="stylesheet" href="/assets/css/main.css">
         <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
@@ -101,10 +117,10 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                     </p>
                 </div>
 				<?php
-                    for($i = 0; $i < count($themes); $i++){
-                        $theme = $themes[$i]['name'];
-                        $tslug = $themes[$i]['url_name'];
-						$info = $themes[$i]['info'];
+                    for($i = 0; $i < count($themes_by_key); $i++){
+                        $theme = $themes_by_key[$i]['name'];
+                        $tslug = $themes_by_key[$i]['url_name'];
+						$info = $themes_by_key[$i]['info'];
 						?>
                         <div class="textDiv" style="display:none;" id="text_<?php echo $tslug?>">
                             <?php echo $info?>
@@ -117,23 +133,23 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                     <?php
                         $nr = 0;
 						$nr2 = 0;
-                        for($i = 0; $i < count($themes); $i++){
+                        for($i = 0; $i < count($themes_by_key); $i++){
 							$nr2++;
-                            $theme = $themes[$i]['name'];
-                            $tslug = $themes[$i]['url_name'];
+                            $theme = $themes_by_key[$i]['name'];
+                            $tslug = $themes_by_key[$i]['url_name'];
                             $tclass = 'tclass_'.$tslug;
 							$nr3 = 0;
-                            for($i2 = 0; $i2 < count($themes[$i]['objects']); $i2++){
+                            for($i2 = 0; $i2 < count($themes_by_key[$i]['objects']); $i2++){
                                 $nr++;
 								$nr3++;
-                                $name = $themes[$i]['objects'][$i2]['name'];
-                                $slug = $themes[$i]['objects'][$i2]['url_name'];
-                                $poster = $themes[$i]['objects'][$i2]['poster'];
-                                $img = $themes[$i]['objects'][$i2]['img'];
-                                $info = $themes[$i]['objects'][$i2]['info'];
-                                $video = $themes[$i]['objects'][$i2]['video'];
-                                $video_sign = $themes[$i]['objects'][$i2]['video_sign-language'];
-                                $subs = $themes[$i]['objects'][$i2]['subs'];
+                                $name = $themes_by_key[$i]['objects'][$i2]['name'];
+                                $slug = $themes_by_key[$i]['objects'][$i2]['url_name'];
+                                $poster = $themes_by_key[$i]['objects'][$i2]['poster'];
+                                $img = $themes_by_key[$i]['objects'][$i2]['img'];
+                                $info = $themes_by_key[$i]['objects'][$i2]['info'];
+                                $video = $themes_by_key[$i]['objects'][$i2]['video'];
+                                $video_sign = $themes_by_key[$i]['objects'][$i2]['video_sign-language'];
+                                $subs = $themes_by_key[$i]['objects'][$i2]['subs'];
                                 ?>
                                 <div class="contentItemWrap <?php echo $tclass?>" data-object-slug="<?php echo $slug?>" id="itemDiv_<?php echo $nr?>">
                                     <div class="contentPosterWrap">
@@ -273,22 +289,6 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                         </a>
                     </div>
                 </div>
-                <!--
-            	<div class="shareSetWrap">
-                	<i class="fa fa-facebook-official" style="margin-right:10px;"></i> Facebook
-                    <a href="<?php echo $url_FB?>" target="_blank" class="block100 gpos" id="sharing_FB"></a>
-                </div>
-                <div></div>
-            	<div class="shareSetWrap">
-                	<i class="fa fa-twitter-square" style="margin-right:10px;"></i> Twitter
-                    <a href="<?php echo $url_TW?>" target="_blank" class="block100 gpos" id="sharing_TW"></a>
-                </div>
-                <div></div>
-            	<div class="shareSetWrap">
-                	<i class="fa fa-google-plus-square" style="margin-right:10px;"></i> Google+
-                    <a href="<?php echo $url_GP?>" target="_blank" class="block100 gpos" id="sharing_GP"></a>
-                </div>
-                -->
             </div>
         </div>
         
@@ -305,10 +305,10 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                     </div>
 					<?php
                         $nr = 0;
-                        for($i = 0; $i < count($themes); $i++){
+                        for($i = 0; $i < count($themes_by_key); $i++){
                             $nr++;
-                            $theme = $themes[$i]['name'];
-                            $tslug = $themes[$i]['url_name'];
+                            $theme = $themes_by_key[$i]['name'];
+                            $tslug = $themes_by_key[$i]['url_name'];
                             ?>
                             <div class="hdrfont menuBtnTxt" id="menubtn_<?php echo $nr?>" data-id="<?php echo $nr?>">
                                 <?php echo $theme?>
