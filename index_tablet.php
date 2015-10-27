@@ -25,10 +25,17 @@ if(isset($uri_fragments[2])){
 //
 $baseUrl = $_SERVER['HTTP_HOST'];
 $shareUrl = $baseUrl.'/'.$uriTheme.'/'.$uriObject;
+if($uriObject === "" && $uriTheme != ""){
+	$shareUrl = $baseUrl.'/'.$uriTheme;
+}
+if($uriTheme === ""){
+	$shareUrl = $baseUrl;
+}
 $mtitle = "De wereld van Kentalis";
 $url_FB = "http://www.facebook.com/sharer/sharer.php?u=".$shareUrl."&title=".$mtitle;
 $url_TW = "http://twitter.com/intent/tweet?status=".$mtitle."+".$shareUrl;
 $url_GP = "https://plus.google.com/share?url=".$shareUrl;
+$url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtitle;
 //
 $browserSupported = true;
 $ua=getBrowser();
@@ -92,7 +99,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
     <body>
         
         <?
-		if(!$browserSupported){
+		if($browserSupported === false){
 		?>
         <div style="position:fixed; width:100%; height:100%; top:0px; left:0px; background:#000;">
             <div class="centerpos" style="color:#fff; font-size:20px; max-width:600px; text-align:center;">
@@ -118,7 +125,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
             <div class="gpos" style="text-align:left;" id="vidOverlay">
                 <div class="cuecatch" id="subs"></div>
                 <div style="position:absolute; bottom:7%; left:0px; width:100%;" id="progressLineWrap">
-                    <div style="width:100%; padding:10px;">
+                    <div style="width:100%; padding:10px; padding-left:0; padding-right:0;">
                         <div style="width:100%; height:5px; background:rgba(185,254,111,0.1);">
                             <div style="width:0%; height:100%; background:rgba(185,254,111,1);" id="progressLine">
                             </div>
@@ -151,7 +158,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                                         <div class="gpos bgimg posterimg"></div>
                                         <div class="centerpos" style="z-index:1000;">
                                             <div class="playiconHold" style="opacity: 1;">
-                                                <div class="diamond playicon">
+                                                <div class="diamond playicon" style="border:4px solid rgb(185,254,111);">
                                                     <div class="iconimg diamondInner">
                                                         <i class="fa fa-angle-right centerpos controlArrow shade1" style="margin-top: -10%; margin-left: 5px; font-size: 70px; opacity: 1;"></i>
                                                         <span class="hdrfont centerpos icontext">PLAY</span>
@@ -163,7 +170,11 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                                             </div>
                                         </div>
                                         
-                                        <div class="bottomPanelWrap" style="position: absolute; width: 100%; height: 36.5%; bottom: 0px;">
+                                        <div class="hdrfont shade2 itemNameTitle" style="position:absolute; bottom:93px; width:100%; text-align:center; color:#fff; font-size:40px; text-transform: uppercase; z-index:1;">
+                                        	<?php echo $name?>
+                                        </div>
+                                        
+                                        <div class="bottomPanelWrap" style="position: absolute; width: 100%; height: 36.5%; bottom: 0px; z-index:2;">
                                             <div style="height:10%;">
                                             </div>
                                             <div style="background:rgba(255,255,255,0.3); border-top:1px solid rgba(255,255,255,0.8); height:90%; position:relative;">
@@ -213,21 +224,21 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
             <!-- ///// directonal button controls ///// -->
             <div class="movebtn" id="controlBtnMoveLeft">
                 <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerLeft">
-                    <div class="uiTextBtns feelFontSize" id="uiTextLeft">Vorig object</div>
+                    <div class="uiTextBtns feelFontSize" id="uiTextLeft">Vorige</div>
                     <i class="fa fa-angle-left centerpos controlArrow shade1"></i>
                     <a href="javascript:void(0)" class="centerpos" style="width:450%; height:50%;" id="clickMoveLeft"></a>
                 </div>
             </div>
             <div class="movebtn" id="controlBtnMoveRight">
                 <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerRight">
-                    <div class="uiTextBtns feelFontSize" id="uiTextRight">Volgend object</div>
+                    <div class="uiTextBtns feelFontSize" id="uiTextRight">Volgende</div>
                     <i class="fa fa-angle-right centerpos controlArrow shade1"></i>
                     <a href="javascript:void(0)" class="centerpos" style="width:500%; height:50%;" id="clickMoveRight"></a>
                 </div>
             </div>
             <div class="movebtn" id="controlBtnMoveUp">
                 <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerUp">
-                    <div class="uiTextBtns feelFontSize"  id="uiTextUp">Bekijk alle objecten</div>
+                    <div class="uiTextBtns feelFontSize"  id="uiTextUp">Bekijk alle films</div>
                     <i class="fa fa-angle-up centerpos controlArrow shade1"></i>
                     <a href="javascript:void(0)" class="centerpos" style="width:50%; height:180%;" id="clickMoveUp"></a>
                 </div>
@@ -356,13 +367,13 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                     <div style="height:50%; top:27%; padding:5px; position:relative; text-align:center;">
                         <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
                     </div>
-                    <div class="gpos">
+                    <div class="centerpos" style="width:25%; height:100%;">
                         <a href="javascript:void(0)" class="block100 gpos" id="topPanelClose"></a>
                     </div>
                 </div>
             </div>
             
-            <div class="uiTextHome" id="homeTextWrap">
+            <div class="uiTextHome" id="homeTextWrap" style="display:none;">
                 <div style="display:inline-block; max-width:600px;">
                     <span class="hdrfont" style="font-size:35px; text-transform:uppercase;">
                         Kentalis bestaat <span style="color: rgb(185,254,111);">225</span> jaar
@@ -436,18 +447,23 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
             -->
             <!-- /////////////////////////////// -->
             
-            <div class="gpos" style="background:rgba(0,0,0,0.65); display:none;" id="colofonWrap">
-                <div class="centerpos" style="width:75%; height:75%;">
+            <div class="gpos" style="background:rgba(0,0,0,0.45); display:none;" id="colofonWrap">
+                <div class="centerpos" style="width:44%; height:65%;">
                     <div class="colofonTextPlace" id="colofonHold">
-                        <div class="feelFontSize" style="position:relative;" id="colofonText">
+                        <div class="feelFontSizeX" style="position:relative;" id="colofonText">
                             <h1>Colofon</h1>
+                            <div style="height:20px;"></div>
                             <p>
-                                Collaboratively administrate empowered markets via plug-and-play networks.<br/>Dynamically procrastinate B2C users after installed base benefits.<br/>Dramatically visualize customer directed convergence without revolutionary ROI.<br/><br/>
-                                <b>Efficiently</b> unleash cross-media information without cross-media value.<br/>Quickly maximize timely deliverables for real-time schemas.<br/>Dramatically maintain clicks-and-mortar solutions without functional solutions.<br/><br/>
-                                Completely synergize <a href="#">resource</a> taxing relationships via premier niche markets.<br/>Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+                                Deze website geeft een schets van de verhalen die samen Kentalis vormen. Kentalis, niet als organisatie,  maar als het geheel dat alle betrokken mensen samen maken: (voormalige) leerlingen, cliënten, ouders, medewerkers, samenwerkpartners...<br/>
+                                Verhalen van doorzetters, die ook in soms lastige omstandigheden hun weg hebben gevonden. Soms ontroerend, vrolijk, trots, mooi, soms ook verdrietig of moeilijk te begrijpen met ogen van nu.
+                                Veel dank aan alle mensen die bereid waren hun verhaal te vertellen.<br/><br/>
+                                Concept: Kentalis en Studio Louter<br/>
+                                Realisatie: <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/><br/>
+                                Voor nog meer oude foto’s van Kentalis kunt u onze <a href="https://instagram.com/kentalis_historie/" target="_blank">Instagram</a> bezoeken.<br/><br/>
+                                Op ons <a href="https://www.youtube.com/watch?v=gMqUcIczBpM&list=PL3sUyymNSl3JgeDPWM8pd7I5VFXpe3srs" target="_blank">Youtube-kanaal</a> vindt u het filmarchief van Kentalis met o.a. filmpjes uit de jaren 50.
                             </p>
                         </div>
-                        <div style="position:absolute; top:15px; right:20px; width:22px; height:25px; text-align:center;">
+                        <div style="position:absolute; top:35px; right:35px; width:40px; height:40px; text-align:center;">
                             <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
                             <div class="centerpos" style="width:250%; height:180%;">
                                 <a href="javascript:void(0)" class="block100 gpos" id="colofonClose"></a>
@@ -457,40 +473,68 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                 </div>
             </div>
             
-            <div class="gpos" style="background:rgba(0,0,0,0.65); display:none;" id="sharingWrap">
-                <div class="centerpos" style="width:75%; height:75%;">
+            <div class="gpos" style="background:rgba(0,0,0,0.55); display:none;" id="sharingWrap">
+                <div class="centerpos" style="width:44%; height:72%;">
                     <div class="colofonTextPlace" id="sharingHold">
-                        <div class="centerpos">
-                        	<div id="shareTextWrap">
-                                <div class="hdrfont" id="shareTitle">
-                                    Delen
+                        <div class="feelFontSize" style="position:relative;" id="shareTextWrap">
+                            <h1 style="margin-left: -2px;">Delen</h1>
+                            <div id="shareItemTitle" style="margin-bottom:20px; margin-top:10px; font-size:22px;"></div>
+                            <div>
+                                <img src="/assets/img/trans.png" id="shareImg" style="width:100%; height:100%;" />
+                            </div>
+                            <div style="margin-top:20px; font-size:0; position:relative;">
+                            	<div style="display:inline-block; width:25%; text-align:center;">
+                                    <a href="<?php echo $url_FB?>" class="sharer" target="_blank" id="sharing_FB">
+                                        <img src="/assets/img/sb_facebook.png" style="width:77%;" />
+                                    </a>
                                 </div>
-                                <div style="text-align:center; margin-top:10px; margin-bottom:10px;">
-                                    <div id="shareItemimg">
-                                        <img src="/assets/img/tmp/i1.jpg" id="shareImg" />
-                                    </div>
-                                    <div id="shareSpacer"></div>
-                                    <div id="shareItemTitle">
-                                        My beauty title
-                                    </div>
+                            	<div style="display:inline-block; width:25%; text-align:center;">
+                                    <a href="<?php echo $url_TW?>" class="sharer" target="_blank" id="sharing_TW">
+                                        <img src="/assets/img/sb_twitter.png" style="width:77%;" />
+                                    </a>
                                 </div>
-                                <div class="shareSetWrap">
-                                    <i class="fa fa-facebook-official" style="margin-right:10px; color:rgb(185,254,111);"></i> Facebook
-                                    <a href="<?php echo $url_FB?>" target="_blank" class="block100 gpos" id="sharing_FB"></a>
+                            	<div style="display:inline-block; width:25%; text-align:center;">
+                                    <a href="<?php echo $url_GP?>" class="sharer" target="_blank" id="sharing_GP">
+                                        <img src="/assets/img/sb_google_plus.png" style="width:77%;" />
+                                    </a>
                                 </div>
-                                <div></div>
-                                <div class="shareSetWrap">
-                                    <i class="fa fa-twitter-square" style="margin-right:10px; color:rgb(185,254,111);"></i> Twitter
-                                    <a href="<?php echo $url_TW?>" target="_blank" class="block100 gpos" id="sharing_TW"></a>
-                                </div>
-                                <div></div>
-                                <div class="shareSetWrap">
-                                    <i class="fa fa-google-plus-square" style="margin-right:10px; color:rgb(185,254,111);"></i> Google+
-                                    <a href="<?php echo $url_GP?>" target="_blank" class="block100 gpos" id="sharing_GP"></a>
+                            	<div style="display:inline-block; width:25%; text-align:center;">
+                                    <a href="<?php echo $url_LI?>" class="sharer" target="_blank" id="sharing_LI">
+                                        <img src="/assets/img/sb_linkedin.png" style="width:77%;" />
+                                    </a>
                                 </div>
                             </div>
+                            <!--
+                            <div style="text-align:center; margin-top:10px; margin-bottom:10px;">
+                                <div id="shareItemimg">
+                                    <img src="/assets/img/tmp/i1.jpg" id="shareImg" />
+                                </div>
+                                <div id="shareSpacer"></div>
+                                <div id="shareItemTitle">
+                                    My beauty title
+                                </div>
+                            </div>
+                            <div class="shareSetWrap">
+                                <i class="fa fa-facebook-official" style="margin-right:10px; color:rgb(185,254,111);"></i> Facebook
+                                <a href="<?php echo $url_FB?>" target="_blank" class="block100 gpos" id="sharing_FB"></a>
+                            </div>
+                            <div></div>
+                            <div class="shareSetWrap">
+                                <i class="fa fa-twitter-square" style="margin-right:10px; color:rgb(185,254,111);"></i> Twitter
+                                <a href="<?php echo $url_TW?>" target="_blank" class="block100 gpos" id="sharing_TW"></a>
+                            </div>
+                            <div></div>
+                            <div class="shareSetWrap">
+                                <i class="fa fa-google-plus-square" style="margin-right:10px; color:rgb(185,254,111);"></i> Google+
+                                <a href="<?php echo $url_GP?>" target="_blank" class="block100 gpos" id="sharing_GP"></a>
+                            </div>
+                            <div class="shareSetWrap">
+                                <i class="fa fa-linkedin-square" style="margin-right:10px; color:rgb(185,254,111);"></i> LinkedIn
+                                <a href="<?php echo $url_LI?>" target="_blank" class="block100 gpos" id="sharing_LI"></a>
+                            </div>
+                            -->
                         </div>
-                        <div style="position:absolute; top:15px; right:20px; width:22px; height:25px; text-align:center;">
+                        <div style="position:absolute; top:35px; right:35px; width:40px; height:40px; text-align:center;">
                             <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
                             <div class="centerpos" style="width:250%; height:180%;">
                                 <a href="javascript:void(0)" class="block100 gpos" id="sharingClose"></a>
@@ -531,6 +575,8 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
     
         <script>
 			var jsonObjects = <?php echo $jsonObjects?>;
+			//console.log(jsonObjects);
+			var baseUrl = '<?php echo $baseUrl?>';
         </script>
         <script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
         <script src="/assets/js/gsap/TweenMax.min.js"></script>

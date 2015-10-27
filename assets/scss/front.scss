@@ -74,6 +74,9 @@ a:active {
 .shade1{
 	text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.8);
 }
+.shade2{
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+}
 .hwa {
 	-webkit-transform: translate3d(0,0,0);
 	-moz-transform: translate3d(0,0,0);
@@ -336,22 +339,22 @@ a:active {
 	text-align: center;
 }
 #uiTextLeft{
-	position:absolute; left: 80%; top: 45%; width: 200%;
+	position:absolute; left: 55%; top: 46%; width: 200%;
 }
 #uiTextLeft.bigFont{
 	font-size: 25px;
-	left: 45%;
-	top: 44%;
+	left: 20%;
+	top: 45%;
 	width: 300%;
 }
 #uiTextRight{
-	position: absolute; left: -205%; top: 45%;
+	position: absolute; left: -140%; top: 46%;
 }
 #uiTextRight.bigFont{
 	font-size: 25px;
 	width: 400%;
-	left: -320%;
-	top: 44%;
+	left: -280%;
+	top: 45%;
 }
 #uiTextUp{
 	position:absolute; top:94%; width:100%;
@@ -401,7 +404,7 @@ a:active {
 
 .colofonTextPlace{
 	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
-	color:#fff; font-size:22px;
+	color:#fff; font-size:19px;
 }
 .colofonTextPlace h1{
 	font-family: 'hdr', sans-serif;
@@ -411,8 +414,8 @@ a:active {
 	color:rgb(185,254,111); font-weight:normal;
 }
 #colofonHold{
-	position: absolute; width:100%; height:100%; padding:15px; padding-left:20px; text-align:left; 
-	background:rgba(0,0,0,0.7); border:1px solid rgba(255,255,255,1);
+	position: absolute; width:100%; height:100%; padding:35px; padding-left:70px; padding-right:60px; text-align:left; 
+	background:rgba(0,0,0,0.6); border:1px solid #fff; border-left:none; border-right:none;
 }
 #colofonText.bigFont{
 	font-size:25px;
@@ -495,7 +498,7 @@ themeNavClick{
 }
 
 #shareTextWrap{
-	text-align:center; color:#fff; font-size: 20px;
+	color:#fff; font-size: 20px;
 }
 #shareTitle{
 	margin-bottom:30px; font-size:30px;
@@ -509,11 +512,13 @@ themeNavClick{
 	height:5px;
 }
 #shareItemTitle{
-    display: inline-block;
+    /*
+	display: inline-block;
     vertical-align: top;
     text-align: left;
     margin-left: 10px;	
 	font-size: 30px;
+	*/
 }
 .shareSetWrap{
 	display: inline-block;
@@ -529,8 +534,8 @@ themeNavClick{
 	width: auto;
 }
 #sharingHold{
-	position: absolute; width:100%; height:100%; padding:15px; padding-left:20px; text-align:left; 
-	background:rgba(0,0,0,0.7); border:1px solid rgba(255,255,255,1);
+	position: absolute; width:100%; height:100%; padding:35px; padding-left:70px; padding-right:60px; text-align:left; 
+	background:rgba(0,0,0,0.6); border:1px solid #fff; border-left:none; border-right:none;
 }
 
 /* /////////////////////////////////////////////////////////////// */

@@ -120,7 +120,7 @@ $('.shareClick').tap(function() {
 	lv.mii = parseInt($(this).attr('data-item-id'))-1;
 	//console.log(lv.mt+' ('+lv.mti+') > '+lv.mi+' ('+lv.mii+')');
 	//
-	lv.myImg = lv.allData[lv.mti]['objects'][lv.mii]['img'];
+	lv.myImg = lv.allData[lv.mti]['objects'][lv.mii]['poster'];
 	lv.myTitle = lv.allData[lv.mti]['objects'][lv.mii]['name'];
 	$('#shareImg').attr('src',lv.myImg);
 	$('#shareItemTitle').html(lv.myTitle);
@@ -132,7 +132,9 @@ $('.shareClick').tap(function() {
 	lv.url_TW = "http://twitter.com/intent/tweet?status="+lv.mtitle+"+"+lv.furl;
 	$('#sharing_TW').attr('href',lv.url_TW);
 	lv.url_GP = "https://plus.google.com/share?url="+lv.furl;
-	$('#sharing_TW').attr('href',lv.url_GP);
+	$('#sharing_GP').attr('href',lv.url_GP);
+	lv.url_LI = 'https://www.linkedin.com/shareArticle?url='+lv.furl+'&title='+lv.mtitle;
+	$('#sharing_LI').attr('href',lv.href);
 	//
 	shareOpen();
 });

@@ -16,10 +16,17 @@ if(isset($uri_fragments[2])){
 }
 //
 $baseUrl = $_SERVER['HTTP_HOST'];
+if($uriObject === "" && $uriTheme != ""){
+	$shareUrl = $baseUrl.'/'.$uriTheme;
+}
+if($uriTheme === ""){
+	$shareUrl = $baseUrl;
+}
 $mtitle = "De wereld van Kentalis";
-$url_FB = "http://www.facebook.com/sharer/sharer.php?u=".$baseUrl."&title=".$mtitle;
-$url_TW = "http://twitter.com/intent/tweet?status=".$mtitle."+".$baseUrl;
-$url_GP = "https://plus.google.com/share?url=".$baseUrl;
+$url_FB = "http://www.facebook.com/sharer/sharer.php?u=".$shareUrl."&title=".$mtitle;
+$url_TW = "http://twitter.com/intent/tweet?status=".$mtitle."+".$shareUrl;
+$url_GP = "https://plus.google.com/share?url=".$shareUrl;
+$url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtitle;
 //
 ?>
 <!doctype html>
@@ -212,11 +219,15 @@ $url_GP = "https://plus.google.com/share?url=".$baseUrl;
                 </div>
             </div>
         	<div style="padding:24px; padding-top:0;" id="colofonTextWrap">
-                <h1>Colofon</h1>
+                <h1 class="hdrfont">Colofon</h1>
                 <p>
-                    Collaboratively administrate empowered markets via plug-and-play networks.<br/>Dynamically procrastinate B2C users after installed base benefits.<br/>Dramatically visualize customer directed convergence without revolutionary ROI.<br/><br/>
-                    <b>Efficiently</b> unleash cross-media information without cross-media value.<br/>Quickly maximize timely deliverables for real-time schemas.<br/>Dramatically maintain clicks-and-mortar solutions without functional solutions.<br/><br/>
-                    Completely synergize <a href="#">resource</a> taxing relationships via premier niche markets.<br/>Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+                    Deze website geeft een schets van de verhalen die samen Kentalis vormen. Kentalis, niet als organisatie,  maar als het geheel dat alle betrokken mensen samen maken: (voormalige) leerlingen, cliënten, ouders, medewerkers, samenwerkpartners<br/>
+                    Verhalen van doorzetters, die ook in soms lastige omstandigheden hun weg hebben gevonden. Soms ontroerend, vrolijk, trots, mooi, soms ook verdrietig of moeilijk te begrijpen met ogen van nu.
+                    Veel dank aan alle mensen die bereid waren hun verhaal te vertellen.<br/><br/>
+                    Concept: Kentalis en Studio Louter<br/>
+                    Realisatie: <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/><br/>
+                    Voor nog meer oude foto’s van Kentalis kunt u onze <a href="https://instagram.com/kentalis_historie/" target="_blank">Instagram</a> bezoeken.<br/><br/>
+                    Op ons <a href="https://www.youtube.com/watch?v=gMqUcIczBpM&list=PL3sUyymNSl3JgeDPWM8pd7I5VFXpe3srs" target="_blank">Youtube-kanaal</a> vindt u het filmarchief van Kentalis met o.a. filmpjes uit de jaren 50.
                 </p>
             </div>
         </div>
@@ -228,19 +239,41 @@ $url_GP = "https://plus.google.com/share?url=".$baseUrl;
                     <a href="javascript:void(0)" class="block100 gpos" id="shareClose"></a>
                 </div>
             </div>
-        	<div id="shareTextWrap">
-            	<div class="hdrfont" id="shareTitle">
+        	<div id="shareTextWrap" style="padding-left:20px; padding-right:20px; text-align:left;">
+            	<div class="hdrfont" id="shareTitle" style=" color:rgb(185,254,111); font-size:27px;">
                     Delen
                 </div>
-                <div style="text-align:center; margin-top:10px; margin-bottom:10px;">
-                	<div id="shareItemimg">
-                    	<img src="/assets/img/tmp/i1.jpg" id="shareImg" />
-                    </div>
-                    <div id="shareSpacer"></div>
-                	<div id="shareItemTitle">
+                <div style="margin-top:10px; margin-bottom:10px;">
+                	<div id="shareItemTitle" style="padding:0; margin:0;">
                     	My beauty title
                     </div>
+                    <div id="shareSpacer"></div>
+                    <img src="/assets/img/trans.png" id="shareImg" style="width:100%; height:100%;" />
                 </div>
+                
+                <div style="margin-top:20px; font-size:0; position:relative;">
+                    <div style="display:inline-block; width:25%; text-align:center;">
+                        <a href="<?php echo $url_FB?>" class="sharer" target="_blank" id="sharing_FB">
+                            <img src="/assets/img/sb_facebook.png" style="width:77%;" />
+                        </a>
+                    </div>
+                    <div style="display:inline-block; width:25%; text-align:center;">
+                        <a href="<?php echo $url_TW?>" class="sharer" target="_blank" id="sharing_TW">
+                            <img src="/assets/img/sb_twitter.png" style="width:77%;" />
+                        </a>
+                    </div>
+                    <div style="display:inline-block; width:25%; text-align:center;">
+                        <a href="<?php echo $url_GP?>" class="sharer" target="_blank" id="sharing_GP">
+                            <img src="/assets/img/sb_google_plus.png" style="width:77%;" />
+                        </a>
+                    </div>
+                    <div style="display:inline-block; width:25%; text-align:center;">
+                        <a href="<?php echo $url_LI?>" class="sharer" target="_blank" id="sharing_LI">
+                            <img src="/assets/img/sb_linkedin.png" style="width:77%;" />
+                        </a>
+                    </div>
+                </div>
+                <!--
             	<div class="shareSetWrap">
                 	<i class="fa fa-facebook-official" style="margin-right:10px;"></i> Facebook
                     <a href="<?php echo $url_FB?>" target="_blank" class="block100 gpos" id="sharing_FB"></a>
@@ -255,6 +288,7 @@ $url_GP = "https://plus.google.com/share?url=".$baseUrl;
                 	<i class="fa fa-google-plus-square" style="margin-right:10px;"></i> Google+
                     <a href="<?php echo $url_GP?>" target="_blank" class="block100 gpos" id="sharing_GP"></a>
                 </div>
+                -->
             </div>
         </div>
         
