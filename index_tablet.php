@@ -1,18 +1,20 @@
 <?php
 include 'bootstrap.php';
 //shuffle($themes);
-$jsonObjects = json_encode($themes);
+$jsonObjects = json_encode($themes_by_key);
 //
 $uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
 $og['name'] = 'De wereld van Kentalis';
 $og['info'] = 'Kentalis is er voor mensen met een taal- of spraakstoornis of die doof, slechthorend, autistisch of doofblind zijn. Wij helpen u verder met onderzoek, zorg en onderwijs.';
-$og['img'] = '/assets/img/logo.png';
+$og['poster'] = '/assets/img/logo_kentalis.jpg';
 $og['video'] = '';
-$uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
+$og_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"];
 
 if(count($uri_fragments) > 2) {
-    $og = getObject($uri_fragments[1],$uri_fragments[2]);
+    $og = $themes_by_slug[$uri_fragments[1]]['objects'][$uri_fragments[2]];
 }
+/*$tst =  $themes_by_slug[$uri_fragments[1]]['objects'][$uri_fragments[2]];
+var_dump($tst);*/
 //
 $uriTheme = "";
 if(isset($uri_fragments[1])){
@@ -46,6 +48,7 @@ if($ua['name'] == 'Apple Safari' && $ua['platform'] == 'windows'){
 if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
 	$browserSupported = false;
 }
+//
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -83,13 +86,14 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
         <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <!---->
+        <meta property="og:url" content="<?=$og_url?>"/>
         <meta property="og:title" content="<?=ucfirst($og['name']);?>"/>
-        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['img'];?>"/>
+        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['poster'];?>"/>
         <meta property="og:site_name" content="De Wereld van Kentalis"/>
         <meta property="og:description" content="<?=strip_tags(substr($og['info'],strpos($og['info'],'<p>')));?>"/>
-        <?php if($og['video'] != "") { ?>
+        <?php if($og['video'] != "") { ?><!---->
         <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['video'];?>"/>
-        <?php } ?>
+        <?php } ?><!---->
         <!---->
         <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/assets/scss/front.scss" />
@@ -98,7 +102,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
 	</head>
     <body>
         
-        <?
+        <?php
 		if($browserSupported === false){
 		?>
         <div style="position:fixed; width:100%; height:100%; top:0px; left:0px; background:#000;">
@@ -109,7 +113,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                 <a href="http://browsehappy.com/" target="_blank">Surf Blij</a>
             </div>
         </div>
-        <?
+        <?php
 			exit;
 		}
 		?>
@@ -139,19 +143,19 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
 
 					<?php
 						$nr = 0;
-						for($i = 0; $i < count($themes); $i++){
-							$theme = $themes[$i]['name'];
-							$tslug = $themes[$i]['url_name'];
-							for($i2 = 0; $i2 < count($themes[$i]['objects']); $i2++){
+						for($i = 0; $i < count($themes_by_key); $i++){
+							$theme = $themes_by_key[$i]['name'];
+							$tslug = $themes_by_key[$i]['url_name'];
+							for($i2 = 0; $i2 < count($themes_by_key[$i]['objects']); $i2++){
 								$nr++;
-								$name = $themes[$i]['objects'][$i2]['name'];
-								$slug = $themes[$i]['objects'][$i2]['url_name'];
-								$poster = $themes[$i]['objects'][$i2]['poster'];
-								$img = $themes[$i]['objects'][$i2]['img'];
-								$info = $themes[$i]['objects'][$i2]['info'];
-								$video = $themes[$i]['objects'][$i2]['video'];
-								$video_sign = $themes[$i]['objects'][$i2]['video_sign-language'];
-								$subs = $themes[$i]['objects'][$i2]['subs'];
+								$name = $themes_by_key[$i]['objects'][$i2]['name'];
+								$slug = $themes_by_key[$i]['objects'][$i2]['url_name'];
+								$poster = $themes_by_key[$i]['objects'][$i2]['poster'];
+								$img = $themes_by_key[$i]['objects'][$i2]['img'];
+								$info = $themes_by_key[$i]['objects'][$i2]['info'];
+								$video = $themes_by_key[$i]['objects'][$i2]['video'];
+								$video_sign = $themes_by_key[$i]['objects'][$i2]['video_sign-language'];
+								$subs = $themes_by_key[$i]['objects'][$i2]['subs'];
 								?>
                                 <div class="gpos sexion" id="sec<?php echo $nr?>" data-id="<?php echo $nr?>" data-slug="<?php echo $slug?>" data-tslug="<?php echo $tslug?>" data-poster="<?php echo $poster?>" data-img="<?php echo $img?>" data-theme="<?php echo $theme?>" data-video="<?php echo $video?>" data-videosign="<?php echo $video_sign?>" data-subs="<?php echo $subs?>">
                                     <div class="gpos innerSexionWrap" style="overflow:hidden;">
@@ -264,10 +268,10 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
 								<?php
                                     $nr = 0;
 									$nr3 = 0;
-                                    for($i = 0; $i < count($themes); $i++){
-                                        $theme = $themes[$i]['name'];
-										$tslug = $themes[$i]['url_name'];
-										$info = $themes[$i]['info'];
+                                    for($i = 0; $i < count($themes_by_key); $i++){
+                                        $theme = $themes_by_key[$i]['name'];
+										$tslug = $themes_by_key[$i]['url_name'];
+										$info = $themes_by_key[$i]['info'];
 										$nr++;
 										?>
 										<div class="gpos" id="themeHold_<?php echo $nr?>" data-theme-id="<?php echo $nr?>" data-theme-slug="<?php echo $tslug?>">
@@ -281,12 +285,12 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                                             <div class="themeItemsDiv" id="themeItemsWrap_<?php echo $nr?>">
 											<?php
                                             $nr2 = 0;
-                                            for($i2 = 0; $i2 < count($themes[$i]['objects']); $i2++){
+                                            for($i2 = 0; $i2 < count($themes_by_key[$i]['objects']); $i2++){
                                                 $nr2++;
 												$nr3++;
-                                                $name = $themes[$i]['objects'][$i2]['name'];
-												$oslug = $themes[$i]['objects'][$i2]['url_name'];
-                                                $img = $themes[$i]['objects'][$i2]['img'];
+                                                $name = $themes_by_key[$i]['objects'][$i2]['name'];
+												$oslug = $themes_by_key[$i]['objects'][$i2]['url_name'];
+                                                $img = $themes_by_key[$i]['objects'][$i2]['img'];
                                                 ?>
                                                 <div class="centerpos" style="left:16.5%; top:51%;" id="theme<?php echo $nr?>_itemBtn<?php echo $nr2?>" mbid="<?php echo $nr2?>">
                                                     <div class="playiconHold" style="opacity: 1;">

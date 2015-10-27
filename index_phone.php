@@ -1,13 +1,14 @@
 <?php
 include 'bootstrap.php';
-shuffle($themes_by_key);
+//shuffle($themes);
 $jsonObjects = json_encode($themes_by_key);
 //
 $uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
 $og['name'] = 'De wereld van Kentalis';
 $og['info'] = 'Kentalis is er voor mensen met een taal- of spraakstoornis of die doof, slechthorend, autistisch of doofblind zijn. Wij helpen u verder met onderzoek, zorg en onderwijs.';
-$og['img'] = '/assets/img/logo.png';
+$og['poster'] = '/assets/img/logo_kentalis.jpg';
 $og['video'] = '';
+$og_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"];
 
 if(count($uri_fragments) > 2) {
     $og = $themes_by_slug[$uri_fragments[1]]['objects'][$uri_fragments[2]];
@@ -23,7 +24,7 @@ if(isset($uri_fragments[2])){
 }
 //
 $baseUrl = $_SERVER['HTTP_HOST'];
-$shareUrl = "";
+$shareUrl = $baseUrl.'/'.$uriTheme.'/'.$uriObject;
 if($uriObject === "" && $uriTheme != ""){
 	$shareUrl = $baseUrl.'/'.$uriTheme;
 }
@@ -35,6 +36,7 @@ $url_FB = "http://www.facebook.com/sharer/sharer.php?u=".$shareUrl."&title=".$mt
 $url_TW = "http://twitter.com/intent/tweet?status=".$mtitle."+".$shareUrl;
 $url_GP = "https://plus.google.com/share?url=".$shareUrl;
 $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtitle;
+//
 //
 ?>
 <!doctype html>
@@ -48,13 +50,9 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
         <meta name="keywords" content="kentalis, doof, kind, ouders, slechthorend, doofblind, autisme, zorg, onderwijs, diagnostiek, onderzoek, spraak, taal, cluster 2, communicatie, behandeling">
         <meta name="description" content="Kentalis is er voor mensen met een taal- of spraakstoornis of die doof, slechthorend, autistisch of doofblind zijn. Wij helpen u verder met onderzoek, zorg en onderwijs.">
         <!---->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <meta name="apple-mobile-web-app-title" content="De wereld van Kentalis">
-        <link rel="apple-touch-startup-image" href="/assets/icon/apple-icon-76x76.png" />
-        <!---->
         <link rel="shortcut icon" href="favicon.ico">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="msapplication-tap-highlight" content="no" />
         <!---->
         <!---->
@@ -76,13 +74,14 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
         <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <!---->
+        <meta property="og:url" content="<?=$og_url?>"/>
         <meta property="og:title" content="<?=ucfirst($og['name']);?>"/>
-        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['img'];?>"/>
+        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['poster'];?>"/>
         <meta property="og:site_name" content="De Wereld van Kentalis"/>
         <meta property="og:description" content="<?=strip_tags(substr($og['info'],strpos($og['info'],'<p>')));?>"/>
-        <?php if($og['video'] != "") { ?>
+        <?php if($og['video'] != "") { ?><!---->
         <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['video'];?>"/>
-        <?php } ?>
+        <?php } ?><!---->
         <!---->
         <link rel="stylesheet" href="/assets/css/normalize.css">
         <link rel="stylesheet" href="/assets/css/main.css">
