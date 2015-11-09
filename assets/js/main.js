@@ -680,7 +680,7 @@ function populateSlides(){
 }
 populateSlides();
 //
-//
+////
 TweenMax.set('#secWrap', {x:'-0%', y:'-0%'});
 lv.navspeed = 1;
 lv.navdelay = 0;
