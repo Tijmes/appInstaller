@@ -8,6 +8,7 @@ TweenMax.set('.diamond', {rotation:45});
 TweenMax.set('.diamondInner', {rotation:-45});
 //
 lv.allData = jsonObjects;
+lv.objectsCustomOrder = jsonObjectsCustomOrder;
 //
 lv.themesTotal = getObjLength(lv.allData);
 lv.themesNames = [];
@@ -120,8 +121,8 @@ $('.shareClick').tap(function() {
 	lv.mii = parseInt($(this).attr('data-item-id'))-1;
 	//console.log(lv.mt+' ('+lv.mti+') > '+lv.mi+' ('+lv.mii+')');
 	//
-	lv.myImg = lv.allData[lv.mti]['objects'][lv.mii]['poster'];
-	lv.myTitle = lv.allData[lv.mti]['objects'][lv.mii]['name'];
+	lv.myImg = lv.objectsCustomOrder[lv.mii].poster;
+	lv.myTitle = lv.objectsCustomOrder[lv.mii].name;
 	$('#shareImg').attr('src',lv.myImg);
 	$('#shareItemTitle').html(lv.myTitle);
 	//
@@ -249,11 +250,11 @@ function setVidSrc(){
 		$('#play1').html('');
 	}else{
 		lv.vsrc = 'video';
-		lv.mySubs = lv.allData[lv.vidThemeCur]['objects'][lv.vidIdCur]['subs_phone'];
+		lv.mySubs = lv.objectsCustomOrder[lv.vidIdCur]['subs_phone'];
 		$('#play1').html('<track label="Nederlands" kind="subtitles" srclang="nl" src="'+lv.mySubs+'" default>');
 	}
 	//console.dir(lv.objectsData);
-	lv.myVid = lv.allData[lv.vidThemeCur]['objects'][lv.vidIdCur][lv.vsrc];
+	lv.myVid = lv.objectsCustomOrder[lv.vidIdCur][lv.vsrc];
 	vid.pause();
 	vid.setAttribute("src", lv.myVid);
 	vid.load();
@@ -316,7 +317,7 @@ $( window ).scroll(function() {
 	lv.a = lv.posAr.indexOf(lv.cdiv);
 	//if(lv.nrAr[lv.a] != 1){
 		lv.anrpos = lv.nrAr[lv.a];
-		console.log('dees: '+lv.anrpos);
+		//console.log('dees: '+lv.anrpos);
 	//}
 });
 //
@@ -324,7 +325,7 @@ TweenMax.set('#menuWrap', {y:'-100%'});
 $(window).resize(function(){
 	lv.ospy = $('#orientationSpy').css('display');
 	if(lv.ospy != lv.lastSpy){
-		console.log('orientation changed');
+		//console.log('orientation changed');
 		setInfoHeight();
 		$('.contentLessWrap').css({'display':'none', opacity:0});
 		$('.contentMoreWrap').css({'display':'block', opacity:1});

@@ -1,7 +1,7 @@
 <?php
 include 'bootstrap.php';
-//shuffle($themes);
 $jsonObjects = json_encode($themes_by_key);
+$jsonObjectsCustomOrder = json_encode($myCustomOrder);
 //
 $uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
 $og['name'] = 'De wereld van Kentalis';
@@ -39,6 +39,7 @@ $url_GP = "https://plus.google.com/share?url=".$shareUrl;
 $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtitle;
 //
 $browserSupported = true;
+
 $ua=getBrowser();
 $yourbrowser= "Your browser: " . $ua['name'] . " " . $ua['version'] . " on " .$ua['platform'] . " reports: <br >" . $ua['userAgent'];
 if($ua['name'] == 'Apple Safari' && $ua['platform'] == 'windows'){
@@ -47,6 +48,7 @@ if($ua['name'] == 'Apple Safari' && $ua['platform'] == 'windows'){
 if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
 	$browserSupported = false;
 }
+
 //
 ?>
 <!doctype html>
@@ -99,12 +101,11 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
         <?php } ?><!---->
         <!---->
         <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/assets/scss/front.scss" />
+		<link rel="stylesheet" href="/assets/scss/front.css" />
 
         <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 	</head>
     <body>
-        
         <?php
 		if($browserSupported === false){
 		?>
@@ -145,22 +146,22 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                 <div class="gpos" id="secWrap">
 
 					<?php
+					//
 						$nr = 0;
-						for($i = 0; $i < count($themes_by_key); $i++){
-							$theme = $themes_by_key[$i]['name'];
-							$tslug = $themes_by_key[$i]['url_name'];
-							for($i2 = 0; $i2 < count($themes_by_key[$i]['objects']); $i2++){
-								$nr++;
-								$name = $themes_by_key[$i]['objects'][$i2]['name'];
-								$slug = $themes_by_key[$i]['objects'][$i2]['url_name'];
-								$poster = $themes_by_key[$i]['objects'][$i2]['poster'];
-								$img = $themes_by_key[$i]['objects'][$i2]['img'];
-								$img_diamond = $themes_by_key[$i]['objects'][$i2]['img_diamond'];
-								$info = $themes_by_key[$i]['objects'][$i2]['info'];
-								$video = $themes_by_key[$i]['objects'][$i2]['video'];
-								$video_sign = $themes_by_key[$i]['objects'][$i2]['video_sign-language'];
-								$subs = $themes_by_key[$i]['objects'][$i2]['subs'];
-								?>
+						for($i = 0; $i < count($myCustomOrder); $i++){
+							$nr++;
+							$theme = $myCustomOrder[$i]['theme'];
+							$tslug = $myCustomOrder[$i]['url_theme'];
+							$name = $myCustomOrder[$i]['name'];
+							$slug = $myCustomOrder[$i]['url_name'];
+							$poster = $myCustomOrder[$i]['poster'];
+							$img = $myCustomOrder[$i]['img'];
+							$img_diamond = $myCustomOrder[$i]['img_diamond'];
+							$info = $myCustomOrder[$i]['info'];
+							$video = $myCustomOrder[$i]['video'];
+							$video_sign = $myCustomOrder[$i]['video_sign-language'];
+							$subs = $myCustomOrder[$i]['subs'];
+							?>
                                 <div class="gpos sexion" id="sec<?php echo $nr?>" data-id="<?php echo $nr?>" data-slug="<?php echo $slug?>" data-tslug="<?php echo $tslug?>" data-poster="<?php echo $poster?>" data-img="<?php echo $img?>" data-img_diamond="<?php echo $img_diamond?>" data-theme="<?php echo $theme?>" data-video="<?php echo $video?>" data-videosign="<?php echo $video_sign?>" data-subs="<?php echo $subs?>">
                                     <div class="gpos innerSexionWrap" style="overflow:hidden;">
                                         <div class="gpos bgimg posterimg"></div>
@@ -216,8 +217,8 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                                     </div>
                                 </div> 
                                 <?php
-							}
 						}
+                    //
 					?>
 
                 </div>
@@ -246,7 +247,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
             </div>
             <div class="movebtn" id="controlBtnMoveUp">
                 <div style="position:absolute; width:100%; height:100%;" id="controlBtnMoveInnerUp">
-                    <div class="uiTextBtns feelFontSize"  id="uiTextUp">Bekijk alle films</div>
+                    <div class="uiTextBtns feelFontSize"  id="uiTextUp">Overzicht alle films</div>
                     <i class="fa fa-angle-up centerpos controlArrow shade1"></i>
                     <a href="javascript:void(0)" class="centerpos" style="width:50%; height:180%;" id="clickMoveUp"></a>
                 </div>
@@ -305,7 +306,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                                                         </div>
                                                     </div>
                                                     <div class="gpos">
-                                                        <a href="/<?php echo $tslug?>/<?php echo $oslug?>" class="block100 gpos themeBtnClick" mbaid="<?php echo $nr3?>" mbid="<?php echo $nr3?>" mtbid="<?php echo $nr2?>" mtid="<?php echo $nr?>"></a>
+                                                        <a href="/<?php echo $tslug?>/<?php echo $oslug?>" class="block100 gpos themeBtnClick" moid="<?php echo $oslug?>" mbaid="<?php echo $nr3?>" mbid="<?php echo $nr3?>" mtbid="<?php echo $nr2?>" mtid="<?php echo $nr?>"></a>
                                                     </div>
                                                 </div>
 												<?php
@@ -405,7 +406,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                 </div>
                 <div style="display:inline-block; margin-right:18px;">
                     <div style="display:inline-block;">
-                        Gebarentaal 
+                        NGT 
                     </div>
                     <div style="display:inline-block; position:relative;">
                         &nbsp;aan 
@@ -446,14 +447,6 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                     <a href="javascript:void(0)" class="block100 gpos" id="sharingBtn"></a>
                 </div>
             </div>
-            
-            <!-- ///// nav button controls ///// -->
-            <!--
-            <div style="position:absolute; top:0; left:0; width:100%; height:32px; background:rgba(0,0,0,0.2); text-align:left; opacity:0.2; display:none;" id="toolNav">
-                <div class="navclick toolBtn" mid="debug" style="margin-right:15px;"><i class="fa fa-cog"></i></div>
-            </div>
-            -->
-            <!-- /////////////////////////////// -->
             
             <div class="gpos" style="background:rgba(0,0,0,0.45); display:none;" id="colofonWrap">
                 <div class="centerpos" style="width:44%; height:65%;">
@@ -512,35 +505,6 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                                     </a>
                                 </div>
                             </div>
-                            <!--
-                            <div style="text-align:center; margin-top:10px; margin-bottom:10px;">
-                                <div id="shareItemimg">
-                                    <img src="/assets/img/tmp/i1.jpg" id="shareImg" />
-                                </div>
-                                <div id="shareSpacer"></div>
-                                <div id="shareItemTitle">
-                                    My beauty title
-                                </div>
-                            </div>
-                            <div class="shareSetWrap">
-                                <i class="fa fa-facebook-official" style="margin-right:10px; color:rgb(185,254,111);"></i> Facebook
-                                <a href="<?php echo $url_FB?>" target="_blank" class="block100 gpos" id="sharing_FB"></a>
-                            </div>
-                            <div></div>
-                            <div class="shareSetWrap">
-                                <i class="fa fa-twitter-square" style="margin-right:10px; color:rgb(185,254,111);"></i> Twitter
-                                <a href="<?php echo $url_TW?>" target="_blank" class="block100 gpos" id="sharing_TW"></a>
-                            </div>
-                            <div></div>
-                            <div class="shareSetWrap">
-                                <i class="fa fa-google-plus-square" style="margin-right:10px; color:rgb(185,254,111);"></i> Google+
-                                <a href="<?php echo $url_GP?>" target="_blank" class="block100 gpos" id="sharing_GP"></a>
-                            </div>
-                            <div class="shareSetWrap">
-                                <i class="fa fa-linkedin-square" style="margin-right:10px; color:rgb(185,254,111);"></i> LinkedIn
-                                <a href="<?php echo $url_LI?>" target="_blank" class="block100 gpos" id="sharing_LI"></a>
-                            </div>
-                            -->
                         </div>
                         <div style="position:absolute; top:35px; right:35px; width:40px; height:40px; text-align:center;">
                             <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />
@@ -558,14 +522,6 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
             
         </div>
         
-        <!--
-        <div id="divTemplates" style="display:none;">
-        
-            <div class="navclick toolBtn" mid="0" id="toolBtn"></div>
-            
-        </div>
-        -->
-        
         <div style="position:fixed; width:100%; height:100%; top:0px; left:0px; background:#000;" id="mainHider">
             <div class="centerpos">
                 <div class="centerpos" style="width:68px; height:68px;">
@@ -574,16 +530,11 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
             </div>
         </div>
         
-        <!--
-        <div style="position:fixed; width:30%; background:rgba(255,255,255,0.6); padding:20px; display:none;" id="showDebugInfo">
-        </div>
-        -->
-        
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     
         <script>
 			var jsonObjects = <?php echo $jsonObjects?>;
-			//console.log(jsonObjects);
+			var jsonObjectsCustomOrder = <?php echo $jsonObjectsCustomOrder?>;
 			var baseUrl = '<?php echo $baseUrl?>';
         </script>
         <script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>

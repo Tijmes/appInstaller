@@ -1,7 +1,7 @@
 <?php
 include 'bootstrap.php';
-//shuffle($themes);
 $jsonObjects = json_encode($themes_by_key);
+$jsonObjectsCustomOrder = json_encode($myCustomOrder);
 //
 $uri_fragments = explode("/",$_SERVER["REQUEST_URI"]);
 $og['name'] = 'De wereld van Kentalis';
@@ -10,7 +10,7 @@ $og['poster'] = '/assets/img/logo_kentalis.jpg';
 $og['video'] = '';
 $og_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"];
 
-if(count($uri_fragments) > 2) {
+if(isset($uri_fragments[2]) && $uri_fragments[2] !== "") {
     $og = $themes_by_slug[$uri_fragments[1]]['objects'][$uri_fragments[2]];
 }
 $og_sm_text = "Bekijk ook dit leuke filmpje '".$og['name']."' op dewereldvankentalis.nl";
@@ -134,7 +134,83 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                 ?>
                 
                 <div id="contentWrap">
-                    <?php
+                    <!--myCustomOrder-->
+					
+					<?php
+                        $nr = 0;
+						$nr2 = 0;
+						$nr3 = 0;
+                        for($i = 0; $i < count($myCustomOrder); $i++){
+							$nr2++;
+                            $theme = $myCustomOrder[$i]['theme'];
+							$themeNr = $myCustomOrder[$i]['themeNr'];
+                            $tslug = $myCustomOrder[$i]['url_theme'];
+                            $tclass = 'tclass_'.$tslug;
+                                $nr++;
+								$nr3++;
+                                $name = $myCustomOrder[$i]['name'];
+                                $slug = $myCustomOrder[$i]['url_name'];
+                                $poster = $myCustomOrder[$i]['poster'];
+                                $img = $myCustomOrder[$i]['img'];
+                                $info = $myCustomOrder[$i]['info'];
+                                $video = $myCustomOrder[$i]['video'];
+                                $video_sign = $myCustomOrder[$i]['video_sign-language'];
+                                $subs = $myCustomOrder[$i]['subs'];
+                                ?>
+                                <div class="contentItemWrap <?php echo $tclass?>" data-object-slug="<?php echo $slug?>" id="itemDiv_<?php echo $nr?>">
+                                    <div class="contentPosterWrap">
+                                        <img src="<?php echo $poster?>" class="cimg" />
+                                        <div class="gpos">
+                                            <div class="centerpos tacenter">
+                                                <i class="fa fa-angle-right controlArrow shade1 iconPlay"></i>
+                                                <div style="height:3px;"></div>
+                                                <span class="hdrfont icontext playText">PLAY</span>
+                                            </div>
+                                            <a href="javascript:void(0)" class="gpos block100 vcontrol" data-theme-id="<?php echo $themeNr?>" data-vid="<?php echo $nr?>"></a>
+                                            <div id="shareBtnWrap">
+                                            	<img src="/assets/img/share_icon.png" style="width:100%;" />
+                                                <a href="javascript:void(0)" class="gpos block100 shareClick" data-theme-name="<?php echo $tslug?>" data-item-name="<?php echo $slug?>" data-theme-id="<?php echo $nr2?>" data-item-id="<?php echo $nr?>"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contentInfoWrap" id="ciw_<?php echo $nr?>">
+                                        <div class="contentInfoImg">
+                                            <div class="centerpos">
+                                                <div class="playiconHold" style="opacity: 1;">
+                                                    <div class="diamond playicon">
+                                                        <div class="iconimg diamondInner" style="background-image: url('<?php echo $img?>');"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="centerpos" style="width:150%; height:150%;">
+                                                    <a href="javascript:void(0)" class="gpos block100 vcontrol">
+                                                        <img src="/assets/img/trans.png" class="gpos block100" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="contentInfoTxt">
+                                            <div class="infoTxt">
+                                                <?php echo $info?>
+                                            </div>
+                                        </div>
+                                        <a href="javascript:void(0)" class="gpos block100 icontrol" data-nr="<?php echo $nr?>">
+                                        	<img src="/assets/img/trans.png" class="gpos block100" />
+                                        </a>
+                                    </div>
+                                    <div class="contentMoreWrap">
+                                        <i class="fa fa-angle-down infoArrow"></i>
+                                    </div>
+                                    <div class="contentLessWrap">
+                                        <i class="fa fa-angle-up infoArrow"></i>
+                                    </div>
+                                </div>
+                                <div id="spacer_verti_content"></div>
+                                <?php
+                        }
+                    ?>
+                    
+					<?php
+					/*
                         $nr = 0;
 						$nr2 = 0;
                         for($i = 0; $i < count($themes_by_key); $i++){
@@ -206,7 +282,11 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                                 <?php
                             }
                         }
-                    ?>
+                    */
+					?>
+                    
+                    
+                    
                     <div style="height:70px;"></div>
             
                     <div id="vidWrap">
@@ -323,7 +403,7 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                     ?>
                 	<div class="hdrfont menuBtnTxt menuBtnTxt2" id="menubtn_colofon">
                         <div style="display:inline-block;">
-                            Gebarentaal 
+                            NGT 
                         </div>
                         <div style="display:inline-block; position:relative;">
                             &nbsp;aan 
@@ -348,6 +428,7 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
         <script>
 			var jsonObjects = <?php echo $jsonObjects?>;
+			var jsonObjectsCustomOrder = <?php echo $jsonObjectsCustomOrder?>;
 			var uri_theme = '<?php echo $uriTheme?>';
 			var uri_object = '<?php echo $uriObject?>';
 			var baseUrl = '<?php echo $baseUrl?>';

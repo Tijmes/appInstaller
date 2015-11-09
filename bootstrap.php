@@ -41,9 +41,25 @@ function getObjects($theme, $by_key = true) {
 	return $objects;	
 }
 
+function getThemesOnly(){
+	$theme_structure = file('themas/_order.txt');
+	$themes_array = array();
+	foreach($theme_structure as $key => $theme) {
+		$theme = trim($theme);
+		array_push($themes_array, $theme);
+	}
+	return $themes_array;
+}
+$mThemes = getThemesOnly();
+//var_dump($mThemes);
+
 function getObject($theme, $object) {
+	$mThemes = getThemesOnly();
 	$object_info = utf8_encode(file_get_contents('themas/'.$theme.'/'.$object.'/_info.txt'));
 	$_object = [
+		'theme' => $theme, // nodig voor custom order
+		'url_theme' => url_slug($theme), // nodig voor custom order
+		'themeNr' => (array_search($theme, $mThemes)+1), // nodig voor custom order
 		'name' => $object,
 		'url_name' => url_slug($object),
 		'info' => $object_info,
@@ -57,6 +73,49 @@ function getObject($theme, $object) {
 	];
 	return $_object;	
 }
+
+/*******************************************************************************/
+
+function getCustomOrder(){
+	$customOrder = file('themas/_orderCustom.txt');
+	$objects = [];
+	foreach($customOrder as $key => $themeAndObject) {
+		$themeAndObject = trim($themeAndObject);
+		$pieces = explode("/", $themeAndObject);
+		$cTheme = $pieces[0];
+		$cObj = $pieces[1];
+		$cObjInfo = getObject($cTheme, $cObj);
+		array_push($objects, $cObjInfo);
+	}
+	return $objects;	
+}
+$cOrder = getCustomOrder(); // vooraf opgestelde volgorde van objects (door content afdeling)
+$cTotal = count($cOrder);
+$cRand = rand(0, $cTotal-1);
+$detachedPart = array_splice($cOrder, $cRand);
+$myCustomOrder = array_merge($detachedPart,$cOrder); // binnen de vooraf opgestelde volgorde een willekeurig startpunt
+//var_dump($myCustomOrder);
+
+/*
+
+function getObjectsList() {
+	global $mThemes;
+	$mObjects = array();
+	for($i =0 ; $i < count($mThemes); $i++){
+		$objects_structure = file('themas/'.$mThemes[$i].'/_order.txt');
+		foreach($objects_structure as $key => $object) {
+			$object = trim($object);
+			array_push($mObjects, getObject($mThemes[$i], $object));
+		}
+	}
+	return $mObjects;
+}
+$allObjects = getObjectsList();
+shuffle($allObjects);
+//var_dump($allObjects);
+*/
+
+/*******************************************************************************/
 
 // Slugify
 function url_slug($str, $options = array()) {
@@ -168,6 +227,8 @@ function url_slug($str, $options = array()) {
 function getBrowser() 
 { 
     $u_agent = $_SERVER['HTTP_USER_AGENT']; 
+	//var_dump($u_agent);
+	$ub = 'Unknown';
     $bname = 'Unknown';
     $platform = 'Unknown';
     $version= "";
@@ -224,6 +285,8 @@ function getBrowser()
     }
     
     // see how many we have
+	if($ub !== 'Unknown'){
+	}
     $i = count($matches['browser']);
     if ($i != 1) {
         //we will have two since we are not using 'other' argument yet
@@ -250,5 +313,6 @@ function getBrowser()
         'pattern'    => $pattern
     );
 } 
+
 
 ?>
