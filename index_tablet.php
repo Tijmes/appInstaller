@@ -38,8 +38,10 @@ $url_TW = "http://twitter.com/intent/tweet?status=".$mtitle."+".$shareUrl;
 $url_GP = "https://plus.google.com/share?url=".$shareUrl;
 $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtitle;
 //
+$ogposter = str_replace(' ', '%20', $og['poster']);
+$ogvideo = str_replace(' ', '%20', $og['video']);
+//
 $browserSupported = true;
-
 $ua=getBrowser();
 $yourbrowser= "Your browser: " . $ua['name'] . " " . $ua['version'] . " on " .$ua['platform'] . " reports: <br >" . $ua['userAgent'];
 if($ua['name'] == 'Apple Safari' && $ua['platform'] == 'windows'){
@@ -48,7 +50,6 @@ if($ua['name'] == 'Apple Safari' && $ua['platform'] == 'windows'){
 if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
 	$browserSupported = false;
 }
-
 //
 ?>
 <!doctype html>
@@ -93,11 +94,11 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
         <!---->
         <meta property="og:url" content="<?=$og_url?>"/>
         <meta property="og:title" content="<?=ucfirst($og['name']);?>"/>
-        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['poster'];?>"/>
+        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$ogposter;?>"/>
         <meta property="og:site_name" content="De Wereld van Kentalis"/>
         <meta property="og:description" content="<?=$og_sm_text?>"/>
         <?php if($og['video'] != "") { ?><!---->
-        <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['video'];?>"/>
+        <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$ogvideo;?>"/>
         <?php } ?><!---->
         <!---->
         <link rel="stylesheet" href="/assets/css/font-awesome.min.css">

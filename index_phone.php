@@ -15,6 +15,9 @@ if(isset($uri_fragments[2]) && $uri_fragments[2] !== "") {
 }
 $og_sm_text = "Bekijk ook dit leuke filmpje '".$og['name']."' op dewereldvankentalis.nl";
 //
+$ogposter = str_replace(' ', '%20', $og['poster']);
+$ogvideo = str_replace(' ', '%20', $og['video']);
+//
 $uriTheme = "";
 if(isset($uri_fragments[1])){
 	$uriTheme = $uri_fragments[1];
@@ -81,11 +84,11 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
         <!---->
         <meta property="og:url" content="<?=$og_url?>"/>
         <meta property="og:title" content="<?=ucfirst($og['name']);?>"/>
-        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['poster'];?>"/>
+        <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$ogposter;?>"/>
         <meta property="og:site_name" content="De Wereld van Kentalis"/>
         <meta property="og:description" content="<?=$og_sm_text?>"/>
         <?php if($og['video'] != "") { ?><!---->
-        <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$og['video'];?>"/>
+        <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$ogvideo;?>"/>
         <?php } ?><!---->
         <!---->
         <link rel="stylesheet" href="/assets/css/normalize.css">
