@@ -1220,7 +1220,7 @@ $('#colofonClose').on('click', function(){
 });
 //
 function setSharing(){
-	lv.shareUrl = baseUrl+'/'+lv.objectsCustomOrder[lv.sectionCur-1]['url_name']+'/'+lv.objectsCustomOrder[lv.sectionCur-1]['url_name'];
+	lv.shareUrl = baseUrl+'/'+lv.objectsCustomOrder[lv.sectionCur-1]['url_theme']+'/'+lv.objectsCustomOrder[lv.sectionCur-1]['url_name']+'/';
 	lv.shareTitle = lv.objectsCustomOrder[lv.sectionCur-1]['name'];
 	console.log('theme cur: '+lv.themeCur+' | item cur: '+lv.itemCur, lv.shareUrl, lv.shareTitle);
 	//
