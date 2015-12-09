@@ -78,7 +78,7 @@ function colofonOpen(){
 	TweenMax.set('#colofonCloser', {opacity:1, x:0});
 	TweenMax.set('#colofonTextWrap', {opacity:1, x:0});
 	TweenMax.set('#colofonWrap', {opacity:1, 'display':'block'});
-	lv.allowScroll = 0;
+	lv.allowScroll = 1;
 }
 function colofonClose(){
 	TweenMax.to('#colofonCloser', 0.4, {opacity:0, x:-10, ease:Power3.easeInOut});

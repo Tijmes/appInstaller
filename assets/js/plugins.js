@@ -4387,7 +4387,7 @@ License: MIT
        * options variable
        */
       start: function( event, options ){
-        options.innerContainer.style.display = "inline";
+        options.innerContainer.style.display = "inline-block";
         options.showSubtitle( options, options.text );
       },
       /**

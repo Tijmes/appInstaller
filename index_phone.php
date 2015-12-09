@@ -115,12 +115,22 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
         
         <div id="scrollDiv">
             <div id="mainDiv">
+                <!--
                 <div id="homeDiv">
                     <span class="hdrfont hdrhome">
                         Kentalis bestaat <span class="uclr">225</span> jaar
                     </span>
                     <p>
                         Tijdens haar lange geschiedenis heeft de instelling alles in het werk gesteld om doven te leren communiceren.
+                    </p>
+                </div>
+                -->
+                <div id="homeDiv">
+                    <span class="hdrfont hdrhome">
+                        De wereld van Kentalis
+                    </span>
+                    <p>
+                        225 jaar historie verteld aan de hand van voorwerpen en de ervaringen van mensen. Bekijk de filmpjes en stap in de wereld van Kentalis.
                     </p>
                 </div>
 				<?php
@@ -321,17 +331,23 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                     <a href="javascript:void(0)" class="block100 gpos" id="colofonClose"></a>
                 </div>
             </div>
-        	<div style="padding:24px; padding-top:0;" id="colofonTextWrap">
+        	<div style="padding:24px; padding-top:0; height: 85%; overflow: scroll;" id="colofonTextWrap">
                 <h1 class="hdrfont">Colofon</h1>
-                <p>
-                    Deze website geeft een schets van de verhalen die samen Kentalis vormen. Kentalis, niet als organisatie,  maar als het geheel dat alle betrokken mensen samen maken: (voormalige) leerlingen, cliënten, ouders, medewerkers, samenwerkpartners<br/>
-                    Verhalen van doorzetters, die ook in soms lastige omstandigheden hun weg hebben gevonden. Soms ontroerend, vrolijk, trots, mooi, soms ook verdrietig of moeilijk te begrijpen met ogen van nu.
-                    Veel dank aan alle mensen die bereid waren hun verhaal te vertellen.<br/><br/>
-                    Concept: <a href="http://www.kentalis.nl/" target="_blank">Kentalis</a> en <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/>
-                    Realisatie: <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/><br/>
-                    Voor nog meer oude foto’s van Kentalis kunt u onze <a href="https://instagram.com/kentalis_historie/" target="_blank">Instagram</a> bezoeken.<br/><br/>
-                    Op ons <a href="https://www.youtube.com/watch?v=gMqUcIczBpM&list=PL3sUyymNSl3JgeDPWM8pd7I5VFXpe3srs" target="_blank">Youtube-kanaal</a> vindt u het filmarchief van Kentalis met o.a. filmpjes uit de jaren 50.
-                </p>
+                <div id="colofonScroll">
+                    <p>
+                        Deze website geeft een schets van de verhalen die samen de wereld van Kentalis vormen. Kentalis, niet als organisatie, maar als het geheel dat alle betrokken mensen samen maken: (voormalige) leerlingen, cliënten, ouders, medewerkers, en partnerorganisaties.<br/><br/>
+                        Verhalen van doorzetters, die ook in soms lastige omstandigheden hun weg hebben gevonden. Soms ontroerend, vrolijk, trots, mooi, soms ook verdrietig of moeilijk te begrijpen door de ogen van nu.<br/><br/>
+                        Concept: <a href="http://www.kentalis.nl/" target="_blank">Kentalis</a> en <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/>
+                        Realisatie: <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/><br/>
+                        <span class="inlineHdr"><b>Meer informatie</b></span><br/>
+                        <span class="inlineChapter">Museum voor Dovenonderwijs</span><br/>
+                        In de historische kapel van het voormalige doveninstituut in Sint-Michielsgestel is het Museum voor Dovenonderwijs gevestigd.  Voor meer informatie kunt u mailen naar museumdovenonderwijs [apenstaart] kentalis [punt] nl<br/><br/>
+                        <span class="inlineChapter">App met stadswandeling</span><br/>
+                        Via een  speciale app kunt u virtueel een stadswandeling maken door het centrum van Groningen, langs historische locaties uit het leven van Henri Daniel Guyot, de oprichter van het instituut voor doven 'Guyot'. <a href="http://apps.appmachine.com/4197IA" target="_blank">Download de app</a>.<br/><br/>
+                        <span class="inlineChapter">Beeldarchief</span><br/>
+                        Voor nog meer oude foto’s van Kentalis kunt u onze <a href="https://www.flickr.com/photos/kentalis" target="_blank">Flickr account</a> bezoeken. Op ons <a href="https://www.youtube.com/playlist?list=PL3sUyymNSl3JgeDPWM8pd7I5VFXpe3srs" target="_blank">YouTube-kanaal</a> vindt u het filmarchief van Kentalis met o.a. filmpjes uit de jaren 50.
+                    </p>
+                </div>
             </div>
         </div>
 
