@@ -831,19 +831,43 @@ function frameUpdate(event) {
 }
 //
 //
+
 lv.limitLDef = 0;
 lv.limitRDef = -(lv.secTotalPerc-100);  
 lv.limitL = lv.limitLDef;
 lv.limitR = lv.limitRDef;
 lv.limitT = 0;
 lv.limitD = -200;
-lv.lockPanDir = 0;	
+lv.lockPanDir = 0;
+//
+document.addEventListener('touchmove', function(event) {
+     event.preventDefault();
+}, false);	
+$("#miscroll").on('touchstart', function(e) {
+        this.allowUp = (this.scrollTop > 0);
+        this.allowDown = (this.scrollTop < this.scrollHeight - this.clientHeight);
+        this.prevTop = null;
+        this.prevBot = null;
+        this.lastY = e.originalEvent.pageY;
+    }).on('touchmove', function(e) {
+        var event = e.originalEvent;
+        var up = (event.pageY > this.lastY), down = !up;
+        this.lastY = event.pageY;
+
+        if ((up && this.allowUp) || (down && this.allowDown))
+            event.stopPropagation();
+        else
+            event.preventDefault();
+    });
 //
 var myElement = document.getElementById('container');
 var mc = new Hammer(myElement);
-mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mc.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
 //
 mc.on("panleft panright panup pandown", function(ev) {
+	if(lv.colofonOpen == 1){
+		return;
+	}
 	lv.pandir = ev.type;
 	//
 	if(lv.pandir == 'panleft' || lv.pandir == 'panright'){
@@ -854,6 +878,9 @@ mc.on("panleft panright panup pandown", function(ev) {
 	}
 });
 mc.on("panstart", function(ev) {
+	if(lv.colofonOpen == 1){
+		return;
+	}
 	//
 	if(lv.topPanelOpen == 1){
 		// themes
@@ -877,6 +904,9 @@ mc.on("panstart", function(ev) {
 	closeShare();
 });
 mc.on("pan", function(ev) {
+	if(lv.colofonOpen == 1){
+		return;
+	}
 	//
 	if(lv.topPanelOpen == 1){
 		if(lv.lockPanDir == 1){
@@ -934,6 +964,9 @@ mc.on("pan", function(ev) {
 	//
 });	
 mc.on("panend", function(ev) {
+	if(lv.colofonOpen == 1){
+		return;
+	}
 	//
 	if(lv.topPanelOpen == 1){
 		//
@@ -1208,6 +1241,8 @@ $('#colofonBtn').on('click', function(){
 	if(lv.colofonOpen == 1){
 		return;
 	}
+	bottomPanelClose();
+	topPanelClose();
 	lv.colofonOpen = 1;
 	TweenMax.fromTo('#colofonWrap', 0.5, {'display':'none','opacity':0}, {'display':'block','opacity':1, ease:Power3.easeInOut});
 	TweenMax.fromTo('#colofonHold', 0.5, {scale:1.2, 'opacity':0}, {delay:0.1, scale:1, 'opacity':1, ease:Power3.easeInOut});

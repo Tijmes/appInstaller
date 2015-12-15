@@ -101,8 +101,8 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
         <meta property="og:video" content="http://<?=$_SERVER['HTTP_HOST'];?><?=$ogvideo;?>"/>
         <?php } ?><!---->
         <!---->
-        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/assets/scss/front.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="/assets/scss/front.css" />
 
         <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 	</head>
@@ -432,7 +432,7 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                     </div>
                 </div>
                 <div style="display:inline-block; position:relative;">
-                    Colofon 
+                    Meer info
                     <a href="javascript:void(0)" class="block100 gpos" id="colofonBtn"></a>
                 </div>
             </div>
@@ -463,21 +463,22 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                 <div class="centerpos" style="width:44%; height:65%;">
                     <div class="colofonTextPlace" id="colofonHold">
                         <div class="feelFontSizeX" style="position:relative;" id="colofonText">
-                            <h1>Colofon</h1>
+                            <h1>Meer informatie</h1>
                             <div style="height:20px;"></div>
-                            <p style="overflow-y: scroll; height: 437px; margin-right: -15px; padding-right: 5px;">
-                            	Deze website geeft een schets van de verhalen die samen de wereld van Kentalis vormen. Kentalis, niet als organisatie, maar als het geheel dat alle betrokken mensen samen maken: (voormalige) leerlingen, cliënten, ouders, medewerkers, en partnerorganisaties.<br/><br/>
+                            <div id="miscroll" style="overflow-y: scroll; -webkit-overflow-scrolling: touch; height: 435px; margin-right: -15px; padding-right: 5px; position:absolute;">
+                            	<p>
+                                Deze website geeft een schets van de verhalen die samen de wereld van Kentalis vormen. Kentalis, niet als organisatie, maar als het geheel dat alle betrokken mensen samen maken: (voormalige) leerlingen, cliënten, ouders, medewerkers, en partnerorganisaties.<br/><br/>
                                 Verhalen van doorzetters, die ook in soms lastige omstandigheden hun weg hebben gevonden. Soms ontroerend, vrolijk, trots, mooi, soms ook verdrietig of moeilijk te begrijpen door de ogen van nu.<br/><br/>
                                 Concept: <a href="http://www.kentalis.nl/" target="_blank">Kentalis</a> en <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/>
                                 Realisatie: <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/><br/>
-                                <span class="inlineHdr"><b>Meer informatie</b></span><br/>
                                 <span class="inlineChapter">Museum voor Dovenonderwijs</span><br/>
                                 In de historische kapel van het voormalige doveninstituut in Sint-Michielsgestel is het Museum voor Dovenonderwijs gevestigd.  Voor meer informatie kunt u mailen naar museumdovenonderwijs [apenstaart] kentalis [punt] nl<br/><br/>
                                 <span class="inlineChapter">App met stadswandeling</span><br/>
                                 Via een  speciale app kunt u virtueel een stadswandeling maken door het centrum van Groningen, langs historische locaties uit het leven van Henri Daniel Guyot, de oprichter van het instituut voor doven 'Guyot'. <a href="http://apps.appmachine.com/4197IA" target="_blank">Download de app</a>.<br/><br/>
                                 <span class="inlineChapter">Beeldarchief</span><br/>
                                 Voor nog meer oude foto’s van Kentalis kunt u onze <a href="https://www.flickr.com/photos/kentalis" target="_blank">Flickr account</a> bezoeken. Op ons <a href="https://www.youtube.com/playlist?list=PL3sUyymNSl3JgeDPWM8pd7I5VFXpe3srs" target="_blank">YouTube-kanaal</a> vindt u het filmarchief van Kentalis met o.a. filmpjes uit de jaren 50.
-                            </p>
+                                </p>
+                            </div>
                         </div>
                         <div style="position:absolute; top:35px; right:35px; width:40px; height:40px; text-align:center;">
                             <img src="/assets/img/close.png" style="height:100%; display:inline-block;" />

@@ -332,14 +332,13 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                 </div>
             </div>
         	<div style="padding:24px; padding-top:0; height: 85%; overflow: scroll;" id="colofonTextWrap">
-                <h1 class="hdrfont">Colofon</h1>
+                <h1 class="hdrfont">Meer informatie</h1>
                 <div id="colofonScroll">
                     <p>
                         Deze website geeft een schets van de verhalen die samen de wereld van Kentalis vormen. Kentalis, niet als organisatie, maar als het geheel dat alle betrokken mensen samen maken: (voormalige) leerlingen, cliënten, ouders, medewerkers, en partnerorganisaties.<br/><br/>
                         Verhalen van doorzetters, die ook in soms lastige omstandigheden hun weg hebben gevonden. Soms ontroerend, vrolijk, trots, mooi, soms ook verdrietig of moeilijk te begrijpen door de ogen van nu.<br/><br/>
                         Concept: <a href="http://www.kentalis.nl/" target="_blank">Kentalis</a> en <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/>
                         Realisatie: <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/><br/>
-                        <span class="inlineHdr"><b>Meer informatie</b></span><br/>
                         <span class="inlineChapter">Museum voor Dovenonderwijs</span><br/>
                         In de historische kapel van het voormalige doveninstituut in Sint-Michielsgestel is het Museum voor Dovenonderwijs gevestigd.  Voor meer informatie kunt u mailen naar museumdovenonderwijs [apenstaart] kentalis [punt] nl<br/><br/>
                         <span class="inlineChapter">App met stadswandeling</span><br/>
@@ -437,7 +436,7 @@ $url_LI = "https://www.linkedin.com/shareArticle?url=".$shareUrl."&title=".$mtit
                         </div>
                     </div>
                 	<div class="hdrfont menuBtnTxt menuBtnTxt2" id="menubtn_colofon">
-                    	Colofon
+                    	Meer info
                         <a href="javascript:void(0)" class="block100 gpos" data-menu-slug="colofon" id="colofonBtn"></a>
                     </div>
                 </div>
