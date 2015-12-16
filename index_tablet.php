@@ -469,8 +469,8 @@ if($ua['name'] == 'Internet Explorer' && $ua['version'] < 9){
                             	<p>
                                 Deze website geeft een schets van de verhalen die samen de wereld van Kentalis vormen. Kentalis, niet als organisatie, maar als het geheel dat alle betrokken mensen samen maken: (voormalige) leerlingen, cliënten, ouders, medewerkers, en partnerorganisaties.<br/><br/>
                                 Verhalen van doorzetters, die ook in soms lastige omstandigheden hun weg hebben gevonden. Soms ontroerend, vrolijk, trots, mooi, soms ook verdrietig of moeilijk te begrijpen door de ogen van nu.<br/><br/>
-                                Concept: <a href="http://www.kentalis.nl/" target="_blank">Kentalis</a> en <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/>
-                                Realisatie: <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/><br/>
+                                Concept & realisatie:: <a href="http://www.kentalis.nl/" target="_blank">Kentalis</a> en <a href="http://studiolouter.nl" target="_blank">Studio Louter</a><br/>
+                                Deze website is tot stand gekomen dankzij een gift van de steunstichting IHKV.<br/><br/>
                                 <span class="inlineChapter">Museum voor Dovenonderwijs</span><br/>
                                 In de historische kapel van het voormalige doveninstituut in Sint-Michielsgestel is het Museum voor Dovenonderwijs gevestigd.  Voor meer informatie kunt u mailen naar museumdovenonderwijs [apenstaart] kentalis [punt] nl<br/><br/>
                                 <span class="inlineChapter">App met stadswandeling</span><br/>
