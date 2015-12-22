@@ -1,1 +1,1 @@
-# kentalis
+AppInstaller
